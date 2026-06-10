@@ -2836,6 +2836,100 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 }
 .cap-pinterest-btn i { font-size: 18px; }
 
+/* Section label (replaces filter pills on Featured row) */
+.cap-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(52,211,153,.08);
+    border: 1px solid rgba(52,211,153,.22);
+    border-radius: 30px;
+    padding: 6px 18px;
+}
+
+/* Pinterest board embed wrap */
+.cap-board-wrap {
+    margin-top: 64px;
+    background: rgba(255,255,255,.84);
+    border: 1px solid rgba(52,211,153,.2);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(52,211,153,.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+.cap-board-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 28px 32px 24px;
+    border-bottom: 1px solid rgba(52,211,153,.14);
+}
+.cap-board-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e60023;
+    margin-bottom: 6px;
+}
+.cap-board-eyebrow i { font-size: 15px; }
+.cap-board-title {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--text-main);
+    margin: 0 0 5px;
+    line-height: 1.1;
+}
+.cap-board-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+}
+.cap-board-embed-frame {
+    position: relative;
+    padding: 24px 32px 32px;
+    min-height: 300px;
+}
+/* Pinterest pinit.js renders an iframe inside the <a> element */
+.cap-board-embed-frame iframe,
+.cap-board-embed-frame > a iframe {
+    border-radius: 14px;
+    max-width: 100% !important;
+}
+.cap-board-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(240,253,248,.6);
+    border-radius: 0 0 24px 24px;
+    z-index: 1;
+    transition: opacity .4s;
+}
+.cap-board-loading-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+.cap-board-loading-inner i {
+    font-size: 36px;
+    color: #e60023;
+    animation: availPulse 2s ease-in-out infinite;
+}
+
 /* Responsive */
 @media (max-width: 992px) { .cap-masonry { column-count: 2; } }
 @media (max-width: 540px) {

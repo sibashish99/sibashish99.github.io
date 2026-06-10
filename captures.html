@@ -239,18 +239,32 @@
 
             </div><!-- /.cap-masonry -->
 
-            <!-- Pinterest CTA -->
-            <div class="cap-pinterest-cta" data-aos="fade-up">
-                <div class="cap-cta-orbit">
-                    <div class="cap-cta-ring"><div class="cap-cta-dot"></div></div>
-                    <div class="cap-cta-ring"><div class="cap-cta-dot"></div></div>
+            <!-- Full Pinterest Board Embed — all 36 pins -->
+            <div class="cap-board-wrap" data-aos="fade-up" data-aos-delay="60">
+                <div class="cap-board-header">
+                    <div>
+                        <p class="cap-board-eyebrow"><i class="iconoir-pinterest"></i> Full Board</p>
+                        <h2 class="cap-board-title">All 36 Captures</h2>
+                        <p class="cap-board-sub">Every moment, live from Pinterest. Click any pin to open it.</p>
+                    </div>
+                    <a href="https://in.pinterest.com/sibashish349/_created/" target="_blank" rel="noopener" class="cap-pinterest-btn">
+                        <i class="iconoir-arrow-up-right"></i> Open in Pinterest
+                    </a>
                 </div>
-                <p class="cap-cta-label">More to explore</p>
-                <h2 class="cap-cta-heading">All <span>36+ captures</span> live on Pinterest.</h2>
-                <p class="cap-cta-sub">This page shows a curated preview. Follow along on Pinterest to see every frame.</p>
-                <a href="https://in.pinterest.com/sibashish349/_created/" target="_blank" rel="noopener" class="cap-pinterest-btn">
-                    <i class="iconoir-pinterest"></i> View all on Pinterest
-                </a>
+                <div class="cap-board-embed-frame" id="cap-board-frame">
+                    <div class="cap-board-loading" id="cap-board-loading">
+                        <div class="cap-board-loading-inner">
+                            <i class="iconoir-pinterest"></i>
+                            <p>Loading Pinterest board...</p>
+                        </div>
+                    </div>
+                    <a data-pin-do="embedBoard"
+                       href="https://www.pinterest.com/sibashish349/_created/"
+                       data-pin-board-width="900"
+                       data-pin-scale-height="500"
+                       data-pin-scale-width="80">
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -282,6 +296,7 @@
 <script src="./assets/js/aos.js"></script>
 <script src="./assets/js/main.js"></script>
 <script src="./assets/js/modern.js"></script>
+<script async defer src="//assets.pinterest.com/js/pinit.js" onload="document.getElementById('cap-board-loading').style.display='none'"></script>
 <script>
 /* Filter pills */
 (function () {
