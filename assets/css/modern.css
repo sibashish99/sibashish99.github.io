@@ -133,6 +133,120 @@ body {
 }
 
 /* =============================================
+   MOBILE HEADER
+   ============================================= */
+@media (max-width: 767px) {
+    /* Hide pill nav on mobile by default */
+    .modern-nav {
+        display: none !important;
+        position: fixed !important;
+        top: 0; left: 0; right: 0;
+        height: 100dvh !important;
+        z-index: 999 !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(240, 253, 248, 0.97) !important;
+        backdrop-filter: blur(24px) saturate(160%) !important;
+        -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
+        gap: 32px !important;
+        padding: 80px 24px 40px !important;
+    }
+
+    /* Open state */
+    .modern-nav.active {
+        display: flex !important;
+    }
+
+    /* Stack menu items vertically */
+    .modern-nav .menu {
+        flex-direction: column !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        gap: 4px !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 260px !important;
+        align-items: stretch !important;
+    }
+
+    .modern-nav .menu li {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .modern-nav .menu li a,
+    .modern-nav .menu li a:visited {
+        display: block !important;
+        padding: 14px 24px !important;
+        font-size: 17px !important;
+        font-weight: 500 !important;
+        border-radius: 14px !important;
+        opacity: 0.75;
+    }
+
+    .modern-nav .menu li.active > a,
+    .modern-nav .menu li a:hover {
+        background: rgba(52, 211, 153, 0.14) !important;
+        opacity: 1 !important;
+    }
+
+    /* CTA button inside nav */
+    .modern-nav .modern-btn {
+        font-size: 15px !important;
+        padding: 13px 40px !important;
+    }
+
+    /* Show hamburger button */
+    .show-menu {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 26px !important;
+        height: 18px !important;
+        cursor: pointer !important;
+        z-index: 1001 !important;
+        position: relative !important;
+    }
+
+    .show-menu span {
+        display: block !important;
+        width: 100% !important;
+        height: 2px !important;
+        background: var(--text-main) !important;
+        border-radius: 2px !important;
+        transition: transform 0.35s ease, opacity 0.25s ease !important;
+        transform-origin: center !important;
+    }
+
+    /* X animation when active */
+    .show-menu.active span:first-child {
+        transform: translateY(8px) rotate(45deg) !important;
+    }
+    .show-menu.active span:nth-child(2) {
+        opacity: 0 !important;
+        transform: scaleX(0) !important;
+    }
+    .show-menu.active span:last-child {
+        transform: translateY(-8px) rotate(-45deg) !important;
+    }
+
+    /* Hide duplicate outer "Let's talk" on mobile — hamburger area only */
+    .modern-header .gx-row > .modern-btn {
+        display: none !important;
+    }
+
+    /* Ensure header row has correct padding */
+    .modern-header .container {
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+    }
+}
+
+/* =============================================
    MODERN HEADER
    ============================================= */
 .modern-header {
@@ -194,6 +308,11 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+/* Hide hamburger on desktop */
+.show-menu {
+    display: none;
 }
 
 /* ── Nav pill container ── */
