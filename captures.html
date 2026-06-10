@@ -616,58 +616,29 @@
 <script src="./assets/js/modern.js"></script>
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <script>
+/* Filter pills */
 (function () {
-    /* ── 1. Build ID-badge lanyard for each card ── */
-    document.querySelectorAll('#cap-masonry > .cap-card').forEach(function (card) {
-        /* Create wrapper */
-        var wrap = document.createElement('div');
-        wrap.className = 'cap-card-wrap';
-        var cat = card.getAttribute('data-category') || '';
-        wrap.setAttribute('data-category', cat);
-        card.removeAttribute('data-category');
-        var delay = parseInt(card.getAttribute('data-aos-delay') || '0', 10);
-        wrap.style.animationDelay = delay + 'ms';
-        card.parentNode.insertBefore(wrap, card);
-        wrap.appendChild(card);
-
-        /* Metal clip element sits between cord and card */
-        var clip = document.createElement('div');
-        clip.className = 'cap-badge-clip';
-        clip.style.animationDelay = delay + 'ms';
-        wrap.insertBefore(clip, card);
-
-        /* Badge header strip — prepend into the card link */
-        var link = card.querySelector('.cap-card-link');
-        if (link) {
-            var header = document.createElement('div');
-            header.className = 'cap-badge-header';
-            link.insertBefore(header, link.firstChild);
-        }
-    });
-
-    /* ── 2. Filter pills (targets wrappers) ── */
     var pills = document.querySelectorAll('.cap-pill');
-    var wraps = document.querySelectorAll('.cap-card-wrap');
+    var cards = document.querySelectorAll('.cap-card');
     pills.forEach(function (pill) {
         pill.addEventListener('click', function () {
             pills.forEach(function (p) { p.classList.remove('active'); });
             pill.classList.add('active');
             var filter = pill.getAttribute('data-filter');
-            wraps.forEach(function (wrap, i) {
-                var cat = wrap.getAttribute('data-category') || '';
-                if (filter === 'all' || cat.indexOf(filter) !== -1) {
-                    wrap.style.display = '';
-                    wrap.style.opacity = '0';
-                    wrap.style.transform = 'rotate(-7deg) translateY(-24px)';
+            cards.forEach(function (card) {
+                if (filter === 'all' || card.getAttribute('data-category').indexOf(filter) !== -1) {
+                    card.style.display = '';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(16px)';
                     setTimeout(function () {
-                        wrap.style.transition = 'opacity .4s ease, transform .6s cubic-bezier(.34,1.2,.64,1)';
-                        wrap.style.opacity = '1';
-                        wrap.style.transform = 'rotate(0deg) translateY(0)';
-                    }, 30 + i * 28);
+                        card.style.transition = 'opacity .4s ease, transform .4s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 30);
                 } else {
-                    wrap.style.transition = 'opacity .25s ease';
-                    wrap.style.opacity = '0';
-                    setTimeout(function () { wrap.style.display = 'none'; }, 270);
+                    card.style.transition = 'opacity .25s ease';
+                    card.style.opacity = '0';
+                    setTimeout(function () { card.style.display = 'none'; }, 260);
                 }
             });
         });
