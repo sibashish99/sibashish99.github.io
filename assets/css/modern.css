@@ -2303,8 +2303,36 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 .hero-photo-ring:nth-child(3) { width: 360px; height: 360px; animation-delay: 1.2s; opacity: .25; }
 @keyframes ringPulse { 0%,100% { transform: scale(1); opacity: .4; } 50% { transform: scale(1.06); opacity: .9; } }
 
-.hero-photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); box-shadow: 0 8px 32px rgba(52,211,153,.25); position: relative; z-index: 2; animation: photoFloat 5s ease-in-out infinite; }
+.hero-photo {
+    width: 170px;
+    height: 170px;
+    border-radius: 38% 62% 54% 46% / 44% 40% 60% 56%;
+    object-fit: cover;
+    object-position: top center;
+    border: 3px solid var(--primary);
+    box-shadow:
+        0 0 0 6px rgba(52,211,153,.12),
+        0 12px 40px rgba(52,211,153,.3),
+        0 2px 8px rgba(0,0,0,.12);
+    position: relative;
+    z-index: 2;
+    animation: photoFloat 5s ease-in-out infinite, morphShape 10s ease-in-out infinite;
+    filter: brightness(1.04) contrast(1.04);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+.hero-photo:hover {
+    box-shadow:
+        0 0 0 8px rgba(52,211,153,.2),
+        0 18px 52px rgba(52,211,153,.4),
+        0 4px 12px rgba(0,0,0,.15);
+}
 @keyframes photoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes morphShape {
+    0%,100% { border-radius: 38% 62% 54% 46% / 44% 40% 60% 56%; }
+    25%      { border-radius: 54% 46% 38% 62% / 60% 56% 44% 40%; }
+    50%      { border-radius: 46% 54% 62% 38% / 56% 44% 40% 60%; }
+    75%      { border-radius: 62% 38% 46% 54% / 40% 60% 56% 44%; }
+}
 
 /* Hero badge */
 .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(52,211,153,.08); border: 1px solid rgba(52,211,153,.22); border-radius: 30px; padding: 4px 14px; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; width: fit-content; }
