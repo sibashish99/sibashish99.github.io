@@ -1,317 +1,364 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Portfolio , Developer Portfolio , Sibashish Biswas , Portfolio webpage of Sibashish biswas, Shivam , NIT Agartala , NITA , National institute Of Technology Agartala, Sibashish , Sibashish Biswas, Sibashish Biswas Website, Sibashish Biswas portfolio, website , personal website, Sibashish Biswas github, projects ,science and engineering" />
-
-    <title>Sibashish Biswas - Personal website</title>
-
-    <!-- Fonts -->
+    <meta name="keywords" content="Portfolio, Developer Portfolio, Sibashish Biswas, Software Engineer, Bangalore, Java, Spring Boot" />
+    <title>Sibashish Biswas — Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Titillium+Web:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css">
-
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/aos.css">
-
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/modern.css">
+    <style>
+    #particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45}
+    .hp-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(80px,auto);gap:18px;padding:110px 0 60px}
+    .bc{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:22px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px;position:relative;overflow:hidden;opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,.68,0,1.1),box-shadow .35s ease,border-color .3s;will-change:transform}
+    .bc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.05) 0%,transparent 60%);border-radius:inherit;pointer-events:none}
+    .bc:hover{border-color:rgba(91,120,246,.4);box-shadow:0 0 40px rgba(91,120,246,.15),0 20px 60px rgba(0,0,0,.4)}
+    .bc.bc-visible{opacity:1;transform:translateY(0)}
+    .bc-shimmer{position:absolute;top:-60px;right:-60px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(91,120,246,.18),transparent 70%);pointer-events:none}
+    /* Grid placements */
+    .bc-hero{grid-column:1/6;grid-row:1/3;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:32px}
+    .bc-tagline{grid-column:6/10;grid-row:1/2;display:flex;flex-direction:column;justify-content:center}
+    .bc-exp{grid-column:10/13;grid-row:1/2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+    .bc-marquee{grid-column:6/13;grid-row:2/3;display:flex;align-items:center;overflow:hidden;padding:20px 28px}
+    .bc-cred{grid-column:1/4;grid-row:3/4}
+    .bc-projects{grid-column:4/7;grid-row:3/4}
+    .bc-github{grid-column:7/10;grid-row:3/4}
+    .bc-social{grid-column:10/13;grid-row:3/4;display:flex;flex-direction:column;justify-content:space-between}
+    .bc-interests{grid-column:1/7;grid-row:4/5;display:flex;flex-direction:column;justify-content:flex-end}
+    .bc-cta{grid-column:7/13;grid-row:4/5;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:linear-gradient(135deg,rgba(91,120,246,.12),rgba(167,139,250,.08));border-color:rgba(91,120,246,.3)}
+    /* Hero internals */
+    .hero-photo-wrap{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center}
+    .hero-photo-ring{position:absolute;border-radius:50%;border:1px solid rgba(91,120,246,.25);animation:ringPulse 3s ease-in-out infinite}
+    .hero-photo-ring:nth-child(1){width:220px;height:220px;animation-delay:0s}
+    .hero-photo-ring:nth-child(2){width:290px;height:290px;animation-delay:.6s;opacity:.6}
+    .hero-photo-ring:nth-child(3){width:360px;height:360px;animation-delay:1.2s;opacity:.3}
+    @keyframes ringPulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.06);opacity:1}}
+    .hero-photo{width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid var(--primary);box-shadow:0 0 30px var(--primary-glow);position:relative;z-index:2;animation:photoFloat 5s ease-in-out infinite}
+    @keyframes photoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--primary-dim);border:1px solid var(--primary-glow);border-radius:30px;padding:4px 14px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;width:fit-content}
+    .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:#22d3ee;box-shadow:0 0 8px #22d3ee;animation:blinkDot 1.4s ease-in-out infinite}
+    @keyframes blinkDot{0%,100%{opacity:1}50%{opacity:.2}}
+    .hero-name-glitch{font-family:'Titillium Web',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#fff;line-height:1.1;position:relative;margin-bottom:8px}
+    .hero-name-glitch::before,.hero-name-glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;overflow:hidden}
+    .hero-name-glitch::before{color:#22d3ee;clip-path:polygon(0 30%,100% 30%,100% 55%,0 55%);animation:glitch1 4s infinite}
+    .hero-name-glitch::after{color:#a78bfa;clip-path:polygon(0 60%,100% 60%,100% 85%,0 85%);animation:glitch2 4s infinite}
+    @keyframes glitch1{0%,90%,100%{transform:translate(0);opacity:0}92%{transform:translate(-3px,1px);opacity:.8}94%{transform:translate(3px,-1px);opacity:.6}96%{transform:translate(-2px,2px);opacity:.8}}
+    @keyframes glitch2{0%,91%,100%{transform:translate(0);opacity:0}93%{transform:translate(3px,1px);opacity:.7}95%{transform:translate(-3px,-1px);opacity:.5}97%{transform:translate(2px,2px);opacity:.7}}
+    .hero-role{font-size:14px;color:var(--text-muted);letter-spacing:.5px;margin-bottom:18px;min-height:20px}
+    .typed-cursor{color:var(--accent);animation:blinkDot .8s ease-in-out infinite}
+    .hero-cta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .hp-btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--primary),#7c3aed);color:#fff;border:none;border-radius:30px;padding:10px 24px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+    .hp-btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(91,120,246,.5);color:#fff}
+    .hp-btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,.75);border:1px solid var(--glass-border);border-radius:30px;padding:10px 20px;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+    .hp-btn-ghost:hover{border-color:var(--primary);color:#fff;background:var(--primary-dim)}
+    /* Tagline */
+    .tagline-eyebrow{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+    .tagline-text{font-size:clamp(1.1rem,2.2vw,1.55rem);font-weight:700;color:#fff;line-height:1.45;margin:0}
+    .tagline-text span{background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .tagline-sub{margin-top:14px;font-size:12.5px;color:var(--text-muted);line-height:1.7}
+    .tagline-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+    .tagline-chip{font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:20px;background:var(--primary-dim);border:1px solid var(--primary-glow);color:#c4d0ff}
+    /* Exp */
+    .exp-big{font-family:'Titillium Web',sans-serif;font-size:clamp(2.4rem,4vw,3.4rem);font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px}
+    .exp-label-txt{font-size:11px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--text-muted)}
+    .exp-divider{width:40px;height:2px;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:2px;margin:12px auto}
+    .exp-sub{font-size:12px;color:var(--text-muted);margin-bottom:0}
+    /* Marquee */
+    .marquee-track{display:flex;white-space:nowrap;animation:marqueeScroll 22s linear infinite}
+    .marquee-track span{display:inline-block;padding-right:60px;font-size:13px;color:rgba(255,255,255,.55)}
+    .marquee-track span b{color:var(--accent);font-weight:600}
+    @keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* Shared */
+    .bc-label{font-size:9.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+    .bc-title{font-family:'Titillium Web',sans-serif;font-size:1.5rem;font-weight:900;color:#fff;margin:0;line-height:1.2}
+    .bc-arrow{position:absolute;bottom:22px;right:22px;width:36px;height:36px;border-radius:50%;background:var(--primary-dim);border:1px solid var(--primary-glow);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:18px;transition:background .25s,transform .25s}
+    .bc:hover .bc-arrow{background:var(--primary);color:#fff;transform:rotate(45deg) scale(1.1)}
+    .bc-icon-wrap{width:48px;height:48px;border-radius:14px;background:var(--primary-dim);border:1px solid var(--primary-glow);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--primary);margin-bottom:14px}
+    /* GH grid */
+    .github-grid{display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(4,8px);gap:3px;margin-bottom:14px}
+    .gh-cell{border-radius:2px;background:rgba(91,120,246,.12)}
+    .gh-cell.l1{background:rgba(91,120,246,.2)}
+    .gh-cell.l2{background:rgba(91,120,246,.45)}
+    .gh-cell.l3{background:rgba(91,120,246,.75)}
+    .gh-cell.l4{background:#5B78F6;box-shadow:0 0 6px rgba(91,120,246,.6)}
+    /* Social */
+    .social-link-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--glass-border);text-decoration:none;transition:gap .25s;color:rgba(255,255,255,.7);font-size:13px}
+    .social-link-row:last-of-type{border-bottom:none}
+    .social-link-row:hover{gap:18px;color:#fff}
+    .social-link-row i{font-size:18px;color:var(--primary)}
+    .sl-arrow{margin-left:auto;opacity:.4;transition:opacity .2s,transform .2s;font-size:14px}
+    .social-link-row:hover .sl-arrow{opacity:1;transform:translateX(4px)}
+    /* Interests */
+    .interests-icons{display:flex;gap:16px;margin-bottom:20px}
+    .interest-icon{width:52px;height:52px;border-radius:14px;background:var(--glass-bg);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--accent);transition:background .25s,border-color .25s,transform .25s;animation:iconFloat 4s ease-in-out infinite}
+    .interest-icon:nth-child(2){animation-delay:.6s}
+    .interest-icon:nth-child(3){animation-delay:1.2s}
+    .interest-icon:nth-child(4){animation-delay:1.8s}
+    .interest-icon:hover{background:var(--primary-dim);border-color:var(--primary);transform:translateY(-4px)!important}
+    @keyframes iconFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    /* CTA orbit */
+    .cta-orbit{position:absolute;top:50%;left:65%;transform:translate(-50%,-50%);pointer-events:none}
+    .cta-orbit-ring{position:absolute;border-radius:50%;border:1px dashed rgba(91,120,246,.25);top:50%;left:50%;transform:translate(-50%,-50%);animation:orbitSpin 12s linear infinite}
+    .cta-orbit-ring:nth-child(1){width:160px;height:160px;animation-duration:10s}
+    .cta-orbit-ring:nth-child(2){width:230px;height:230px;animation-duration:16s;animation-direction:reverse}
+    .cta-orbit-dot{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--primary);box-shadow:0 0 10px var(--primary-glow);top:-4px;left:50%;transform:translateX(-50%)}
+    @keyframes orbitSpin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+    .cta-heading{font-family:'Titillium Web',sans-serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px;position:relative;z-index:1}
+    .cta-heading span{background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    /* Responsive */
+    @media(max-width:1100px){
+        .bc-hero{grid-column:1/7}.bc-tagline{grid-column:7/13}.bc-exp{grid-column:1/5;grid-row:2}.bc-marquee{grid-column:5/13;grid-row:2}
+        .bc-cred{grid-column:1/5;grid-row:3}.bc-projects{grid-column:5/9;grid-row:3}.bc-github{grid-column:9/13;grid-row:3}
+        .bc-social{grid-column:1/5;grid-row:4}.bc-interests{grid-column:5/13;grid-row:4}.bc-cta{grid-column:1/13;grid-row:5}
+    }
+    @media(max-width:768px){
+        .hp-grid{grid-template-columns:1fr 1fr;gap:12px;padding:90px 0 40px}
+        .bc-hero,.bc-tagline,.bc-exp,.bc-marquee,.bc-cred,.bc-projects,.bc-github,.bc-social,.bc-interests,.bc-cta{grid-column:1/3;grid-row:auto}
+        .hero-photo-ring:nth-child(2),.hero-photo-ring:nth-child(3){display:none}.cta-orbit{display:none}
+    }
+    </style>
 </head>
 
 <body>
+<main class="main-homepage">
 
-    <main class="main-homepage">
+    <canvas id="particle-canvas"></canvas>
 
-        <!-- Header -->
-        <header class="header-area modern-header">
-            <div class="container">
-                <div class="gx-row d-flex align-items-center justify-content-between">
-                    <a href="./index.html" class="logo modern-logo">
-                        <span class="logo-bracket">&lt;</span>SIBASHISH<span class="logo-bracket">/&gt;</span>
-                    </a>
-
-                    <nav class="navbar modern-nav">
-                        <ul class="menu">
-                            <li class="active"><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="works.html">Works</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                        <a href="./contact.html" class="theme-btn modern-btn">Let's talk</a>
-                    </nav>
-
-                    <a href="./contact.html" class="theme-btn modern-btn">Let's talk</a>
-
-                    <div class="show-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- About -->
-        <section class="about-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6" data-aos="fade-right" data-aos-duration="800">
-                        <div class="about-me-box shadow-box modern-card hero-card">
-                            <a class="overlay-link" href="./about.html"></a>
-                            <img src="./assets/images/bg1.png" alt="BG" class="bg-img">
-                            <!-- Animated rings -->
-                            <div class="hero-rings">
-                                <div class="ring ring-1"></div>
-                                <div class="ring ring-2"></div>
-                                <div class="ring ring-3"></div>
-                            </div>
-                            <div class="img-box modern-img-box">
-                                <img src="./assets/images/me.jpg" alt="About Me">
-                            </div>
-                            <div class="infos modern-hero-infos">
-                                <h4 class="typed-subtitle">Another Software Engineer</h4>
-                                <h1 class="hero-name" style="font-family: 'Titillium Web', sans-serif;">Sibashish Biswas.</h1>
-                                <p class="hero-location"><i class="iconoir-location"></i> Developer based in Bangalore, IND</p>
-                                <a href="./about.html" class="about-btn">
-                                    <img src="./assets/images/icon.svg" alt="Button">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="about-credentials-wrap">
-                            <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
-                                <div class="banner shadow-box modern-card modern-marquee-box">
-                                    <div class="marquee">
-                                        <div>
-                                            <span>We are kept from our goals, not by obstacles, but by a clear path to a lesser goal. ~Bhagwad Gita . <b>Strive for a higher goal</b></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="gx-row d-flex gap-24">
-                                <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="150">
-                                    <div class="about-crenditials-box info-box shadow-box h-full modern-card">
-                                        <a class="overlay-link" href="./credentials.html"></a>
-                                        <img src="./assets/images/bg1.png" alt="BG" class="bg-img">
-                                        <img src="./assets/images/sign.png" alt="Sign">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <div class="infos">
-                                                <h4>BIO.</h4>
-                                                <h1>Credentials</h1>
-                                            </div>
-
-                                            <a href="./credentials.html" class="about-btn">
-                                                <img src="./assets/images/icon.svg" alt="Button">
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
-                                    <div class="about-project-box info-box shadow-box h-full modern-card">
-                                        <a class="overlay-link" href="./works.html"></a>
-                                        <img src="./assets/images/bg1.png" alt="BG" class="bg-img">
-                                        <img src="./assets/images/my-works.png" alt="My Works">
-                                        <div class="d-flex align-items-center justify-content-between">
-                                            <div class="infos">
-                                                <h4>SHOWCASE.</h4>
-                                                <h1>Projects</h1>
-                                            </div>
-
-                                            <a href="#" class="about-btn">
-                                                <img src="./assets/images/icon.svg" alt="Button">
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-24">
-                    <div class="col-md-12">
-                        <div class="blog-service-profile-wrap d-flex gap-24">
-                            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
-                                <div class="about-blog-box info-box shadow-box h-full modern-card">
-                                    <a href="https://github.com/sibashish99" class="overlay-link"></a>
-                                    <img src="./assets/images/bg1.png" alt="BG" class="bg-img">
-                                    <img style="height: 200px; width: 230px;" src="./assets/images/gfonts.png" alt="GFonts">
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="infos">
-                                            <h4>MORE.</h4>
-                                            <h1>Github</h1>
-                                        </div>
-
-                                        <a href="https://github.com/sibashish99" class="about-btn">
-                                            <img src="./assets/images/icon.svg" alt="Button">
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="200" class="flex-1">
-                                <div class="about-services-box info-box shadow-box h-full modern-card">
-                                    <a href="./service.html" class="overlay-link"></a>
-                                    <img src="./assets/images/bg1.png" alt="BG" class="bg-img">
-                                    <div class="icon-boxes modern-icon-boxes">
-                                        <i class="iconoir-movie"></i>
-                                        <i class="iconoir-design-pencil"></i>
-                                        <i class="iconoir-code"></i>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="infos">
-                                            <h4>INTERESTS.</h4>
-                                            <h1>Because work is not everything we live for.</h1>
-                                        </div>
-
-                                        <!-- <a href="./service.html" class="about-btn">
-                                            <img src="./assets/images/icon.svg" alt="Button">
-                                        </a> -->
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
-                                <div class="about-profile-box info-box shadow-box h-full modern-card">
-                                    <img src="./assets/images/bg1.png" alt="BG" class="bg-img">
-                                    <div class="inner-profile-icons shadow-box modern-social-icons">
-                                        <a href="https://www.instagram.com/_sibashishbiswas_/?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D">
-                                            <i class="iconoir-instagram"></i>
-                                        </a>
-                                        <a href="https://www.linkedin.com/in/sibashish-biswas/">
-                                            <i class="iconoir-linkedin"></i>
-                                        </a>
-                                        <a href="https://github.com/sibashish726" target="_blank" rel="noopener">
-                                            <i class="iconoir-github-circle"></i>
-                                        </a>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="infos">
-                                            <h4>Stay with me</h4>
-                                            <h1>Profiles</h1>
-                                        </div>
-
-                                        <a href="./contact.html" class="about-btn">
-                                            <img src="./assets/images/icon.svg" alt="Button">
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row mt-24">
-                    <div class="col-md-6" data-aos="fade-right" data-aos-duration="700">
-
-                        <div class="about-client-box info-box shadow-box modern-card">
-                            <img src="./assets/images/bg1.png" alt="BG" class="bg-img">
-                            <div class="clients d-flex align-items-start gap-24 justify-content-center">
-                                <div class="client-item modern-stat">
-                                    <h1 id="exp-years">–</h1>
-                                    <p id="exp-label">Years <br>Experience</p>
-                                </div>
-
-                                <div class="client-item modern-stat">
-                                    <h1 class="count-up" data-target="1">01</h1>
-                                    <p>Worked with <br>MNC</p>
-                                </div>
-
-                                <div class="client-item modern-stat">
-                                    <h1>10+</h1>
-                                    <p>Total <br>Projects</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6" data-aos="fade-left" data-aos-duration="700">
-
-                        <div class="about-contact-box info-box shadow-box modern-card modern-contact-box">
-                            <a class="overlay-link" href="./contact.html"></a>
-                            <img src="./assets/images/bg1.png" alt="BG" class="bg-img">
-                            <img src="./assets/images/icon2.png" alt="Icon" class="star-icon spinning-star">
-                            <h1>Let's <br>work <span>together.</span></h1>
-                            <a href="#" class="about-btn">
-                                <img src="./assets/images/icon.svg" alt="Button">
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer-area modern-footer">
-            <div class="container">
-                <div class="footer-content text-center">
-                    <a href="./index.html" class="logo">
-                        <span style="text-decoration: none;
-                        color: white;
-                        font-family: 'Titillium Web', sans-serif;"><<span>SIBASHISH </span>/></span>
-                    </a>
-                    <ul class="footer-menu">
-                        <li><a href="index.html">Home</a></li>
+    <!-- Header -->
+    <header class="header-area modern-header">
+        <div class="container">
+            <div class="gx-row d-flex align-items-center justify-content-between">
+                <a href="./index.html" class="logo modern-logo">
+                    <span class="logo-bracket">&lt;</span>SIBASHISH<span class="logo-bracket">/&gt;</span>
+                </a>
+                <nav class="navbar modern-nav">
+                    <ul class="menu">
+                        <li class="active"><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="works.html">Works</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
-                    <p class="copyright">
-                        &copy; All rights reserved by <span>Sibashish Biswas</span>
-                    </p>
-                </div>
+                    <a href="./contact.html" class="theme-btn modern-btn">Let's talk</a>
+                </nav>
+                <a href="./contact.html" class="theme-btn modern-btn">Let's talk</a>
+                <div class="show-menu"><span></span><span></span><span></span></div>
             </div>
-        </footer>
+        </div>
+    </header>
 
-    </main>
+    <!-- BENTO GRID -->
+    <section style="position:relative;z-index:2;">
+        <div class="container">
+            <div class="hp-grid">
 
+                <!-- HERO -->
+                <div class="bc bc-hero" style="transition-delay:0s">
+                    <div class="bc-shimmer"></div>
+                    <a class="overlay-link" href="./about.html"></a>
+                    <div class="hero-photo-wrap">
+                        <div class="hero-photo-ring"></div>
+                        <div class="hero-photo-ring"></div>
+                        <div class="hero-photo-ring"></div>
+                        <img src="./assets/images/me.jpg" alt="Sibashish Biswas" class="hero-photo">
+                    </div>
+                    <div style="position:relative;z-index:3;">
+                        <div class="hero-badge"><span class="dot"></span> Available for opportunities</div>
+                        <h1 class="hero-name-glitch" data-text="Sibashish Biswas.">Sibashish Biswas.</h1>
+                        <p class="hero-role"><span id="hp-typed"></span><span class="typed-cursor">|</span></p>
+                        <div class="hero-cta-row">
+                            <a href="./contact.html" class="hp-btn-primary"><i class="iconoir-mail"></i> Let's talk</a>
+                            <a href="./works.html" class="hp-btn-ghost"><i class="iconoir-code"></i> My Work</a>
+                        </div>
+                    </div>
+                </div>
 
-    <script src="./assets/js/jquery-3.6.4.js"></script>
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/aos.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/modern.js"></script>
-    <script>
-        // ── Dynamic experience counter from Aug 02, 2021 ──
-        (function () {
-            var start = new Date(2021, 7, 2); // month is 0-indexed; 7 = August
-            function update() {
-                var now = new Date();
-                var y = now.getFullYear() - start.getFullYear();
-                var m = now.getMonth() - start.getMonth();
-                var d = now.getDate() - start.getDate();
-                if (d < 0) { m--; d += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
-                if (m < 0) { y--; m += 12; }
-                var el = document.getElementById('exp-years');
-                var lb = document.getElementById('exp-label');
-                if (el) el.textContent = y + 'y ' + m + 'm ' + d + 'd';
-                if (lb) lb.innerHTML = 'Years · Months · Days<br>Experience';
-            }
-            update();
-            setInterval(update, 60000); // refresh every minute
-        })();
-    </script>
+                <!-- TAGLINE -->
+                <div class="bc bc-tagline" style="transition-delay:.08s">
+                    <div class="tagline-eyebrow">Software Engineer · Lumen Technologies · Bangalore</div>
+                    <p class="tagline-text">Building <span>scalable backends</span> that power real products.</p>
+                    <p class="tagline-sub">Java &amp; Spring Boot craftsman with a passion for clean architecture, cloud-native systems, and the occasional front-end adventure.</p>
+                    <div class="tagline-chips">
+                        <span class="tagline-chip">Java</span>
+                        <span class="tagline-chip">Spring Boot</span>
+                        <span class="tagline-chip">Microservices</span>
+                        <span class="tagline-chip">Docker</span>
+                        <span class="tagline-chip">Kubernetes</span>
+                        <span class="tagline-chip">GCP</span>
+                    </div>
+                </div>
 
+                <!-- EXPERIENCE -->
+                <div class="bc bc-exp" style="transition-delay:.14s">
+                    <div class="bc-shimmer"></div>
+                    <p class="exp-label-txt">Experience</p>
+                    <div class="exp-big" id="exp-years">-</div>
+                    <div class="exp-divider"></div>
+                    <p class="exp-sub">Years · Months · Days</p>
+                    <p class="exp-sub" style="margin-top:4px;font-size:10.5px;color:rgba(255,255,255,.3);">since Aug 2021</p>
+                </div>
+
+                <!-- MARQUEE -->
+                <div class="bc bc-marquee" style="transition-delay:.2s">
+                    <div class="marquee-track">
+                        <span>We are kept from our goals, not by obstacles, but by a clear path to a lesser goal. ~Bhagwad Gita &nbsp;·&nbsp; <b>Strive for a higher goal</b> &nbsp;·&nbsp; Code with purpose &nbsp;·&nbsp; Build with intention &nbsp;·&nbsp; Deploy with confidence &nbsp;·&nbsp;</span>
+                        <span>We are kept from our goals, not by obstacles, but by a clear path to a lesser goal. ~Bhagwad Gita &nbsp;·&nbsp; <b>Strive for a higher goal</b> &nbsp;·&nbsp; Code with purpose &nbsp;·&nbsp; Build with intention &nbsp;·&nbsp; Deploy with confidence &nbsp;·&nbsp;</span>
+                    </div>
+                </div>
+
+                <!-- CREDENTIALS -->
+                <div class="bc bc-cred" style="transition-delay:.26s">
+                    <a class="overlay-link" href="./credentials.html"></a>
+                    <div class="bc-icon-wrap"><i class="iconoir-graduation-cap"></i></div>
+                    <p class="bc-label">Bio</p>
+                    <h2 class="bc-title">Credentials</h2>
+                    <div class="bc-arrow"><i class="iconoir-arrow-up-right"></i></div>
+                </div>
+
+                <!-- PROJECTS -->
+                <div class="bc bc-projects" style="transition-delay:.32s">
+                    <a class="overlay-link" href="./works.html"></a>
+                    <div class="bc-icon-wrap"><i class="iconoir-code-brackets"></i></div>
+                    <p class="bc-label">Showcase</p>
+                    <h2 class="bc-title">Projects</h2>
+                    <div class="bc-arrow"><i class="iconoir-arrow-up-right"></i></div>
+                </div>
+
+                <!-- GITHUB -->
+                <div class="bc bc-github" style="transition-delay:.38s">
+                    <a class="overlay-link" href="https://github.com/sibashish726" target="_blank" rel="noopener"></a>
+                    <div class="github-grid" id="gh-grid"></div>
+                    <p class="bc-label">Open Source</p>
+                    <h2 class="bc-title">GitHub</h2>
+                    <div class="bc-arrow"><i class="iconoir-arrow-up-right"></i></div>
+                </div>
+
+                <!-- SOCIAL -->
+                <div class="bc bc-social" style="transition-delay:.44s">
+                    <p class="bc-label" style="margin-bottom:14px">Stay connected</p>
+                    <a href="https://github.com/sibashish726" target="_blank" rel="noopener" class="social-link-row">
+                        <i class="iconoir-github-circle"></i> GitHub <i class="iconoir-arrow-up-right sl-arrow"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sibashish-biswas/" target="_blank" rel="noopener" class="social-link-row">
+                        <i class="iconoir-linkedin"></i> LinkedIn <i class="iconoir-arrow-up-right sl-arrow"></i>
+                    </a>
+                    <a href="https://www.instagram.com/_sibashishbiswas_/" target="_blank" rel="noopener" class="social-link-row">
+                        <i class="iconoir-instagram"></i> Instagram <i class="iconoir-arrow-up-right sl-arrow"></i>
+                    </a>
+                </div>
+
+                <!-- INTERESTS -->
+                <div class="bc bc-interests" style="transition-delay:.5s">
+                    <div class="interests-icons">
+                        <div class="interest-icon"><i class="iconoir-movie"></i></div>
+                        <div class="interest-icon"><i class="iconoir-design-pencil"></i></div>
+                        <div class="interest-icon"><i class="iconoir-music-double-note"></i></div>
+                        <div class="interest-icon"><i class="iconoir-bicycle"></i></div>
+                    </div>
+                    <p class="bc-label">Interests</p>
+                    <h2 class="bc-title" style="font-size:1.05rem;font-family:'Inter',sans-serif;font-weight:600;line-height:1.5;">Because work is not everything we live for.</h2>
+                </div>
+
+                <!-- CTA -->
+                <div class="bc bc-cta" style="transition-delay:.56s">
+                    <div class="cta-orbit">
+                        <div class="cta-orbit-ring"><div class="cta-orbit-dot"></div></div>
+                        <div class="cta-orbit-ring"><div class="cta-orbit-dot"></div></div>
+                    </div>
+                    <h2 class="cta-heading">Let's build something<br><span>amazing together.</span></h2>
+                    <a href="./contact.html" class="hp-btn-primary" style="position:relative;z-index:1;">
+                        <i class="iconoir-send-mail"></i> Get in touch
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-area modern-footer" style="position:relative;z-index:2;">
+        <div class="container">
+            <div class="footer-content text-center">
+                <a href="./index.html" class="logo modern-logo">
+                    <span class="logo-bracket">&lt;</span>SIBASHISH<span class="logo-bracket">/&gt;</span>
+                </a>
+                <ul class="footer-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="works.html">Works</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <p class="copyright">&copy; All rights reserved by <span>Sibashish Biswas</span></p>
+            </div>
+        </div>
+    </footer>
+
+</main>
+
+<script src="./assets/js/jquery-3.6.4.js"></script>
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
+<script src="./assets/js/aos.js"></script>
+<script src="./assets/js/main.js"></script>
+<script src="./assets/js/modern.js"></script>
+<script>
+/* 1. Particle field */
+(function(){
+    var c=document.getElementById('particle-canvas'),ctx=c.getContext('2d'),p=[];
+    function resize(){c.width=innerWidth;c.height=innerHeight;}resize();
+    window.addEventListener('resize',resize);
+    for(var i=0;i<90;i++)p.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.8+.3,dx:(Math.random()-.5)*.35,dy:(Math.random()-.5)*.35,o:Math.random()*.5+.15});
+    function draw(){
+        ctx.clearRect(0,0,c.width,c.height);
+        for(var a=0;a<p.length;a++)for(var b=a+1;b<p.length;b++){
+            var d=Math.hypot(p[a].x-p[b].x,p[a].y-p[b].y);
+            if(d<110){ctx.beginPath();ctx.moveTo(p[a].x,p[a].y);ctx.lineTo(p[b].x,p[b].y);ctx.strokeStyle='rgba(91,120,246,'+(0.12*(1-d/110))+')';ctx.lineWidth=.6;ctx.stroke();}
+        }
+        p.forEach(function(q){ctx.beginPath();ctx.arc(q.x,q.y,q.r,0,Math.PI*2);ctx.fillStyle='rgba(91,120,246,'+q.o+')';ctx.fill();q.x+=q.dx;q.y+=q.dy;if(q.x<0)q.x=c.width;if(q.x>c.width)q.x=0;if(q.y<0)q.y=c.height;if(q.y>c.height)q.y=0;});
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+/* 2. Typewriter */
+(function(){
+    var roles=['Software Engineer @ Lumen','Java & Spring Boot Developer','Microservices Architect','Cloud Native Enthusiast','Backend Systems Builder'];
+    var el=document.getElementById('hp-typed');if(!el)return;
+    var ri=0,ci=0,del=false;
+    function tick(){var f=roles[ri];if(!del){el.textContent=f.slice(0,++ci);if(ci===f.length){del=true;setTimeout(tick,1800);return;}}else{el.textContent=f.slice(0,--ci);if(ci===0){del=false;ri=(ri+1)%roles.length;}}setTimeout(tick,del?45:85);}
+    tick();
+})();
+
+/* 3. Experience counter */
+(function(){
+    var s=new Date(2021,7,2);
+    function upd(){var n=new Date(),y=n.getFullYear()-s.getFullYear(),m=n.getMonth()-s.getMonth(),d=n.getDate()-s.getDate();if(d<0){m--;d+=new Date(n.getFullYear(),n.getMonth(),0).getDate();}if(m<0){y--;m+=12;}var el=document.getElementById('exp-years');if(el)el.textContent=y+'y '+m+'m '+d+'d';}
+    upd();setInterval(upd,60000);
+})();
+
+/* 4. GitHub grid */
+(function(){
+    var g=document.getElementById('gh-grid');if(!g)return;
+    var lv=['','l1','l2','l3','l4'],wt=[.35,.25,.2,.12,.08];
+    for(var i=0;i<28;i++){var cell=document.createElement('div');cell.className='gh-cell';var r=Math.random(),cum=0;for(var j=0;j<wt.length;j++){cum+=wt[j];if(r<cum){if(lv[j])cell.classList.add(lv[j]);break;}}g.appendChild(cell);}
+})();
+
+/* 5. Scroll reveal + 3D tilt */
+(function(){
+    var cards=document.querySelectorAll('.bc');
+    var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('bc-visible');io.unobserve(x.target);}});},{threshold:.1});
+    cards.forEach(function(c){io.observe(c);});
+    cards.forEach(function(card){
+        card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,dx=(e.clientX-cx)/(r.width/2),dy=(e.clientY-cy)/(r.height/2);card.style.transform='perspective(800px) rotateX('+(-dy*5)+'deg) rotateY('+(dx*5)+'deg) translateY(-4px)';});
+        card.addEventListener('mouseleave',function(){card.style.transform='translateY(0)';setTimeout(function(){card.style.transform='';},350);});
+    });
+})();
+</script>
+</body>
 </html>
