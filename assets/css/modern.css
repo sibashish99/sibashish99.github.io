@@ -2285,7 +2285,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 }
 
 /* Grid placements */
-.bc-hero     { grid-column: 1/6;  grid-row: 1/3; min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; }
+.bc-hero     { grid-column: 1/6;  grid-row: 1/3; min-height: 420px; display: flex; flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 24px; padding: 32px; }
 .bc-tagline  { grid-column: 6/10; grid-row: 1/2; display: flex; flex-direction: column; justify-content: center; }
 .bc-exp      { grid-column: 10/13;grid-row: 1/2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 .bc-marquee  { grid-column: 6/13; grid-row: 2/3; display: flex; align-items: center; overflow: hidden; padding: 20px 28px; background: linear-gradient(135deg, rgba(52,211,153,.05), rgba(16,185,129,.04)) !important; }
@@ -2296,7 +2296,16 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 .bc-cta      { grid-column: 7/13; grid-row: 4/5; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; background: linear-gradient(135deg, rgba(52,211,153,.08), rgba(16,185,129,.05)) !important; border-color: rgba(52,211,153,.25) !important; }
 
 /* Hero photo rings */
-.hero-photo-wrap { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; }
+.hero-photo-wrap {
+    position: relative;
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
 .hero-photo-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(52,211,153,.2); animation: ringPulse 3s ease-in-out infinite; }
 .hero-photo-ring:nth-child(1) { width: 220px; height: 220px; animation-delay: 0s; }
 .hero-photo-ring:nth-child(2) { width: 290px; height: 290px; animation-delay: .6s; opacity: .5; }
@@ -2440,6 +2449,10 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     .bc-hero, .bc-tagline, .bc-exp, .bc-marquee,
     .bc-projects, .bc-github, .bc-social,
     .bc-interests, .bc-cta { grid-column: 1/3; grid-row: auto; }
+    .bc-hero { flex-direction: column-reverse; align-items: center; padding: 24px; }
+    .hero-photo-wrap { width: 150px; height: 150px; margin-bottom: 8px; }
+    .hero-photo { width: 130px; height: 130px; }
+    .hero-photo-ring:nth-child(1) { width: 150px; height: 150px; }
     .hero-photo-ring:nth-child(2),
     .hero-photo-ring:nth-child(3) { display: none; }
     .cta-orbit { display: none; }
