@@ -616,29 +616,45 @@
 <script src="./assets/js/modern.js"></script>
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <script>
-/* Filter pills */
 (function () {
+    /* ── 1. Wrap each card for hanging animation ── */
+    document.querySelectorAll('#cap-masonry > .cap-card').forEach(function (card) {
+        var wrap = document.createElement('div');
+        wrap.className = 'cap-card-wrap';
+        /* move data-category to wrapper so filter can read it */
+        var cat = card.getAttribute('data-category') || '';
+        wrap.setAttribute('data-category', cat);
+        card.removeAttribute('data-category');
+        /* sync animation-delay from AOS delay attr */
+        var delay = parseInt(card.getAttribute('data-aos-delay') || '0', 10);
+        wrap.style.animationDelay = delay + 'ms';
+        card.parentNode.insertBefore(wrap, card);
+        wrap.appendChild(card);
+    });
+
+    /* ── 2. Filter pills (targets wrappers now) ── */
     var pills = document.querySelectorAll('.cap-pill');
-    var cards = document.querySelectorAll('.cap-card');
+    var wraps = document.querySelectorAll('.cap-card-wrap');
     pills.forEach(function (pill) {
         pill.addEventListener('click', function () {
             pills.forEach(function (p) { p.classList.remove('active'); });
             pill.classList.add('active');
             var filter = pill.getAttribute('data-filter');
-            cards.forEach(function (card) {
-                if (filter === 'all' || card.getAttribute('data-category').indexOf(filter) !== -1) {
-                    card.style.display = '';
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(16px)';
+            wraps.forEach(function (wrap, i) {
+                var cat = wrap.getAttribute('data-category') || '';
+                if (filter === 'all' || cat.indexOf(filter) !== -1) {
+                    wrap.style.display = '';
+                    wrap.style.opacity = '0';
+                    wrap.style.transform = 'rotate(-6deg) translateY(-20px)';
                     setTimeout(function () {
-                        card.style.transition = 'opacity .4s ease, transform .4s ease';
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 30);
+                        wrap.style.transition = 'opacity .4s ease, transform .55s cubic-bezier(.34,1.2,.64,1)';
+                        wrap.style.opacity = '1';
+                        wrap.style.transform = 'rotate(0deg) translateY(0)';
+                    }, 30 + i * 25);
                 } else {
-                    card.style.transition = 'opacity .25s ease';
-                    card.style.opacity = '0';
-                    setTimeout(function () { card.style.display = 'none'; }, 260);
+                    wrap.style.transition = 'opacity .25s ease';
+                    wrap.style.opacity = '0';
+                    setTimeout(function () { wrap.style.display = 'none'; }, 270);
                 }
             });
         });

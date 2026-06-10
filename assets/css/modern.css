@@ -2589,6 +2589,131 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 16px rgba(52,211,153,.3);
 }
 
+/* ─── Captures Page Hanging Animations ─── */
+
+/* Keyframes */
+@keyframes hang-drop-in {
+    0%   { opacity: 0; transform: rotate(-8deg) translateY(-40px); }
+    55%  { opacity: 1; transform: rotate(4deg)  translateY(8px); }
+    75%  { transform: rotate(-2deg) translateY(-3px); }
+    90%  { transform: rotate(1deg)  translateY(1px); }
+    100% { opacity: 1; transform: rotate(0deg)  translateY(0); }
+}
+@keyframes hang-sway-idle {
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(.8deg); }
+    75%  { transform: rotate(-.8deg); }
+    100% { transform: rotate(0deg); }
+}
+@keyframes string-drop {
+    0%   { transform: scaleY(0); opacity: 0; }
+    60%  { transform: scaleY(1.1); opacity: 1; }
+    100% { transform: scaleY(1); opacity: 1; }
+}
+@keyframes pin-dot-pop {
+    0%   { transform: scale(0) translateX(-50%); opacity: 0; }
+    70%  { transform: scale(1.4) translateX(-50%); opacity: 1; }
+    100% { transform: scale(1) translateX(-50%); opacity: 1; }
+}
+@keyframes pill-bounce-in {
+    0%   { opacity: 0; transform: translateY(-18px) rotate(-4deg); }
+    60%  { transform: translateY(4px) rotate(1deg); opacity: 1; }
+    80%  { transform: translateY(-2px) rotate(0deg); }
+    100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+@keyframes float-bob {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-6px); }
+}
+@keyframes hero-text-swing {
+    0%, 100% { letter-spacing: -1px; }
+    50%       { letter-spacing: 1px; }
+}
+
+/* String + pin dot above each card */
+.cap-card-wrap {
+    position: relative;
+    display: block;
+    padding-top: 28px;     /* space for string */
+    break-inside: avoid;
+    margin-bottom: 20px;
+    transform-origin: top center;
+}
+/* We retrofit the string onto .cap-card::before and .cap-card::after
+   but since cards have overflow:hidden we use the wrapping .cap-card-wrap */
+.cap-card-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0);
+    width: 2px;
+    height: 28px;
+    background: linear-gradient(to bottom, rgba(52,211,153,.7), rgba(52,211,153,.25));
+    transform-origin: top center;
+    border-radius: 2px;
+    animation: string-drop .55s ease forwards;
+    animation-delay: inherit;
+}
+.cap-card-wrap::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: scale(0) translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 8px rgba(52,211,153,.6);
+    animation: pin-dot-pop .45s cubic-bezier(.34,1.56,.64,1) forwards;
+    animation-delay: inherit;
+}
+/* The card itself hangs and sways */
+.cap-card-wrap .cap-card {
+    transform-origin: top center;
+    animation: hang-drop-in .75s cubic-bezier(.34,1.2,.64,1) forwards;
+    animation-delay: inherit;
+    opacity: 0;
+    margin-bottom: 0;       /* wrap handles spacing */
+    break-inside: auto;     /* wrap handles column break */
+    animation-fill-mode: forwards;
+}
+.cap-card-wrap:hover .cap-card {
+    animation: hang-sway-idle 1.4s ease-in-out infinite !important;
+    transform-origin: top center;
+    box-shadow: 0 14px 40px rgba(52,211,153,.2), 0 4px 14px rgba(0,0,0,.08);
+    border-color: rgba(52,211,153,.42);
+    opacity: 1;
+}
+
+/* Filter pills bounce in */
+.cap-pill {
+    animation: pill-bounce-in .5s cubic-bezier(.34,1.56,.64,1) both;
+}
+.cap-pill:nth-child(1) { animation-delay: .1s; }
+.cap-pill:nth-child(2) { animation-delay: .18s; }
+.cap-pill:nth-child(3) { animation-delay: .26s; }
+.cap-pill:nth-child(4) { animation-delay: .34s; }
+.cap-pill:nth-child(5) { animation-delay: .42s; }
+
+/* Stats float */
+.cap-stat { animation: float-bob 3.6s ease-in-out infinite; }
+.cap-stat:nth-child(1) { animation-delay: 0s; }
+.cap-stat:nth-child(3) { animation-delay: .6s; }
+.cap-stat:nth-child(5) { animation-delay: 1.2s; }
+
+/* Hero heading subtle swing */
+.cap-heading span {
+    display: inline-block;
+    animation: float-bob 4s ease-in-out infinite;
+}
+
+/* Eyebrow badge float */
+.cap-eyebrow {
+    animation: float-bob 5s ease-in-out infinite;
+}
+
 /* Masonry grid */
 .cap-masonry {
     column-count: 3;
