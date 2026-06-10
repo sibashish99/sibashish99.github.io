@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css">
     <!-- Devicons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
 
     <link rel="stylesheet" href="./assets_works/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets_works/css/aos.css">
@@ -696,8 +696,14 @@
                         observer.unobserve(card);
                     }
                 });
-            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
             cards.forEach(function (card) { observer.observe(card); });
+            // Fallback: trigger any card still not rolled after 1.2s
+            setTimeout(function () {
+                cards.forEach(function (card) {
+                    if (!card.classList.contains('rolled')) { card.classList.add('rolled'); }
+                });
+            }, 1200);
         })();
 
         // ── Featured project card reveal + service item stagger ──
