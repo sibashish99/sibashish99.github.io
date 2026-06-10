@@ -804,15 +804,11 @@ body {
 }
 .exp-content {
     flex: 1;
-    background: rgba(255,255,255,.7);
-    border: 1px solid rgba(52,211,153,.15);
-    border-radius: 14px;
-    padding: 20px 22px;
-    transition: box-shadow .25s, border-color .25s;
+    padding: 4px 0 20px 4px;
+    transition: none;
 }
 .exp-item:hover .exp-content {
-    border-color: rgba(52,211,153,.45);
-    box-shadow: 0 6px 28px rgba(52,211,153,.1);
+    box-shadow: none;
 }
 .exp-header {
     display: flex;
