@@ -761,6 +761,28 @@ body {
 }
 
 /* ── Timeline layout ── */
+@keyframes exp-line-grow {
+    from { transform: scaleY(0); transform-origin: top; }
+    to   { transform: scaleY(1); transform-origin: top; }
+}
+@keyframes exp-dot-pop {
+    0%   { transform: scale(0); opacity: 0; }
+    65%  { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes exp-slide-in {
+    from { opacity: 0; transform: translateX(-22px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes exp-skill-pop {
+    from { opacity: 0; transform: scale(.7) translateY(6px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes dot-pulse {
+    0%, 100% { box-shadow: 0 0 0 2px var(--primary), 0 0 12px var(--primary-glow); }
+    50%       { box-shadow: 0 0 0 4px var(--primary), 0 0 22px var(--primary-glow); }
+}
+
 .exp-timeline {
     list-style: none;
     padding: 0;
@@ -776,13 +798,17 @@ body {
     width: 2px;
     background: linear-gradient(to bottom, var(--primary), rgba(52,211,153,.15));
     border-radius: 2px;
+    animation: exp-line-grow .9s cubic-bezier(.4,0,.2,1) .2s both;
 }
 .exp-item {
     display: flex;
     gap: 20px;
     margin-bottom: 32px;
     position: relative;
+    animation: exp-slide-in .6s cubic-bezier(.34,1.1,.64,1) both;
 }
+.exp-item:nth-child(1) { animation-delay: .4s; }
+.exp-item:nth-child(2) { animation-delay: .65s; }
 .exp-item:last-child { margin-bottom: 0; }
 .exp-dot {
     flex-shrink: 0;
@@ -801,14 +827,13 @@ body {
     box-shadow: 0 0 0 2px var(--primary), 0 0 12px var(--primary-glow);
     display: block;
     margin-top: 3px;
+    animation: exp-dot-pop .5s cubic-bezier(.34,1.56,.64,1) both, dot-pulse 2.8s ease-in-out infinite;
 }
+.exp-item:nth-child(1) .exp-dot span { animation-delay: .5s, 1s; }
+.exp-item:nth-child(2) .exp-dot span { animation-delay: .75s, 1.25s; }
 .exp-content {
     flex: 1;
     padding: 4px 0 20px 4px;
-    transition: none;
-}
-.exp-item:hover .exp-content {
-    box-shadow: none;
 }
 .exp-header {
     display: flex;
@@ -826,6 +851,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.exp-item:hover .exp-company-logo {
+    transform: scale(1.06);
+    box-shadow: 0 4px 16px rgba(52,211,153,.2);
 }
 .exp-company-logo img {
     width: 100%;
@@ -857,7 +887,9 @@ body {
     color: var(--text-main) !important;
     margin: 0 0 3px !important;
     line-height: 1.3 !important;
+    transition: color .2s;
 }
+.exp-item:hover .exp-title { color: var(--primary) !important; }
 .exp-company {
     font-size: 12px;
     color: var(--text-muted);
@@ -877,7 +909,27 @@ body {
     border-radius: 20px;
     padding: 3px 10px;
     letter-spacing: .3px;
+    opacity: 0;
+    animation: exp-skill-pop .4s cubic-bezier(.34,1.56,.64,1) forwards;
+    transition: background .2s, color .2s;
 }
+.exp-skills span:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+.exp-item:nth-child(1) .exp-skills span:nth-child(1) { animation-delay: .7s; }
+.exp-item:nth-child(1) .exp-skills span:nth-child(2) { animation-delay: .8s; }
+.exp-item:nth-child(1) .exp-skills span:nth-child(3) { animation-delay: .9s; }
+.exp-item:nth-child(1) .exp-skills span:nth-child(4) { animation-delay: 1s; }
+.exp-item:nth-child(1) .exp-skills span:nth-child(5) { animation-delay: 1.1s; }
+.exp-item:nth-child(1) .exp-skills span:nth-child(6) { animation-delay: 1.2s; }
+.exp-item:nth-child(2) .exp-skills span:nth-child(1) { animation-delay: .95s; }
+.exp-item:nth-child(2) .exp-skills span:nth-child(2) { animation-delay: 1.05s; }
+.exp-item:nth-child(2) .exp-skills span:nth-child(3) { animation-delay: 1.15s; }
+.exp-item:nth-child(2) .exp-skills span:nth-child(4) { animation-delay: 1.25s; }
+.exp-item:nth-child(2) .exp-skills span:nth-child(5) { animation-delay: 1.35s; }
+.exp-item:nth-child(2) .exp-skills span:nth-child(6) { animation-delay: 1.45s; }
 
 /* =============================================
    PROJECT / WORKS CARDS
