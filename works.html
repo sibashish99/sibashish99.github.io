@@ -15,11 +15,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css">
+    <!-- Devicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
     <link rel="stylesheet" href="./assets_works/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets_works/css/aos.css">
 
     <link rel="stylesheet" href="./assets_works/css/style.css">
+    <link rel="stylesheet" href="./assets/css/modern.css">
 </head>
 
 <body>
@@ -27,25 +30,24 @@
     <main class="main-workspage">
 
         <!-- Header -->
-        <header class="header-area">
+        <header class="header-area modern-header">
             <div class="container">
                 <div class="gx-row d-flex align-items-center justify-content-between">
-                    <a href="./index.html" class="logo">
-                        <!-- <img src="./assets_works/images/logo.svg" alt="Logo"> -->
-                        <span><</span>SIBASHISH <span>/></span>
+                    <a href="./index.html" class="logo modern-logo">
+                        <span class="logo-bracket">&lt;</span>SIBASHISH<span class="logo-bracket">/&gt;</span>
                     </a>
 
-                    <nav class="navbar">
+                    <nav class="navbar modern-nav">
                         <ul class="menu">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="about.html">About</a></li>
                             <li class="active"><a href="works.html">Works</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
-                        <a href="./contact.html" class="theme-btn">Let's talk</a>
+                        <a href="./contact.html" class="theme-btn modern-btn">Let's talk</a>
                     </nav>
 
-                    <a href="./contact.html" class="theme-btn">Let's talk</a>
+                    <a href="./contact.html" class="theme-btn modern-btn">Let's talk</a>
 
                     <div class="show-menu">
                         <span></span>
@@ -56,155 +58,450 @@
             </div>
         </header>
 
-        <!-- Projects -->
-        <section class="projects-area">
+        <!-- Skills -->
+        <section class="skills-area">
             <div class="container">
-                <h1 class="section-heading" data-aos="fade-up"> All Projects. </h1>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div data-aos="zoom-in">
-                            <div class="project-item shadow-box">
-                                <a class="overlay-link" href="https://github.com/sibashish99/Angular-app"></a>
-                                <img src="./assets_works/images/bg1.png" alt="BG" class="bg-img">
-                                <div class="project-img">
-                                    <img src="./assets_works/images/project1.jpeg" alt="Project">
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <div class="project-info">
-                                        <p>front-end project</p>
-                                        <h1>Angular Food order</h1>
-                                    </div>
-                                    <a href="https://github.com/sibashish99/Angular-app" class="project-btn">
-                                        <img src="./assets_works/images/icon.svg" alt="Button">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                <h1 class="section-heading" data-aos="fade-up">Skills.</h1>
 
-                        <div data-aos="zoom-in">
-                            <div class="project-item shadow-box">
-                                <a class="overlay-link" href="https://github.com/sibashish99/Charity"></a>
-                                <img src="./assets_works/images/bg1.png" alt="BG" class="bg-img">
-                                <div class="project-img">
-                                    <img src="./assets_works/images/project2.jpeg" alt="Project">
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <div class="project-info">
-                                        <p>Web Development Project</p>
-                                        <h1>Charity front-end website</h1>
-                                    </div>
-                                    <a href="https://github.com/sibashish99/Charity" class="project-btn">
-                                        <img src="./assets_works/images/icon.svg" alt="Button">
-                                    </a>
-                                </div>
-                            </div>
+                <!-- Programming Languages -->
+                <div class="skills-group">
+                    <p class="skills-group-label" data-aos="fade-right">Programming Languages</p>
+                    <div class="skills-grid">
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-java-plain colored"></i></div>
+                            <span class="skill-name">Java</span>
                         </div>
-
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-c-plain colored"></i></div>
+                            <span class="skill-name">C</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-cplusplus-plain colored"></i></div>
+                            <span class="skill-name">C++</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #1a1a2e, #f80000); color: #fff; box-shadow: 0 0 14px rgba(248,0,0,0.35); border-radius: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><text x="2" y="28" font-size="16" font-weight="900" fill="#f80000" font-family="Inter,sans-serif">SQL</text></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">PL/SQL</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-bash-plain colored"></i></div>
+                            <span class="skill-name">Shell Script</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #0f2027, #2980b9); color: #fff; box-shadow: 0 0 14px rgba(41,128,185,0.4); border-radius: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><text x="2" y="28" font-size="13" font-weight="900" fill="#7ec8e3" font-family="Inter,sans-serif">Pro*C</text></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">Pro*C</span>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <h1 class="section-heading" data-aos="fade-up"> All Projects. </h1>
-
-                        <div class="d-flex align-items-start gap-24">
-                            <div data-aos="zoom-in" class="flex-1">
-                                <div class="project-item shadow-box">
-                                    <a class="overlay-link" href="https://github.com/sibashish99/Invoice-generator"></a>
-                                    <img src="./assets_works/images/bg1.png" alt="BG" class="bg-img">
-                                    <div class="project-img">
-                                        <img src="./assets_works/images/project3.jpeg" alt="Project">
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="project-info">
-                                            <p>ReactJs Project</p>
-                                            <h1>Invoice-generator</h1>
-                                        </div>
-                                        <a href="https://github.com/sibashish99/Invoice-generator" class="project-btn">
-                                            <img src="./assets_works/images/icon.svg" alt="Button">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div data-aos="zoom-in" class="flex-1">
-                                <div class="project-item shadow-box">
-                                    <a class="overlay-link" href="https://github.com/sibashish99/Spring-boot-REST-api"></a>
-                                    <img src="./assets_works/images/bg1.png" alt="BG" class="bg-img">
-                                    <div class="project-img">
-                                        <img src="./assets_works/images/project4.jpeg" alt="Project">
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="project-info">
-                                            <p>Back-end Project</p>
-                                            <h1>Spring Boot REST api</h1>
-                                        </div>
-                                        <a href="https://github.com/sibashish99/Spring-boot-REST-api" class="project-btn">
-                                            <img src="./assets_works/images/icon.svg" alt="Button">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-start gap-24">
-                            <div data-aos="zoom-in" class="flex-1">
-                                <div class="project-item shadow-box">
-                                    <a class="overlay-link" href="https://github.com/sibashish99/Contact-Management-system"></a>
-                                    <img src="./assets_works/images/bg1.png" alt="BG" class="bg-img">
-                                    <div class="project-img">
-                                        <img src="./assets_works/images/project5.jpeg" alt="Project">
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="project-info">
-                                            <p>Back-end Project</p>
-                                            <h1>Contact Management system
-                                            </h1>
-                                        </div>
-                                        <a href="https://github.com/sibashish99/Contact-Management-system" class="project-btn">
-                                            <img src="./assets_works/images/icon.svg" alt="Button">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div data-aos="zoom-in" class="flex-1">
-                                <div class="project-item shadow-box">
-                                    <a class="overlay-link" href="https://github.com/sibashish99/Customer-Relationship-manager"></a>
-                                    <img src="./assets_works/images/bg1.png" alt="BG" class="bg-img">
-                                    <div class="project-img">
-                                        <img src="./assets_works/images/project6.jpeg" alt="Project">
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <div class="project-info">
-                                            <p>Back-end Project</p>
-                                            <h1>Customer Relationship Manager</h1>
-                                        </div>
-                                        <a href="https://github.com/sibashish99/Customer-Relationship-manager" class="project-btn">
-                                            <img src="./assets_works/images/icon.svg" alt="Button">
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
+
+                <!-- Frameworks & Libraries -->
+                <div class="skills-group">
+                    <p class="skills-group-label" data-aos="fade-right">Frameworks &amp; Libraries</p>
+                    <div class="skills-grid">
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-spring-plain colored"></i></div>
+                            <span class="skill-name">Spring Boot</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-spring-plain colored"></i></div>
+                            <span class="skill-name">Spring</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-spring-plain colored"></i></div>
+                            <span class="skill-name">Spring MVC</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #0f3460, #16213e); color: #fff; box-shadow: 0 0 14px rgba(91,120,246,0.35); border-radius: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><text x="1" y="28" font-size="11" font-weight="900" fill="#5B78F6" font-family="Inter,sans-serif">µSvc</text></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">Microservices</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-hibernate-plain colored"></i></div>
+                            <span class="skill-name">Hibernate (JPA)</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #1a2a1a, #34a853); color: #fff; box-shadow: 0 0 14px rgba(52,168,83,0.4); border-radius: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><text x="2" y="28" font-size="11" font-weight="900" fill="#34a853" font-family="Inter,sans-serif">REST</text></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud & DevOps -->
+                <div class="skills-group">
+                    <p class="skills-group-label" data-aos="fade-right">Cloud &amp; DevOps</p>
+                    <div class="skills-grid">
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-docker-plain colored"></i></div>
+                            <span class="skill-name">Docker</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-kubernetes-plain colored"></i></div>
+                            <span class="skill-name">Kubernetes</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-jenkins-plain colored"></i></div>
+                            <span class="skill-name">Jenkins</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-github-original"></i></div>
+                            <span class="skill-name">GitHub</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-googlecloud-plain colored"></i></div>
+                            <span class="skill-name">GCP (GKE)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="skills-group">
+                    <p class="skills-group-label" data-aos="fade-right">Databases</p>
+                    <div class="skills-grid">
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-oracle-original colored"></i></div>
+                            <span class="skill-name">Oracle SQL</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-mysql-plain colored"></i></div>
+                            <span class="skill-name">MySQL</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-postgresql-plain colored"></i></div>
+                            <span class="skill-name">PostgreSQL</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-redis-plain colored"></i></div>
+                            <span class="skill-name">Redis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Platforms -->
+                <div class="skills-group">
+                    <p class="skills-group-label" data-aos="fade-right">Tools &amp; Platforms</p>
+                    <div class="skills-grid">
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-linux-plain colored"></i></div>
+                            <span class="skill-name">Linux</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-git-plain colored"></i></div>
+                            <span class="skill-name">Git</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-postman-plain colored"></i></div>
+                            <span class="skill-name">Postman</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-jira-plain colored"></i></div>
+                            <span class="skill-name">Jira</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-tomcat-plain colored"></i></div>
+                            <span class="skill-name">Tomcat</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-vscode-plain colored"></i></div>
+                            <span class="skill-name">VS Code</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-eclipse-plain colored"></i></div>
+                            <span class="skill-name">Eclipse</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testing & Code Quality -->
+                <div class="skills-group">
+                    <p class="skills-group-label" data-aos="fade-right">Testing &amp; Code Quality</p>
+                    <div class="skills-grid">
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon"><i class="devicon-junit-plain colored"></i></div>
+                            <span class="skill-name">JUnit</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #1a2e1a, #27ae60); color: #fff; box-shadow: 0 0 14px rgba(39,174,96,0.4); border-radius: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><text x="4" y="28" font-size="12" font-weight="900" fill="#27ae60" font-family="Inter,sans-serif">INT</text></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">Integration Testing</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #1a1a2e, #8e44ad); color: #fff; box-shadow: 0 0 14px rgba(142,68,173,0.4); border-radius: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><text x="3" y="28" font-size="12" font-weight="900" fill="#a78bfa" font-family="Inter,sans-serif">E2E</text></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">E2E API Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GenAI Developer Productivity -->
+                <div class="skills-group">
+                    <p class="skills-group-label" data-aos="fade-right">GenAI Developer Productivity</p>
+                    <div class="skills-grid">
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #1a1a2e, #7c5bf0); color: #fff; box-shadow: 0 0 14px rgba(124,91,240,0.5); border-radius: 10px;">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4L12 20L14.5 13.5L21 11L4 4Z" fill="#7c5bf0" stroke="#b39dfc" stroke-width="0.5"/></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">Cursor AI</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #1c1c1c, #444); color: #fff; box-shadow: 0 0 14px rgba(255,255,255,0.15); border-radius: 10px;">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.84 9.49.5.09.68-.217.68-.48 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.577.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">GH Copilot</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #2d1a0e, #d97757); color: #fff; box-shadow: 0 0 14px rgba(217,119,87,0.5); border-radius: 10px;">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L3 8.5V15.5L12 21L21 15.5V8.5L12 3Z" stroke="#ffd4b8" stroke-width="1.5" fill="rgba(217,119,87,0.3)"/><text x="8.5" y="15.5" font-size="7" font-weight="800" fill="#fff" font-family="Inter,sans-serif">CC</text></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">Claude Code</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #0d1b3e, #4285f4); color: #fff; box-shadow: 0 0 14px rgba(66,133,244,0.5); border-radius: 10px;">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3 Q16 7.5 12 12 Q8 7.5 12 3Z" fill="#4285f4"/><path d="M12 21 Q16 16.5 12 12 Q8 16.5 12 21Z" fill="#34a853"/><path d="M3 12 Q7.5 16 12 12 Q7.5 8 3 12Z" fill="#fbbc04"/><path d="M21 12 Q16.5 16 12 12 Q16.5 8 21 12Z" fill="#ea4335"/></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">Gemini</span>
+                        </div>
+                        <div class="skill-card shadow-box">
+                            <div class="skill-icon">
+                                <span class="skill-icon-ai" style="background: linear-gradient(135deg, #0f1b2e, #f59e0b); color: #fff; box-shadow: 0 0 14px rgba(245,158,11,0.45); border-radius: 10px;">
+                                    <svg width="28" height="28" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><text x="2" y="28" font-size="10" font-weight="900" fill="#fbbf24" font-family="Inter,sans-serif">P.Eng</text></svg>
+                                </span>
+                            </div>
+                            <span class="skill-name">Prompt Eng.</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
 
+        <!-- Projects -->
+        <section class="projects-area">
+            <div class="container">
+                <h1 class="section-heading" data-aos="fade-up">Projects.</h1>
+
+                <div class="featured-projects">
+
+                    <!-- Project 1: E-Commerce Microservices -->
+                    <div class="fp-animate-wrap" data-aos="fade-up" data-aos-duration="900">
+                        <div class="featured-project-card fp-card shadow-box">
+                            <!-- <img src="./assets_works/images/bg1.png" alt="BG" class="bg-img"> -->
+
+                            <div class="fp-corner-accent"></div>
+
+                            <div class="fp-header">
+                                <div>
+                                    <h2 class="fp-title">E-Commerce — Microservices Backend</h2>
+                                    <div class="fp-meta">
+                                        <span class="fp-badge microservices"><i class="iconoir-microchip"></i> Microservices</span>
+                                        <span class="fp-badge rest"><i class="iconoir-code"></i> REST APIs</span>
+                                        <span class="fp-badge backend"><i class="iconoir-cloud"></i> Cloud / CI-CD</span>
+                                        <span class="fp-date"><i class="iconoir-calendar"></i> Apr 2026</span>
+                                    </div>
+                                </div>
+                                <a href="https://github.com/sibashish726/OrderService" target="_blank" rel="noopener" class="fp-github-btn">
+                                    <i class="iconoir-github-circle"></i> View on GitHub
+                                </a>
+                            </div>
+
+                            <div class="fp-services">
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">Product Service</p>
+                                        <p class="fp-service-desc">Developed REST APIs with Redis distributed caching to reduce database load and latency; implemented advanced query features including multi-criteria filtering, pagination, and sorting.</p>
+                                    </div>
+                                </div>
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">Order Service</p>
+                                        <p class="fp-service-desc">Developed REST APIs for robust order management system utilizing Feign Clients and Eureka for dynamic service discovery, ensuring seamless, load-balanced communication with inventory and user domains.</p>
+                                    </div>
+                                </div>
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">Payment Service</p>
+                                        <p class="fp-service-desc">Developed REST APIs for payment gateway with ACID-compliant transactional tracking; implemented state-machine logic to maintain synchronization with the Order service while ensuring strict data isolation.</p>
+                                    </div>
+                                </div>
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">Infrastructure &amp; Observability</p>
+                                        <p class="fp-service-desc">Secured the ecosystem via Spring Cloud API Gateway and Auth0/JWT; integrated Zipkin for distributed tracing to identify bottlenecks and monitor request flow across the microservices.</p>
+                                    </div>
+                                </div>
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">CI/CD &amp; Cloud</p>
+                                        <p class="fp-service-desc">Streamlined deployment using a GitHub and Jenkins pipeline; containerized services with Docker for consistent environments and managed automated deployments to Google Kubernetes Engine (GKE).</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="fp-key-skills">
+                                <p class="fp-key-skills-label">Key Skills</p>
+                                <div class="fp-key-skills-icons">
+                                    <span class="fp-skill-chip"><i class="devicon-java-plain colored"></i> Java</span>
+                                    <span class="fp-skill-chip"><i class="devicon-spring-plain colored"></i> Spring Boot</span>
+                                    <span class="fp-skill-chip"><i class="devicon-redis-plain colored"></i> Redis</span>
+                                    <span class="fp-skill-chip"><i class="devicon-docker-plain colored"></i> Docker</span>
+                                    <span class="fp-skill-chip"><i class="devicon-kubernetes-plain colored"></i> Kubernetes</span>
+                                    <span class="fp-skill-chip"><i class="devicon-googlecloud-plain colored"></i> GKE</span>
+                                    <span class="fp-skill-chip"><i class="devicon-jenkins-plain colored"></i> Jenkins</span>
+                                    <span class="fp-skill-chip"><i class="devicon-github-original"></i> GitHub</span>
+                                </div>
+                            </div>
+
+                            <div class="fp-tags">
+                                <span class="fp-tag">Microservices</span>
+                                <span class="fp-tag">Feign Client</span>
+                                <span class="fp-tag">Eureka</span>
+                                <span class="fp-tag">JWT / Auth0</span>
+                                <span class="fp-tag">Zipkin</span>
+                                <span class="fp-tag">Spring Cloud Gateway</span>
+                                <span class="fp-tag">REST APIs</span>
+                                <span class="fp-tag">CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Ordering Platform Backend -->
+                    <div class="fp-animate-wrap" data-aos="fade-up" data-aos-duration="900" data-aos-delay="120">
+                        <div class="featured-project-card fp-card shadow-box">
+                            <!-- <img src="./assets_works/images/bg1.png" alt="BG" class="bg-img"> -->
+
+                            <div class="fp-corner-accent"></div>
+
+                            <div class="fp-header">
+                                <div>
+                                    <h2 class="fp-title">Ordering Platform Backend — REST API</h2>
+                                    <div class="fp-meta">
+                                        <span class="fp-badge backend"><i class="iconoir-server"></i> Backend</span>
+                                        <span class="fp-badge rest"><i class="iconoir-code"></i> REST APIs</span>
+                                        <span class="fp-badge microservices"><i class="iconoir-lock"></i> Auth &amp; Security</span>
+                                        <span class="fp-date"><i class="iconoir-calendar"></i> Jul 2025 – Aug 2025</span>
+                                    </div>
+                                </div>
+                                <a href="https://github.com/sibashish99/ECommerce-Backend-Project" target="_blank" rel="noopener" class="fp-github-btn">
+                                    <i class="iconoir-github-circle"></i> View on GitHub
+                                </a>
+                            </div>
+
+                            <div class="fp-services">
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">Authentication &amp; Authorization Service</p>
+                                        <p class="fp-service-desc">Developed REST APIs to manage user authentication and secure session management for customer and seller roles, including secure session termination using JWT token generation.</p>
+                                    </div>
+                                </div>
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">Seller Management Service</p>
+                                        <p class="fp-service-desc">Developed REST APIs enabling privileged "Administrator" role for sellers, with secure Spring Boot APIs for product CRUD operations and access to customer/order data, persisted with MySQL via Spring Data JPA/Hibernate.</p>
+                                    </div>
+                                </div>
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">Customer Interaction Service</p>
+                                        <p class="fp-service-desc">Developed REST APIs for user registration, secure login, product browsing, and personalized features, managing customer data through Spring Data JPA.</p>
+                                    </div>
+                                </div>
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">Product Catalog Service</p>
+                                        <p class="fp-service-desc">Developed REST APIs to manage product listings using pagination, details, and inventory, stored in MySQL for efficient querying.</p>
+                                    </div>
+                                </div>
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">Shopping Cart Service</p>
+                                        <p class="fp-service-desc">Developed REST APIs for functionalities like adding, removing, and updating items within a user's shopping cart, integrated with product and user data.</p>
+                                    </div>
+                                </div>
+                                <div class="fp-service-item">
+                                    <div class="fp-service-dot"></div>
+                                    <div class="fp-service-content">
+                                        <p class="fp-service-name">Order Processing Service</p>
+                                        <p class="fp-service-desc">Developed REST APIs to manage the end-to-end lifecycle of order creation, tracking, and fulfillment, ensuring data integrity with MySQL through Spring Data JPA and tested using Postman.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="fp-key-skills">
+                                <p class="fp-key-skills-label">Key Skills</p>
+                                <div class="fp-key-skills-icons">
+                                    <span class="fp-skill-chip"><i class="devicon-java-plain colored"></i> Java</span>
+                                    <span class="fp-skill-chip"><i class="devicon-spring-plain colored"></i> Spring Boot</span>
+                                    <span class="fp-skill-chip"><i class="devicon-mysql-plain colored"></i> MySQL</span>
+                                    <span class="fp-skill-chip"><i class="devicon-hibernate-plain colored"></i> Hibernate</span>
+                                    <span class="fp-skill-chip"><i class="devicon-postman-plain colored"></i> Postman</span>
+                                    <span class="fp-skill-chip"><i class="devicon-github-original"></i> GitHub</span>
+                                </div>
+                            </div>
+
+                            <div class="fp-tags">
+                                <span class="fp-tag">Spring Security</span>
+                                <span class="fp-tag">JWT</span>
+                                <span class="fp-tag">Spring Data JPA</span>
+                                <span class="fp-tag">REST APIs</span>
+                                <span class="fp-tag">Pagination</span>
+                                <span class="fp-tag">CRUD</span>
+                                <span class="fp-tag">Session Management</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
 
         <!-- Footer -->
-        <footer class="footer-area">
+        <footer class="footer-area modern-footer">
             <div class="container">
                 <div class="footer-content text-center">
-                    <a href="./index.html" class="logo" 
-                       style=" 
-                               text-decoration: none;
-                               color: white;
-                               font-family: 'Titillium Web', sans-serif;"
+                    <a href="./index.html" class="logo modern-logo"
                     >
-                        <span><</span>SIBASHISH <span>/></span>
+                        <span class="logo-bracket">&lt;</span>SIBASHISH<span class="logo-bracket">/&gt;</span>
                     </a>
                     <ul class="footer-menu">
                         <li><a href="index.html">Home</a></li>
@@ -226,6 +523,63 @@
     <script src="./assets_works/js/bootstrap.bundle.min.js"></script>
     <script src="./assets_works/js/aos.js"></script>
     <script src="./assets_works/js/main.js"></script>
+    <script src="./assets/js/modern.js"></script>
+    <script>
+        // ── Dice throw animation ──
+        (function () {
+            var cards = Array.from(document.querySelectorAll('.skill-card'));
+            var profiles = [
+                { tx: '0px',    rx: '720deg',  rz: '200deg',  dur: '0.85s', ease: 'cubic-bezier(0.22,1,0.36,1)' },
+                { tx: '-180px', rx: '540deg',  rz: '-160deg', dur: '0.9s',  ease: 'cubic-bezier(0.22,1,0.36,1)' },
+                { tx: '180px',  rx: '600deg',  rz: '240deg',  dur: '0.8s',  ease: 'cubic-bezier(0.18,1,0.32,1)' },
+                { tx: '-80px',  rx: '900deg',  rz: '-300deg', dur: '1.0s',  ease: 'cubic-bezier(0.25,1,0.4,1)'  },
+                { tx: '80px',   rx: '660deg',  rz: '180deg',  dur: '0.75s', ease: 'cubic-bezier(0.22,1,0.36,1)' },
+                { tx: '30px',   rx: '840deg',  rz: '-220deg', dur: '0.95s', ease: 'cubic-bezier(0.2,1,0.34,1)'  },
+            ];
+            cards.forEach(function (card, i) {
+                var p = profiles[i % profiles.length];
+                card.style.setProperty('--tx', p.tx);
+                card.style.setProperty('--rx', p.rx);
+                card.style.setProperty('--rz', p.rz);
+                card.style.setProperty('--throw-dur', p.dur);
+                card.style.setProperty('--throw-ease', p.ease);
+            });
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var card = entry.target;
+                        var idx = cards.indexOf(card);
+                        var delay = idx * 80 + Math.floor(Math.random() * 40);
+                        setTimeout(function () { card.classList.add('rolled'); }, delay);
+                        observer.unobserve(card);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            cards.forEach(function (card) { observer.observe(card); });
+        })();
+
+        // ── Featured project card reveal + service item stagger ──
+        (function () {
+            // Card wrappers slide up
+            var wraps = Array.from(document.querySelectorAll('.fp-animate-wrap'));
+            var wrapObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fp-visible');
+                        // Stagger service items inside this card
+                        var items = Array.from(entry.target.querySelectorAll('.fp-service-item'));
+                        items.forEach(function (item, i) {
+                            setTimeout(function () {
+                                item.classList.add('fp-svc-visible');
+                            }, 300 + i * 90);
+                        });
+                        wrapObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08 });
+            wraps.forEach(function (w) { wrapObserver.observe(w); });
+        })();
+    </script>
 </body>
 
 </html>
