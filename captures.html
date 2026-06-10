@@ -617,22 +617,35 @@
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <script>
 (function () {
-    /* ── 1. Wrap each card for hanging animation ── */
+    /* ── 1. Build ID-badge lanyard for each card ── */
     document.querySelectorAll('#cap-masonry > .cap-card').forEach(function (card) {
+        /* Create wrapper */
         var wrap = document.createElement('div');
         wrap.className = 'cap-card-wrap';
-        /* move data-category to wrapper so filter can read it */
         var cat = card.getAttribute('data-category') || '';
         wrap.setAttribute('data-category', cat);
         card.removeAttribute('data-category');
-        /* sync animation-delay from AOS delay attr */
         var delay = parseInt(card.getAttribute('data-aos-delay') || '0', 10);
         wrap.style.animationDelay = delay + 'ms';
         card.parentNode.insertBefore(wrap, card);
         wrap.appendChild(card);
+
+        /* Metal clip element sits between cord and card */
+        var clip = document.createElement('div');
+        clip.className = 'cap-badge-clip';
+        clip.style.animationDelay = delay + 'ms';
+        wrap.insertBefore(clip, card);
+
+        /* Badge header strip — prepend into the card link */
+        var link = card.querySelector('.cap-card-link');
+        if (link) {
+            var header = document.createElement('div');
+            header.className = 'cap-badge-header';
+            link.insertBefore(header, link.firstChild);
+        }
     });
 
-    /* ── 2. Filter pills (targets wrappers now) ── */
+    /* ── 2. Filter pills (targets wrappers) ── */
     var pills = document.querySelectorAll('.cap-pill');
     var wraps = document.querySelectorAll('.cap-card-wrap');
     pills.forEach(function (pill) {
@@ -645,12 +658,12 @@
                 if (filter === 'all' || cat.indexOf(filter) !== -1) {
                     wrap.style.display = '';
                     wrap.style.opacity = '0';
-                    wrap.style.transform = 'rotate(-6deg) translateY(-20px)';
+                    wrap.style.transform = 'rotate(-7deg) translateY(-24px)';
                     setTimeout(function () {
-                        wrap.style.transition = 'opacity .4s ease, transform .55s cubic-bezier(.34,1.2,.64,1)';
+                        wrap.style.transition = 'opacity .4s ease, transform .6s cubic-bezier(.34,1.2,.64,1)';
                         wrap.style.opacity = '1';
                         wrap.style.transform = 'rotate(0deg) translateY(0)';
-                    }, 30 + i * 25);
+                    }, 30 + i * 28);
                 } else {
                     wrap.style.transition = 'opacity .25s ease';
                     wrap.style.opacity = '0';
