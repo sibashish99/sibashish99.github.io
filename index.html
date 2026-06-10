@@ -199,8 +199,8 @@
                                         <a href="https://www.linkedin.com/in/sibashish-biswas/">
                                             <i class="iconoir-linkedin"></i>
                                         </a>
-                                        <a href="https://www.facebook.com/profile.php?id=100093620192661&mibextid=ZbWKwL">
-                                            <i class="iconoir-facebook"></i>
+                                        <a href="https://github.com/sibashish726" target="_blank" rel="noopener">
+                                            <i class="iconoir-github-circle"></i>
                                         </a>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between">
@@ -229,8 +229,8 @@
                             <img src="./assets/images/bg1.png" alt="BG" class="bg-img">
                             <div class="clients d-flex align-items-start gap-24 justify-content-center">
                                 <div class="client-item modern-stat">
-                                    <h1 class="count-up" data-target="2">02</h1>
-                                    <p>Years <br>Experience</p>
+                                    <h1 id="exp-years">–</h1>
+                                    <p id="exp-label">Years <br>Experience</p>
                                 </div>
 
                                 <div class="client-item modern-stat">
@@ -293,6 +293,25 @@
     <script src="./assets/js/aos.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/modern.js"></script>
-</body>
+    <script>
+        // ── Dynamic experience counter from Aug 02, 2021 ──
+        (function () {
+            var start = new Date(2021, 7, 2); // month is 0-indexed; 7 = August
+            function update() {
+                var now = new Date();
+                var y = now.getFullYear() - start.getFullYear();
+                var m = now.getMonth() - start.getMonth();
+                var d = now.getDate() - start.getDate();
+                if (d < 0) { m--; d += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
+                if (m < 0) { y--; m += 12; }
+                var el = document.getElementById('exp-years');
+                var lb = document.getElementById('exp-label');
+                if (el) el.textContent = y + 'y ' + m + 'm ' + d + 'd';
+                if (lb) lb.innerHTML = 'Years · Months · Days<br>Experience';
+            }
+            update();
+            setInterval(update, 60000); // refresh every minute
+        })();
+    </script>
 
 </html>
