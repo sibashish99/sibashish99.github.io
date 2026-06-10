@@ -708,6 +708,30 @@ body {
 .about-details-inner.modern-card img[alt="Star"] {
     filter: drop-shadow(0 0 10px rgba(52, 211, 153,0.5));
     animation: spinStar 14s linear infinite;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 20px;
+}
+
+.about-details-inner.modern-card {
+    position: relative;
+    padding: 36px 36px 36px 48px !important;
+    border-left: 4px solid var(--primary) !important;
+    border-radius: 0 18px 18px 0 !important;
+    background: linear-gradient(135deg, #f0fdf8 0%, #ffffff 60%) !important;
+    overflow: hidden;
+}
+
+.about-details-inner.modern-card::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(52,211,153,.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
 .about-details-inner.modern-card h1 {
@@ -715,7 +739,17 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-size: 28px !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    margin-bottom: 12px !important;
+    letter-spacing: -.5px;
+}
+
+.about-details-inner.modern-card p {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+    color: var(--text-muted) !important;
+    max-width: 480px;
 }
 
 .about-edc-exp.modern-card h3 {
