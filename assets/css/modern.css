@@ -835,8 +835,8 @@ body {
 .exp-company-logo img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    padding: 4px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 .exp-logo-fallback {
     display: none;
