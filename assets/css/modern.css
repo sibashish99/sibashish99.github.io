@@ -2308,93 +2308,157 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 }
 .ct-social-pill i { font-size: 16px; }
 
-/* Form card */
-.ct-form-card {
-    background: rgba(255,255,255,.84);
-    border: 1px solid rgba(52,211,153,.2);
-    border-radius: 22px;
-    padding: 38px 36px;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 4px 30px rgba(52,211,153,.08), 0 1px 8px rgba(0,0,0,.05);
-}
-.ct-form-shimmer {
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 240px; height: 240px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(52,211,153,.1), transparent 70%);
-    pointer-events: none;
-}
-.ct-form-title {
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--text-main);
-    margin-bottom: 28px;
+/* Reach-out panel */
+.ct-reach-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-/* Form fields */
-.ct-form { display: flex; flex-direction: column; gap: 18px; }
-.ct-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.ct-field { display: flex; flex-direction: column; gap: 7px; }
-.ct-field label {
+/* Availability card */
+.ct-avail-card {
+    background: linear-gradient(135deg, rgba(52,211,153,.1), rgba(16,185,129,.06));
+    border: 1px solid rgba(52,211,153,.3);
+    border-radius: 20px;
+    padding: 24px 26px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+.ct-reach-shimmer {
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(52,211,153,.15), transparent 70%);
+    pointer-events: none;
+}
+.ct-avail-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+.ct-avail-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 0 4px rgba(52,211,153,.25);
+    flex-shrink: 0;
+    margin-top: 4px;
+    animation: availPulse 2s ease-in-out infinite;
+}
+@keyframes availPulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(52,211,153,.25); }
+    50%       { box-shadow: 0 0 0 8px rgba(52,211,153,.1); }
+}
+.ct-avail-status {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0 0 4px;
+}
+.ct-avail-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Direct email CTA */
+.ct-email-cta {
+    background: rgba(255,255,255,.84);
+    border: 1px solid rgba(52,211,153,.2);
+    border-radius: 18px;
+    padding: 22px 24px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 2px 18px rgba(52,211,153,.06);
+}
+.ct-email-label {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--text-muted);
+    margin-bottom: 12px;
 }
-.ct-field input,
-.ct-field textarea {
-    background: rgba(240,253,248,.7);
-    border: 1.5px solid rgba(52,211,153,.2);
+.ct-email-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(52,211,153,.06);
+    border: 1px solid rgba(52,211,153,.22);
     border-radius: 12px;
     padding: 12px 16px;
+    transition: background .25s, border-color .25s, gap .25s, transform .25s;
+    word-break: break-all;
+}
+.ct-email-btn i:first-child { font-size: 20px; color: var(--accent); flex-shrink: 0; }
+.ct-email-btn span { flex: 1; }
+.ct-email-arrow { font-size: 16px; color: var(--accent); opacity: .5; transition: opacity .2s, transform .2s; flex-shrink: 0; }
+.ct-email-btn:hover {
+    background: rgba(52,211,153,.12);
+    border-color: rgba(52,211,153,.4);
+    color: var(--text-main);
+    transform: translateY(-2px);
+}
+.ct-email-btn:hover .ct-email-arrow { opacity: 1; transform: rotate(45deg); }
+
+/* Help list */
+.ct-help-card {
+    background: rgba(255,255,255,.84);
+    border: 1px solid rgba(52,211,153,.2);
+    border-radius: 18px;
+    padding: 22px 24px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 2px 18px rgba(52,211,153,.06);
+}
+.ct-help-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+.ct-help-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-size: 13.5px;
     color: var(--text-main);
-    font-family: 'Inter', sans-serif;
-    outline: none;
-    transition: border-color .25s, box-shadow .25s, background .25s;
-    resize: vertical;
+    line-height: 1.5;
 }
-.ct-field input::placeholder,
-.ct-field textarea::placeholder { color: rgba(15,45,36,.35); }
-.ct-field input:focus,
-.ct-field textarea:focus {
-    border-color: rgba(52,211,153,.55);
-    box-shadow: 0 0 0 3px rgba(52,211,153,.1);
-    background: rgba(255,255,255,.95);
+.ct-help-list li i {
+    font-size: 17px;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 22px;
 }
-.ct-submit {
-    display: inline-flex;
+
+/* Response note */
+.ct-response-note {
+    display: flex;
     align-items: center;
-    gap: 9px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: #0f2d24;
-    border: none;
-    border-radius: 30px;
-    padding: 13px 32px;
-    font-size: 14px;
-    font-weight: 700;
-    font-family: 'Inter', sans-serif;
-    cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-    box-shadow: 0 4px 20px rgba(52,211,153,.3);
-    align-self: flex-start;
+    gap: 10px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    padding: 14px 18px;
+    background: rgba(52,211,153,.05);
+    border: 1px dashed rgba(52,211,153,.25);
+    border-radius: 14px;
 }
-.ct-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(52,211,153,.45);
-}
+.ct-response-note i { font-size: 17px; color: var(--accent); flex-shrink: 0; }
+.ct-response-note strong { color: var(--text-main); }
 
 /* Responsive */
 @media (max-width: 900px) {
     .ct-grid { grid-template-columns: 1fr; }
-    .ct-form-card { padding: 28px 22px; }
-}
-@media (max-width: 540px) {
-    .ct-form-row { grid-template-columns: 1fr; }
 }
