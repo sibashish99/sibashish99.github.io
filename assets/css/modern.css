@@ -879,15 +879,22 @@ body {
    MODERN FOOTER
    ============================================= */
 .modern-footer {
-    border-top: 1px solid rgba(52, 211, 153,0.3);
-    background: rgba(245, 244, 240, 0.9) !important;
-    backdrop-filter: blur(16px);
-    padding: 32px 0 28px;
+    border-top: none;
+    background: transparent !important;
+    backdrop-filter: none;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .modern-logo--footer {
-    font-size: 42px !important;
-    letter-spacing: 2px !important;
+    font-size: 84px !important;
+    letter-spacing: 4px !important;
+    display: block;
+    line-height: 1;
+}
+
+.modern-logo--footer .logo-name-wrap {
+    height: 0.82em;
 }
 
 /* =============================================
