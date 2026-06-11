@@ -73,7 +73,7 @@
                 <!-- TAGLINE -->
                 <div class="bc bc-tagline" style="transition-delay:.08s">
                     <!-- <div class="tagline-eyebrow">Software Engineer · Lumen Technologies · Bangalore</div> -->
-                    <p class="tagline-text">Building <span>scalable backends</span> that power real products.</p>
+                    <p class="tagline-text">Building <span>scalable backend systems</span> to ship distributed products.</p>
                     <p class="tagline-sub">Java &amp; Spring Boot craftsman with a passion for clean architecture, cloud-native systems, and the occasional front-end adventure.</p>
                     <div class="tagline-chips">
                         <span class="tagline-chip">Java</span>
@@ -138,10 +138,10 @@
                 <!-- INTERESTS -->
                 <div class="bc bc-interests" style="transition-delay:.5s">
                     <div class="interests-icons">
-                        <div class="interest-icon"><i class="iconoir-movie"></i></div>
-                        <div class="interest-icon"><i class="iconoir-design-pencil"></i></div>
-                        <div class="interest-icon"><i class="iconoir-music-double-note"></i></div>
-                        <div class="interest-icon"><i class="iconoir-bicycle"></i></div>
+                        <div class="interest-icon" data-tip="Movies &amp; Cinema"><i class="iconoir-movie"></i></div>
+                        <div class="interest-icon" data-tip="UI Design"><i class="iconoir-design-pencil"></i></div>
+                        <div class="interest-icon" data-tip="Music"><i class="iconoir-music-double-note"></i></div>
+                        <div class="interest-icon" data-tip="Riding Bike"><i class="iconoir-motorcycle"></i></div>
                     </div>
                     <p class="bc-label">Interests</p>
                     <h2 class="bc-title" style="font-size:1.05rem;font-family:'Inter',sans-serif;font-weight:600;line-height:1.5;">Because work is not everything we live for.</h2>
@@ -232,6 +232,24 @@
         card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,dx=(e.clientX-cx)/(r.width/2),dy=(e.clientY-cy)/(r.height/2);card.style.transform='perspective(800px) rotateX('+(-dy*5)+'deg) rotateY('+(dx*5)+'deg) translateY(-4px)';});
         card.addEventListener('mouseleave',function(){card.style.transform='translateY(0)';setTimeout(function(){card.style.transform='';},350);});
     });
+})();
+
+/* 6. Interest icon tap tooltips (mobile) */
+(function(){
+    var icons = document.querySelectorAll('.interest-icon[data-tip]');
+    icons.forEach(function(icon){
+        icon.addEventListener('touchstart', function(e){
+            e.preventDefault();
+            var already = icon.classList.contains('tip-show');
+            icons.forEach(function(i){ i.classList.remove('tip-show'); });
+            if (!already) icon.classList.add('tip-show');
+        }, { passive: false });
+    });
+    document.addEventListener('touchstart', function(e){
+        if (!e.target.closest('.interest-icon')) {
+            icons.forEach(function(i){ i.classList.remove('tip-show'); });
+        }
+    }, { passive: true });
 })();
 </script>
 </body>

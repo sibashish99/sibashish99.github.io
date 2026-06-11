@@ -2455,6 +2455,13 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     will-change: transform;
     box-shadow: 0 2px 20px rgba(23, 105, 255, .06), 0 1px 6px rgba(0,0,0,.04);
 }
+/* Make overlay-link cover the entire bento card */
+.bc .overlay-link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+}
 .bc::before {
     content: '';
     position: absolute;
@@ -2606,11 +2613,100 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 /* Interest icons */
 .interests-icons { display: flex; gap: 16px; margin-bottom: 20px; }
 .interest-icon { width: 52px; height: 52px; border-radius: 14px; background: rgba(255,255,255,.7); border: 1px solid rgba(23, 105, 255,.22); display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--accent); transition: background .25s, border-color .25s, transform .25s; animation: iconFloat 4s ease-in-out infinite; }
+.interest-icon i { transition: none !important; }
+.interest-icon:hover i { color: inherit; }
 .interest-icon:nth-child(2) { animation-delay: .6s; }
 .interest-icon:nth-child(3) { animation-delay: 1.2s; }
 .interest-icon:nth-child(4) { animation-delay: 1.8s; }
 .interest-icon:hover { background: rgba(23, 105, 255,.1); border-color: rgba(23, 105, 255,.4); transform: translateY(-4px) !important; }
 @keyframes iconFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+/* Interest icon tooltip */
+.interest-icon[data-tip] { position: relative; cursor: default; }
+.interest-icon[data-tip]::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: var(--text-main);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    padding: 5px 10px;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 20;
+}
+.interest-icon[data-tip]::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    border: 5px solid transparent;
+    border-top-color: var(--text-main);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 20;
+}
+.interest-icon[data-tip]:hover::after,
+.interest-icon[data-tip]:hover::before,
+.interest-icon[data-tip].tip-show::after,
+.interest-icon[data-tip].tip-show::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ── Compact services list: names only, desc expands on hover ── */
+.fp-services--names .fp-service-item {
+    padding: 9px 16px;
+    align-items: center;
+    cursor: default;
+}
+.fp-services--names .fp-service-dot {
+    margin-top: 0;
+    flex-shrink: 0;
+}
+.fp-services--names .fp-service-name {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.fp-services--names .fp-service-name::after {
+    content: '›';
+    font-size: 14px;
+    color: rgba(91,120,246,0.5);
+    transition: color 0.2s, transform 0.2s;
+    display: inline-block;
+    line-height: 1;
+}
+.fp-services--names .fp-service-item:hover .fp-service-name::after {
+    color: #5B78F6;
+    transform: rotate(90deg);
+}
+.fp-services--names .fp-service-desc {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+    transition:
+        max-height 0.38s cubic-bezier(0.22,1,0.36,1),
+        opacity 0.28s ease,
+        margin 0.38s cubic-bezier(0.22,1,0.36,1);
+    pointer-events: none;
+}
+.fp-services--names .fp-service-item:hover .fp-service-desc {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 8px;
+    pointer-events: auto;
+}
 
 /* CTA orbit */
 .cta-orbit { position: absolute; top: 50%; left: 65%; transform: translate(-50%,-50%); pointer-events: none; }

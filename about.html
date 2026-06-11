@@ -14,7 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css">
+    <!-- Devicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
 
     <link rel="stylesheet" href="./assets_About/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets_About/css/aos.css">
@@ -84,7 +87,7 @@
                     <div class="col-md-12" data-aos="fade-right" data-aos-duration="700">
                         <div class="about-edc-exp about-experience shadow-box modern-card">
                             <img src="./assets_About/images/bg1.png" alt="BG" class="bg-img">
-                            <h3>EXPERIENCE</h3>
+                            <h3 style="font-weight:600;letter-spacing:-0.03em;line-height:1.05;font-size:2em;">Where I've been <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#5B78F6;">shipping.</span></h3>
 
                             <ul class="exp-timeline">
                                 <li class="exp-item">
@@ -101,7 +104,7 @@
                                             </div>
                                         </div>
                                         <div class="exp-skills">
-                                            <span>Java</span><span>Spring Boot</span><span>Microservices</span><span>GCP</span><span>REST APIs</span><span>Kafka</span>
+                                            <span class="interest-icon" data-tip="Java" style="font-size:1.6rem;"><i class="devicon-java-plain colored"></i></span><span class="interest-icon" data-tip="Spring Boot" style="font-size:1.6rem;"><i class="devicon-spring-plain colored"></i></span><span class="interest-icon" data-tip="Microservices" style="font-size:1.6rem;"><svg width="22" height="22" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><text x="1" y="28" font-size="11" font-weight="900" fill="#5B78F6" font-family="Inter,sans-serif">µSvc</text></svg></span><span class="interest-icon" data-tip="GCP" style="font-size:1.6rem;"><i class="devicon-googlecloud-plain colored"></i></span><span class="interest-icon" data-tip="REST APIs" style="font-size:1.6rem;"><i class="iconoir-code" style="color:#34a853;"></i></span><span class="interest-icon" data-tip="Kafka" style="font-size:1.6rem;"><i class="devicon-apachekafka-plain"></i></span>
                                         </div>
                                     </div>
                                 </li>
@@ -119,7 +122,7 @@
                                             </div>
                                         </div>
                                         <div class="exp-skills">
-                                            <span>Java</span><span>Spring Boot</span><span>OracleDB</span><span>Docker</span><span>Kubernetes</span><span>Jenkins</span><span>CI/CD</span><span>Git</span>
+                                            <span class="interest-icon" data-tip="Java" style="font-size:1.6rem;"><i class="devicon-java-plain colored"></i></span><span class="interest-icon" data-tip="Spring Boot" style="font-size:1.6rem;"><i class="devicon-spring-plain colored"></i></span><span class="interest-icon" data-tip="OracleDB" style="font-size:1.6rem;"><i class="devicon-oracle-original colored"></i></span><span class="interest-icon" data-tip="Docker" style="font-size:1.6rem;"><i class="devicon-docker-plain colored"></i></span><span class="interest-icon" data-tip="Kubernetes" style="font-size:1.6rem;"><i class="devicon-kubernetes-plain colored"></i></span><span class="interest-icon" data-tip="Jenkins" style="font-size:1.6rem;"><i class="devicon-jenkins-plain colored"></i></span><span class="interest-icon" data-tip="CI/CD" style="font-size:1.6rem;"><i class="iconoir-git-fork" style="color:#F05032;"></i></span><span class="interest-icon" data-tip="Git" style="font-size:1.6rem;"><i class="devicon-git-plain colored"></i></span>
                                         </div>
                                     </div>
                                 </li>
@@ -198,6 +201,19 @@
     <script src="./assets_About/js/aos.js"></script>
     <script src="./assets_About/js/main.js"></script>
     <script src="./assets/js/modern.js"></script>
-</body>
+    <script>
+        // Tap tooltip for interest icons
+        var icons = document.querySelectorAll('.interest-icon[data-tip]');
+        icons.forEach(function(icon) {
+            icon.addEventListener('touchstart', function(e) {
+                e.stopPropagation();
+                icons.forEach(function(i) { i.classList.remove('tip-show'); });
+                icon.classList.add('tip-show');
+            });
+        });
+        document.addEventListener('touchstart', function() {
+            icons.forEach(function(i) { i.classList.remove('tip-show'); });
+        });
+    </script>
 
 </html>
