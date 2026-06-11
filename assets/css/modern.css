@@ -1,4 +1,4 @@
-/* =============================================
+﻿/* =============================================
    MODERN ANIMATIONS & UI - Sibashish Portfolio
    ============================================= */
 
@@ -1442,6 +1442,7 @@ body {
 .skills-area {
     padding-top: 0;
     padding-bottom: 60px;
+    position: relative;
 }
 
 .skills-area .section-heading {
@@ -1493,158 +1494,137 @@ body {
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 20px;
+    align-items: center;
 }
 
-/* -- Individual card -- */
+/* Graph SVG overlay */
+.skills-graph-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 0;
+}
+.sg-edge {
+    stroke: rgba(23,105,255,0.32);
+    stroke-width: 1.5;
+    fill: none;
+    stroke-dasharray: var(--edge-len, 200);
+    stroke-dashoffset: var(--edge-len, 200);
+    transition: none;
+    stroke-linecap: round;
+}
+.sg-edge.sg-drawn {
+    animation: edgeDraw var(--edge-dur, 0.6s) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes edgeDraw {
+    to { stroke-dashoffset: 0; }
+}
+.sg-pulse {
+    fill: rgba(23,105,255,0.7);
+    r: 3;
+}
+.sg-pulse.sg-pulsing {
+    animation: pulseTravel var(--pulse-dur, 1.4s) linear infinite;
+}
+@keyframes pulseTravel {
+    0%   { offset-distance: 0%;   opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { offset-distance: 100%; opacity: 0; }
+}
+
+/* -- Individual card (graph node — circle) -- */
 .skill-card {
-    width: 110px;
-    padding: 22px 12px 16px;
+    width: 100px;
+    height: 100px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 6px;
     cursor: default;
-    border-radius: 20px !important;
-    background: rgba(255, 255, 255, 0.65) !important;
-    border: 1px solid var(--glass-border) !important;
-    transition: border-color 0.25s, box-shadow 0.25s;
-    /* Hidden before throw */
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+    border: 2px solid rgba(23,105,255,0.22) !important;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    position: relative;
+    z-index: 1;
+    /* Hidden before node pop */
     opacity: 0;
-    transform: translate3d(0, -320px, 0) rotateX(720deg) rotateZ(180deg) scale(0.4);
+    transform: scale(0.35);
     will-change: transform, opacity;
 }
 
-/* -- Throw variants � assigned by JS data-throw -- */
-.skill-card[data-throw="left"] {
-    transform: translate3d(-260px, -280px, 0) rotateX(540deg) rotateZ(-160deg) scale(0.3);
-}
-.skill-card[data-throw="right"] {
-    transform: translate3d(260px, -260px, 0) rotateX(600deg) rotateZ(160deg) scale(0.3);
-}
-.skill-card[data-throw="far"] {
-    transform: translate3d(40px, -480px, 0) rotateX(900deg) rotateZ(270deg) scale(0.2);
-}
-
-/* -- Rolled state: card lands and settles -- */
+/* -- Rolled = node pops in -- */
 .skill-card.rolled {
-    animation: diceThrow var(--throw-dur, 0.9s) var(--throw-ease, cubic-bezier(0.22, 1, 0.36, 1)) both;
+    animation: nodePopIn var(--throw-dur, 0.5s) cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
-@keyframes diceThrow {
-    /*  0 ? in the air, tumbling  */
-    0% {
-        opacity: 0;
-        transform: translate3d(var(--tx, 0px), -340px, 0)
-                   rotateX(var(--rx, 720deg))
-                   rotateZ(var(--rz, 200deg))
-                   scale(0.3);
-    }
-    /* 15% ? visible, still spinning, dropping fast */
-    15% {
-        opacity: 1;
-        transform: translate3d(calc(var(--tx, 0px) * 0.5), -160px, 0)
-                   rotateX(calc(var(--rx, 720deg) * 0.55))
-                   rotateZ(calc(var(--rz, 200deg) * 0.5))
-                   scale(0.65);
-    }
-    /* 55% ? hits the table � squash */
-    55% {
-        transform: translate3d(0, 8px, 0)
-                   rotateX(8deg)
-                   rotateZ(calc(var(--rz, 200deg) * 0.04))
-                   scale(1.1, 0.88);
-    }
-    /* 72% ? bounces up slightly */
-    72% {
-        transform: translate3d(0, -22px, 0)
-                   rotateX(-4deg)
-                   rotateZ(calc(var(--rz, 200deg) * -0.015))
-                   scale(0.96, 1.04);
-    }
-    /* 84% ? second small bounce */
-    84% {
-        transform: translate3d(0, 4px, 0)
-                   rotateX(2deg)
-                   rotateZ(0deg)
-                   scale(1.03, 0.97);
-    }
-    /* 93% ? micro wobble */
-    93% {
-        transform: translate3d(0, -5px, 0)
-                   rotateX(-1deg)
-                   scale(0.99, 1.01);
-    }
-    /* 100% ? settled flat on table */
-    100% {
-        opacity: 1;
-        transform: translate3d(0, 0, 0)
-                   rotateX(0deg)
-                   rotateZ(0deg)
-                   scale(1);
-    }
+/* -- Settled: permanently visible after animation -- */
+.skill-card.settled {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    animation: none !important;
+}
+.skill-card.settled.node-connected {
+    animation: nodeGlow 3s ease-in-out infinite !important;
 }
 
-/* -- Shadow grows as card approaches table -- */
-.skill-card.rolled::before {
-    content: '';
-    position: absolute;
-    bottom: -16px;
-    left: 15%;
-    width: 70%;
-    height: 12px;
-    background: radial-gradient(ellipse, rgba(0,0,0,0.55) 0%, transparent 75%);
-    border-radius: 50%;
-    animation: diceShadow var(--throw-dur, 0.9s) var(--throw-ease, cubic-bezier(0.22, 1, 0.36, 1)) both;
-    z-index: 0;
-    pointer-events: none;
+@keyframes nodePopIn {
+    0%   { opacity: 0; transform: scale(0.2); }
+    55%  { opacity: 1; transform: scale(1.14); }
+    78%  { transform: scale(0.94); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
-@keyframes diceShadow {
-    0%   { opacity: 0; transform: scale(0.1); }
-    55%  { opacity: 0.8; transform: scale(1.15); }
-    72%  { opacity: 0.4; transform: scale(0.7); }
-    100% { opacity: 0.6; transform: scale(1); }
+/* Node glow pulse after appearing */
+.skill-card.node-connected {
+    box-shadow: 0 0 0 3px rgba(23,105,255,0.18), 0 4px 20px rgba(23,105,255,0.14) !important;
+    animation: nodeGlow 3s ease-in-out infinite;
+}
+@keyframes nodeGlow {
+    0%,100% { box-shadow: 0 0 0 3px rgba(23,105,255,0.15), 0 4px 18px rgba(23,105,255,0.1); }
+    50%     { box-shadow: 0 0 0 5px rgba(23,105,255,0.38), 0 6px 28px rgba(23,105,255,0.22); }
 }
 
-/* -- Hover: re-roll spin -- */
+/* -- Hover: node highlight -- */
 .skill-card:hover {
-    border-color: rgba(23, 105, 255, 0.55) !important;
-    box-shadow: 0 16px 40px rgba(23, 105, 255, 0.25),
-                0 0 0 1px rgba(23, 105, 255, 0.3) !important;
-    animation: diceReroll 0.55s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+    border-color: rgba(23, 105, 255, 0.6) !important;
+    box-shadow: 0 0 0 3px rgba(23,105,255,0.25), 0 12px 32px rgba(23,105,255,0.22) !important;
+    animation: nodeHover 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both !important;
 }
 
-@keyframes diceReroll {
-    0%   { transform: scale(1) rotateY(0deg) rotateX(0deg); }
-    20%  { transform: scale(1.08) rotateY(-90deg) rotateX(30deg) translateY(-10px); }
-    50%  { transform: scale(1.04) rotateY(-240deg) rotateX(-20deg) translateY(-4px); }
-    75%  { transform: scale(1.06) rotateY(-340deg) rotateX(10deg) translateY(-8px); }
-    88%  { transform: scale(0.97) rotateY(-356deg) rotateX(-3deg) translateY(3px); }
-    100% { transform: scale(1) rotateY(-360deg) rotateX(0deg) translateY(0); }
+@keyframes nodeHover {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.1); }
+    100% { transform: scale(1.05); }
 }
 
 /* Icon */
 .skill-icon {
-    font-size: 40px;
+    font-size: 32px;
     line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 44px;
+    height: 36px;
 }
 
 .skill-icon i {
-    font-size: 40px;
+    font-size: 32px;
     display: block;
     line-height: 1;
 }
 
-/* AI tools � styled letter badge */
+/* AI tools styled letter badge */
 .skill-icon-ai {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1659,13 +1639,17 @@ body {
 
 /* Skill name */
 .skill-name {
-    font-size: 11px;
-    font-weight: 500;
-    color: #bcbcbc;
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(13,27,62,0.55);
     text-align: center;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
     transition: color 0.3s;
-    line-height: 1.3;
+    line-height: 1.2;
+    max-width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .skill-card:hover .skill-name {
@@ -1942,7 +1926,7 @@ body {
     font-weight: 600;
     color: var(--text-main);
     margin: 0 0 10px;
-    background: linear-gradient(135deg, #fff 40%, var(--primary) 100%);
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -2183,7 +2167,7 @@ body {
     font-weight: 600;
     color: var(--text-main);
     margin: 0;
-    background: linear-gradient(135deg, #fff 40%, var(--primary) 100%);
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -2347,7 +2331,7 @@ body {
     .hero-rings { display: none; }
     .blob { opacity: 0.12; }
     .hero-name { font-size: 28px !important; }
-    .skill-card { width: 90px; padding: 16px 8px 12px; }
+    .skill-card { width: 80px; height: 80px; }
     .skill-icon i { font-size: 32px; }
     .skill-icon-ai { width: 36px; height: 36px; font-size: 12px; }
 }
@@ -2416,7 +2400,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 }
 
 /* Skills cards */
-.skill-card { background: rgba(255,255,255,0.85) !important; border-color: rgba(23, 105, 255,0.3) !important; box-shadow: 0 2px 12px rgba(23, 105, 255,0.06) !important; }
+.skill-card { background: rgba(255,255,255,0.85) !important; border-color: rgba(23, 105, 255,0.3) !important; border-radius: 50% !important; box-shadow: 0 2px 12px rgba(23, 105, 255,0.06) !important; }
 .skill-card:hover { box-shadow: 0 8px 28px rgba(23, 105, 255,0.18) !important; border-color: rgba(23, 105, 255,0.3) !important; }
 .skill-name { color: var(--text-main) !important; }
 .skills-group-label { color: var(--text-muted) !important; }

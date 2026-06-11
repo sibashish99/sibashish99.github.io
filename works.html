@@ -661,43 +661,162 @@
     <script src="./assets_works/js/main.js"></script>
     <script src="./assets/js/modern.js"></script>
     <script>
-        // ── Dice throw animation ──
+        // ── Graph network animation ──
         (function () {
-            var cards = Array.from(document.querySelectorAll('.skill-card'));
-            var profiles = [
-                { tx: '0px',    rx: '720deg',  rz: '200deg',  dur: '0.85s', ease: 'cubic-bezier(0.22,1,0.36,1)' },
-                { tx: '-180px', rx: '540deg',  rz: '-160deg', dur: '0.9s',  ease: 'cubic-bezier(0.22,1,0.36,1)' },
-                { tx: '180px',  rx: '600deg',  rz: '240deg',  dur: '0.8s',  ease: 'cubic-bezier(0.18,1,0.32,1)' },
-                { tx: '-80px',  rx: '900deg',  rz: '-300deg', dur: '1.0s',  ease: 'cubic-bezier(0.25,1,0.4,1)'  },
-                { tx: '80px',   rx: '660deg',  rz: '180deg',  dur: '0.75s', ease: 'cubic-bezier(0.22,1,0.36,1)' },
-                { tx: '30px',   rx: '840deg',  rz: '-220deg', dur: '0.95s', ease: 'cubic-bezier(0.2,1,0.34,1)'  },
-            ];
-            cards.forEach(function (card, i) {
-                var p = profiles[i % profiles.length];
-                card.style.setProperty('--tx', p.tx);
-                card.style.setProperty('--rx', p.rx);
-                card.style.setProperty('--rz', p.rz);
-                card.style.setProperty('--throw-dur', p.dur);
-                card.style.setProperty('--throw-ease', p.ease);
+            var allCards = Array.from(document.querySelectorAll('.skill-card'));
+            var groups   = Array.from(document.querySelectorAll('.skills-grid'));
+
+            // Assign per-card timing CSS vars (node pop-in stagger)
+            var durs = ['0.45s','0.5s','0.42s','0.48s','0.52s','0.44s'];
+            allCards.forEach(function (card, i) {
+                card.style.setProperty('--throw-dur', durs[i % durs.length]);
             });
-            var observer = new IntersectionObserver(function (entries) {
+
+            // ── Observe each group: pop cards in, then draw edges ──
+            var groupObserver = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var card = entry.target;
-                        var idx = cards.indexOf(card);
-                        var delay = idx * 80 + Math.floor(Math.random() * 40);
-                        setTimeout(function () { card.classList.add('rolled'); }, delay);
-                        observer.unobserve(card);
-                    }
+                    if (!entry.isIntersecting) return;
+                    var grid  = entry.target;
+                    var cards = Array.from(grid.querySelectorAll('.skill-card'));
+
+                    // 1. Stagger node pop-in
+                    cards.forEach(function (card, i) {
+                        setTimeout(function () {
+                            card.classList.add('rolled');
+                            // Lock visible after animation ends
+                            var dur = parseFloat(getComputedStyle(card).getPropertyValue('--throw-dur') || '0.5') * 1000 || 500;
+                            setTimeout(function () { card.classList.add('settled'); }, dur + 50);
+                        }, i * 65);
+                    });
+
+                    // 2. After last card pops, draw edges
+                    var drawDelay = cards.length * 65 + 200;
+                    setTimeout(function () { drawEdges(grid, cards); }, drawDelay);
+
+                    groupObserver.unobserve(grid);
                 });
-            }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
-            cards.forEach(function (card) { observer.observe(card); });
-            // Fallback: trigger any card still not rolled after 1.2s
+            }, { threshold: 0.04, rootMargin: '0px 0px -20px 0px' });
+            groups.forEach(function (g) { groupObserver.observe(g); });
+
+            // Fallback: ensure all cards are visible regardless
             setTimeout(function () {
-                cards.forEach(function (card) {
-                    if (!card.classList.contains('rolled')) { card.classList.add('rolled'); }
+                allCards.forEach(function (card) {
+                    if (!card.classList.contains('rolled')) card.classList.add('rolled');
+                    setTimeout(function () { card.classList.add('settled'); }, 600);
                 });
-            }, 1200);
+            }, 800);
+
+            // ── Build & animate SVG edges for one grid ──
+            function drawEdges(grid, cards) {
+                if (cards.length < 2) return;
+
+                var section = document.querySelector('.skills-area');
+                var secRect = section.getBoundingClientRect();
+
+                // Get card centers relative to skills-area
+                var pts = cards.map(function (c) {
+                    var r = c.getBoundingClientRect();
+                    return {
+                        x: r.left + r.width  / 2 - secRect.left,
+                        y: r.top  + r.height / 2 - secRect.top
+                    };
+                });
+
+                // Find edges: each node connects to its 2 nearest neighbours
+                var MAX_NEIGHBORS = 2;
+                var edges = [];
+                var seen  = new Set();
+                pts.forEach(function (p, i) {
+                    var dists = pts.map(function (q, j) {
+                        return { j: j, d: Math.hypot(p.x - q.x, p.y - q.y) };
+                    }).filter(function (x) { return x.j !== i; })
+                      .sort(function (a, b) { return a.d - b.d; })
+                      .slice(0, MAX_NEIGHBORS);
+
+                    dists.forEach(function (nb) {
+                        var key = i < nb.j ? i + '-' + nb.j : nb.j + '-' + i;
+                        if (!seen.has(key)) {
+                            seen.add(key);
+                            edges.push({ a: i, b: nb.j, len: nb.d });
+                        }
+                    });
+                });
+
+                // Get or create the SVG overlay
+                var svg = section.querySelector('.skills-graph-svg');
+                if (!svg) {
+                    svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                    svg.setAttribute('class', 'skills-graph-svg');
+                    section.insertBefore(svg, section.firstChild);
+                }
+
+                // Draw each edge with staggered draw animation
+                edges.forEach(function (e, idx) {
+                    var p1 = pts[e.a], p2 = pts[e.b];
+                    var len = Math.round(e.len);
+
+                    var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('class', 'sg-edge');
+                    line.setAttribute('x1', p1.x); line.setAttribute('y1', p1.y);
+                    line.setAttribute('x2', p2.x); line.setAttribute('y2', p2.y);
+                    line.style.setProperty('--edge-len', len);
+                    line.style.setProperty('--edge-dur', (0.45 + idx * 0.07) + 's');
+                    svg.appendChild(line);
+
+                    // Trigger draw animation staggered
+                    setTimeout(function () {
+                        line.classList.add('sg-drawn');
+                        // Add node-connected glow to both endpoints
+                        cards[e.a].classList.add('node-connected');
+                        cards[e.b].classList.add('node-connected');
+
+                        // Add travelling dot pulse on the path
+                        setTimeout(function () { addPulse(svg, p1, p2, len, idx); }, 300);
+                    }, idx * 90);
+                });
+            }
+
+            // ── Travelling dot along an edge ──
+            function addPulse(svg, p1, p2, len, idx) {
+                var dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                dot.setAttribute('r', '3');
+                dot.setAttribute('fill', 'rgba(23,105,255,0.75)');
+
+                var dur = (0.9 + Math.random() * 0.8).toFixed(2);
+                var delay = (Math.random() * 2).toFixed(2);
+
+                var motion = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+                motion.setAttribute('dur', dur + 's');
+                motion.setAttribute('begin', delay + 's');
+                motion.setAttribute('repeatCount', 'indefinite');
+                motion.setAttribute('calcMode', 'linear');
+
+                var mpath = document.createElementNS('http://www.w3.org/2000/svg', 'mpath');
+                // Define a path for motion
+                var pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                var pid = 'sg-mp-' + Date.now() + '-' + idx;
+                pathEl.setAttribute('id', pid);
+                pathEl.setAttribute('d', 'M' + p1.x + ',' + p1.y + ' L' + p2.x + ',' + p2.y);
+                pathEl.setAttribute('fill', 'none');
+                pathEl.setAttribute('stroke', 'none');
+                svg.appendChild(pathEl);
+
+                mpath.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#' + pid);
+                motion.appendChild(mpath);
+
+                // Fade in/out with animate
+                var fadeAnim = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+                fadeAnim.setAttribute('attributeName', 'opacity');
+                fadeAnim.setAttribute('values', '0;0;1;1;0;0');
+                fadeAnim.setAttribute('keyTimes', '0;0.05;0.12;0.88;0.95;1');
+                fadeAnim.setAttribute('dur', dur + 's');
+                fadeAnim.setAttribute('begin', delay + 's');
+                fadeAnim.setAttribute('repeatCount', 'indefinite');
+
+                dot.appendChild(motion);
+                dot.appendChild(fadeAnim);
+                svg.appendChild(dot);
+            }
         })();
 
         // ── Featured project card reveal + service item stagger ──
