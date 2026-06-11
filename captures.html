@@ -46,24 +46,61 @@
     <section class="cap-section">
         <div class="container">
 
-            <div class="cap-hero" data-aos="fade-up">
-                <span class="cap-eyebrow"><i class="iconoir-camera"></i> Visual Journal</span>
-                <h1 class="cap-heading">Through My <span>Lens.</span></h1>
-                <p class="cap-sub">Moments captured between lines of code — beach vibes, city nights, café corners, and everything in between.</p>
-                <div class="cap-stats-row">
-                    <div class="cap-stat">
-                        <span class="cap-stat-num">36+</span>
-                        <span class="cap-stat-lbl">Captures</span>
+            <div class="cap-hero">
+                <!-- Background watermark word -->
+                <div class="cap-watermark" aria-hidden="true">CAPTURES</div>
+
+                <!-- Left: text block -->
+                <div class="cap-hero-text">
+                    <span class="cap-eyebrow">
+                        <span class="cap-shutter">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5" fill="currentColor" stroke="none"/><line x1="12" y1="3" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="3" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="21" y2="12"/></svg>
+                        </span>
+                        Visual Journal
+                    </span>
+
+                    <h1 class="cap-heading">
+                        <span class="cap-line cap-line-1">Through</span>
+                        <span class="cap-line cap-line-2">My <em>Lens.</em></span>
+                    </h1>
+
+                    <p class="cap-sub">Moments captured between lines of code — beach vibes, city nights, café corners, and everything in between.</p>
+
+                    <!-- Stats pill row -->
+                    <div class="cap-stats-row">
+                        <div class="cap-stat">
+                            <span class="cap-stat-num" data-count="36">0</span>
+                            <span class="cap-stat-lbl">Captures</span>
+                        </div>
+                        <div class="cap-stat-divider"></div>
+                        <div class="cap-stat">
+                            <span class="cap-stat-num" data-count="2">0</span>
+                            <span class="cap-stat-lbl">Cities</span>
+                        </div>
+                        <div class="cap-stat-divider"></div>
+                        <div class="cap-stat">
+                            <span class="cap-stat-num" data-count="1">0</span>
+                            <span class="cap-stat-lbl">Explorer</span>
+                        </div>
                     </div>
-                    <div class="cap-stat-divider"></div>
-                    <div class="cap-stat">
-                        <span class="cap-stat-num">2</span>
-                        <span class="cap-stat-lbl">Cities</span>
-                    </div>
-                    <div class="cap-stat-divider"></div>
-                    <div class="cap-stat">
-                        <span class="cap-stat-num">1</span>
-                        <span class="cap-stat-lbl">Explorer</span>
+                </div>
+
+                <!-- Right: floating photo stack -->
+                <div class="cap-hero-visual">
+                    <div class="cap-lens-ring" aria-hidden="true"></div>
+                    <div class="cap-photo-stack">
+                        <div class="cap-photo cap-photo-1">
+                            <img src="https://i.pinimg.com/736x/5d/85/be/5d85be7e2d15a21b4b65ada228039a57.jpg" alt="Gokarna Beach" loading="eager">
+                            <span class="cap-photo-label">Gokarna</span>
+                        </div>
+                        <div class="cap-photo cap-photo-2">
+                            <img src="https://i.pinimg.com/736x/42/a8/f5/42a8f585c2e1467e3d930afb8cf61928.jpg" alt="Bangalore Sunset" loading="eager">
+                            <span class="cap-photo-label">Bangalore</span>
+                        </div>
+                        <div class="cap-photo cap-photo-3">
+                            <img src="https://i.pinimg.com/736x/ba/24/e5/ba24e50a4207b60d7cdbc1759c445725.jpg" alt="Travel Vibes" loading="eager">
+                            <span class="cap-photo-label">Travel</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -606,6 +643,68 @@
 <script src="./assets/js/main.js"></script>
 <script src="./assets/js/modern.js"></script>
 <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+<script>
+/* ── Captures hero animations ── */
+(function () {
+    // Count-up for stats
+    function countUp(el) {
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        var dur    = 1200;
+        var start  = performance.now();
+        function step(now) {
+            var p = Math.min((now - start) / dur, 1);
+            var ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(ease * target) + (target === 36 ? '+' : '');
+            if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    var statsObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.cap-stat-num[data-count]').forEach(countUp);
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+    var statsRow = document.querySelector('.cap-stats-row');
+    if (statsRow) statsObserver.observe(statsRow);
+
+    // Stagger-in hero text lines
+    var lines = document.querySelectorAll('.cap-line');
+    lines.forEach(function (l, i) {
+        setTimeout(function () { l.classList.add('cap-line-in'); }, 200 + i * 140);
+    });
+    var eyebrow = document.querySelector('.cap-eyebrow');
+    if (eyebrow) setTimeout(function () { eyebrow.classList.add('cap-eyebrow-in'); }, 80);
+    var sub = document.querySelector('.cap-sub');
+    if (sub) setTimeout(function () { sub.classList.add('cap-sub-in'); }, 520);
+    if (statsRow) setTimeout(function () { statsRow.classList.add('cap-stats-in'); }, 680);
+
+    // Photo stack stagger
+    var photos = document.querySelectorAll('.cap-photo');
+    photos.forEach(function (p, i) {
+        setTimeout(function () { p.classList.add('cap-photo-in'); }, 400 + i * 160);
+    });
+
+    // Subtle 3D tilt on photo stack with mouse
+    var stack = document.querySelector('.cap-hero-visual');
+    if (stack) {
+        stack.addEventListener('mousemove', function (e) {
+            var r  = stack.getBoundingClientRect();
+            var cx = r.left + r.width  / 2;
+            var cy = r.top  + r.height / 2;
+            var rx = ((e.clientY - cy) / r.height) * -14;
+            var ry = ((e.clientX - cx) / r.width)  *  14;
+            stack.style.transform = 'perspective(700px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+        });
+        stack.addEventListener('mouseleave', function () {
+            stack.style.transform = 'perspective(700px) rotateX(0deg) rotateY(0deg)';
+        });
+    }
+})();
+</script>
 <script>
 /* Filter pills */
 (function () {
