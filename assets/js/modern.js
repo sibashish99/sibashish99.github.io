@@ -150,4 +150,30 @@
         AOS.init({ duration: 900, once: true, easing: 'ease-out-cubic', offset: 60 });
     }
 
+    /* ── Footer name: split into letter spans & march-up animation ── */
+    (function () {
+        var fl = document.getElementById('footer-logo');
+        if (!fl) return;
+        // Split the .footer-name text into individual letter spans
+        var nameEl = fl.querySelector('.footer-name');
+        if (nameEl) {
+            var letters = nameEl.textContent.split('');
+            nameEl.outerHTML = letters.map(function (ch) {
+                return '<span class="footer-letter">' + ch + '</span>';
+            }).join('');
+        }
+        // Trigger with IntersectionObserver
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    fl.querySelectorAll('.footer-letter').forEach(function (l, i) {
+                        setTimeout(function () { l.classList.add('fl-risen'); }, i * 55);
+                    });
+                    io.unobserve(fl);
+                }
+            });
+        }, { threshold: 0.01 });
+        io.observe(fl);
+    })();
+
 })();

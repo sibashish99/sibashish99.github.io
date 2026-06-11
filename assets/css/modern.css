@@ -296,61 +296,41 @@ body {
     align-items: center;
     gap: 0;
     line-height: 1;
+    background: linear-gradient(135deg, var(--text-main) 30%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: opacity 0.2s;
 }
 
-/* Brackets animate in from sides */
+.modern-logo:hover { opacity: 0.75; }
+
+/* Brackets — static, no animation */
 .logo-bracket {
     background: linear-gradient(135deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
-    opacity: 0;
-    animation: logoBracketIn 0.5s cubic-bezier(.22,.68,0,1.2) forwards;
-}
-.logo-bracket-open  { transform: translateX(-8px); animation-delay: 0.55s; }
-.logo-bracket-close { transform: translateX(8px);  animation-delay: 0.6s; }
-@keyframes logoBracketIn {
-    to { opacity: 1; transform: translateX(0); }
 }
 
-/* Clip container — shows only top 75% */
+/* Header name wrap — fully visible, no clip */
 .logo-name-wrap {
     display: inline-block;
-    overflow: hidden;
-    /* height = 75% of line-height; letters peek out from below */
-    height: 0.78em;
-    vertical-align: bottom;
+    overflow: visible;
+    height: auto;
+    vertical-align: middle;
     line-height: 1;
 }
 
-/* The actual name rises up into view (sunrise) */
 .logo-name {
     display: block;
     background: linear-gradient(135deg, var(--text-main) 30%, var(--primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    transform: translateY(100%);
-    animation: logoSunrise 0.7s cubic-bezier(.22,.68,0,1.15) 0.1s forwards;
     line-height: 1;
     white-space: nowrap;
-}
-@keyframes logoSunrise {
-    0%   { transform: translateY(100%); opacity: 0.2; }
-    60%  { opacity: 1; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-.modern-logo:hover .logo-name {
-    animation: none;
-    transform: translateY(0);
-    opacity: 0.75;
-}
-.modern-logo:hover .logo-bracket {
-    animation: none;
-    opacity: 0.75;
-    transform: translateX(0);
 }
 
 /* Hide hamburger on desktop */
@@ -886,15 +866,56 @@ body {
     margin: 0 !important;
 }
 
+/* Footer giant name — clips to top 50% so letters peek from bottom edge */
 .modern-logo--footer {
-    font-size: 84px !important;
-    letter-spacing: 4px !important;
-    display: block;
-    line-height: 1;
+    font-size: 168px !important;
+    font-family: 'Titillium Web', sans-serif !important;
+    font-weight: 900 !important;
+    letter-spacing: 6px !important;
+    display: inline-flex !important;
+    align-items: flex-start !important;
+    line-height: 1 !important;
+    overflow: hidden !important;
+    height: 0.5em !important;
+    text-decoration: none !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    vertical-align: bottom;
 }
 
-.modern-logo--footer .logo-name-wrap {
-    height: 0.82em;
+/* Each animated letter span (injected by JS) */
+.footer-letter {
+    display: inline-block;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--text-main) 30%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: translateY(1em);
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.footer-letter--bracket {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Triggered class — letter marches up */
+.footer-letter.fl-risen {
+    animation: footerLetterRise 0.52s cubic-bezier(.22,.68,0,1.1) forwards;
+}
+
+@keyframes footerLetterRise {
+    0%   { transform: translateY(1em); opacity: 0; }
+    35%  { opacity: 1; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 767px) {
+    .modern-logo--footer { font-size: 72px !important; letter-spacing: 2px !important; }
 }
 
 /* =============================================
