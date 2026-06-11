@@ -866,7 +866,7 @@ body {
     margin: 0 !important;
 }
 
-/* Footer giant name — clips to top 50% so letters peek from bottom edge */
+/* Footer giant name — clips so 70% of letters visible above bottom edge */
 .modern-logo--footer {
     font-size: 168px !important;
     font-family: 'Titillium Web', sans-serif !important;
@@ -876,7 +876,7 @@ body {
     align-items: flex-start !important;
     line-height: 1 !important;
     overflow: hidden !important;
-    height: 0.5em !important;
+    height: 0.7em !important;
     text-decoration: none !important;
     background: none !important;
     -webkit-text-fill-color: initial !important;
@@ -914,8 +914,18 @@ body {
     100% { transform: translateY(0); opacity: 1; }
 }
 
-@media (max-width: 767px) {
-    .modern-logo--footer { font-size: 72px !important; letter-spacing: 2px !important; }
+/* Responsive footer name */
+@media (max-width: 1200px) {
+    .modern-logo--footer { font-size: 120px !important; letter-spacing: 4px !important; }
+}
+@media (max-width: 900px) {
+    .modern-logo--footer { font-size: 80px !important; letter-spacing: 2px !important; }
+}
+@media (max-width: 600px) {
+    .modern-logo--footer { font-size: 52px !important; letter-spacing: 1px !important; }
+}
+@media (max-width: 400px) {
+    .modern-logo--footer { font-size: 38px !important; letter-spacing: 0px !important; }
 }
 
 /* =============================================
