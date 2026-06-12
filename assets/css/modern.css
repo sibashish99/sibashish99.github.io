@@ -1498,48 +1498,12 @@ body {
     align-items: center;
 }
 
-/* Graph SVG overlay */
-.skills-graph-svg {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    overflow: visible;
-    z-index: 0;
-}
-.sg-edge {
-    stroke: rgba(23,105,255,0.32);
-    stroke-width: 1.5;
-    fill: none;
-    stroke-dasharray: var(--edge-len, 200);
-    stroke-dashoffset: var(--edge-len, 200);
-    transition: none;
-    stroke-linecap: round;
-}
-.sg-edge.sg-drawn {
-    animation: edgeDraw var(--edge-dur, 0.6s) cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-@keyframes edgeDraw {
-    to { stroke-dashoffset: 0; }
-}
-.sg-pulse {
-    fill: rgba(23,105,255,0.7);
-    r: 3;
-}
-.sg-pulse.sg-pulsing {
-    animation: pulseTravel var(--pulse-dur, 1.4s) linear infinite;
-}
-@keyframes pulseTravel {
-    0%   { offset-distance: 0%;   opacity: 0; }
-    10%  { opacity: 1; }
-    90%  { opacity: 1; }
-    100% { offset-distance: 100%; opacity: 0; }
-}
+
 
 /* -- Individual card (graph node — circle) -- */
 .skill-card {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -1547,10 +1511,11 @@ body {
     justify-content: center;
     gap: 6px;
     cursor: default;
-    border-radius: 50% !important;
-    background: rgba(255, 255, 255, 0.72) !important;
-    border: 2px solid rgba(23,105,255,0.22) !important;
-    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transition: transform 0.25s;
     position: relative;
     z-index: 1;
     /* Hidden before node pop */
@@ -1583,18 +1548,16 @@ body {
 
 /* Node glow pulse after appearing */
 .skill-card.node-connected {
-    box-shadow: 0 0 0 3px rgba(23,105,255,0.18), 0 4px 20px rgba(23,105,255,0.14) !important;
     animation: nodeGlow 3s ease-in-out infinite;
 }
 @keyframes nodeGlow {
-    0%,100% { box-shadow: 0 0 0 3px rgba(23,105,255,0.15), 0 4px 18px rgba(23,105,255,0.1); }
-    50%     { box-shadow: 0 0 0 5px rgba(23,105,255,0.38), 0 6px 28px rgba(23,105,255,0.22); }
+    0%,100% { filter: drop-shadow(0 0 3px rgba(23,105,255,0.22)); }
+    50%     { filter: drop-shadow(0 0 8px rgba(23,105,255,0.45)); }
 }
 
-/* -- Hover: node highlight -- */
+/* -- Hover: scale up -- */
 .skill-card:hover {
-    border-color: rgba(23, 105, 255, 0.6) !important;
-    box-shadow: 0 0 0 3px rgba(23,105,255,0.25), 0 12px 32px rgba(23,105,255,0.22) !important;
+    box-shadow: none !important;
     animation: nodeHover 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both !important;
 }
 
@@ -1606,35 +1569,42 @@ body {
 
 /* Icon */
 .skill-icon {
-    font-size: 32px;
+    font-size: 53px;
     line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 36px;
+    height: 58px;
+    filter: none !important;
+    box-shadow: none !important;
 }
 
 .skill-icon i {
-    font-size: 32px;
+    font-size: 53px;
     display: block;
     line-height: 1;
+    filter: none !important;
+    box-shadow: none !important;
 }
 
 /* AI tools styled letter badge */
 .skill-icon-ai {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+    width: 53px;
+    height: 53px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 800;
     letter-spacing: -0.5px;
     font-family: 'Inter', sans-serif;
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
 }
 
 /* Skill name */
@@ -2331,9 +2301,10 @@ body {
     .hero-rings { display: none; }
     .blob { opacity: 0.12; }
     .hero-name { font-size: 28px !important; }
-    .skill-card { width: 80px; height: 80px; }
-    .skill-icon i { font-size: 32px; }
-    .skill-icon-ai { width: 36px; height: 36px; font-size: 12px; }
+    .skill-card { width: 64px; height: 64px; }
+    .skill-icon i { font-size: 44px; }
+    .skill-icon { font-size: 44px; height: 48px; }
+    .skill-icon-ai { width: 44px; height: 44px; font-size: 13px; }
 }
 
 /* =============================================
@@ -2400,8 +2371,8 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 }
 
 /* Skills cards */
-.skill-card { background: rgba(255,255,255,0.85) !important; border-color: rgba(23, 105, 255,0.3) !important; border-radius: 50% !important; box-shadow: 0 2px 12px rgba(23, 105, 255,0.06) !important; }
-.skill-card:hover { box-shadow: 0 8px 28px rgba(23, 105, 255,0.18) !important; border-color: rgba(23, 105, 255,0.3) !important; }
+.skill-card { background: transparent !important; border: none !important; box-shadow: none !important; border-radius: 0 !important; }
+.skill-card:hover { box-shadow: none !important; border: none !important; }
 .skill-name { color: var(--text-main) !important; }
 .skills-group-label { color: var(--text-muted) !important; }
 
