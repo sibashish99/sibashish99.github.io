@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css">
 
@@ -57,105 +57,123 @@
 
         <!-- Contact -->
         <section class="ct-section">
-            <div class="container">
+            <div class="container" style="position:relative;">
 
-                <!-- Page hero -->
-                <div class="ct-hero" data-aos="fade-up">
-                    <span class="ct-eyebrow">Get in touch</span>
-                    <h1 class="ct-heading">Let's build something <span>amazing.</span></h1>
-                    <p class="ct-sub">Have a project in mind, a question, or just want to say hello? Drop a message and I'll get back to you.</p>
+                <!-- Ambient background orbs -->
+                <div class="ct-ambient" aria-hidden="true">
+                    <div class="ct-orb ct-orb--1"></div>
+                    <div class="ct-orb ct-orb--2"></div>
+                    <div class="ct-orb ct-orb--3"></div>
                 </div>
 
-                <!-- Main grid -->
-                <div class="ct-grid">
+                <!-- Hero -->
+                <div class="ct-hero">
+                    <div class="ct-hero-eyebrow">
+                        <span class="ct-pulse-dot"></span>
+                        Open to opportunities
+                    </div>
+                    <h1 class="ct-heading">Let's build something<br><em class="ct-heading-em">amazing together.</em></h1>
+                    <p class="ct-sub">Have a project in mind, a question, or just want to say hello?<br>Drop a message — I read every one.</p>
+                    <div class="ct-hero-ctas">
+                        <a href="mailto:sibashishreferral99@gmail.com?subject=Hey%20Sibashish!" class="ct-btn-primary">
+                            <i class="iconoir-send-mail"></i> Send Email
+                        </a>
+                        <a href="https://www.linkedin.com/in/sibashish-biswas/" target="_blank" rel="noopener" class="ct-btn-ghost">
+                            <i class="iconoir-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
 
-                    <!-- Left: info cards -->
-                    <div class="ct-left">
+                <!-- Bento grid -->
+                <div class="ct-bento">
 
-                        <div class="ct-info-card" data-aos="fade-up" data-aos-delay="60">
-                            <div class="ct-info-icon"><i class="iconoir-mail"></i></div>
-                            <div>
-                                <span class="ct-info-label">Email</span>
-                                <a href="mailto:sibashishreferral99@gmail.com" class="ct-info-value">sibashishreferral99@gmail.com</a>
-                            </div>
+                    <!-- Email CTA card (large) -->
+                    <div class="ct-bc ct-bc-email" data-aos="fade-up" data-aos-delay="0">
+                        <div class="ct-bc-shimmer"></div>
+                        <div class="ct-email-ring-wrap" aria-hidden="true">
+                            <div class="ct-email-ring"></div>
+                            <div class="ct-email-ring ct-email-ring--2"></div>
                         </div>
+                        <p class="ct-bc-label">Direct line</p>
+                        <h2 class="ct-bc-title">Drop me<br>a line.</h2>
+                        <a href="mailto:sibashishreferral99@gmail.com?subject=Hey%20Sibashish!" class="ct-email-action">
+                            <i class="iconoir-send-mail"></i>
+                            <span>sibashishreferral99@gmail.com</span>
+                            <i class="iconoir-arrow-up-right ct-ea-arrow"></i>
+                        </a>
+                        <p class="ct-email-note">I personally read every message.</p>
+                    </div>
 
-                        <div class="ct-info-card" data-aos="fade-up" data-aos-delay="120">
-                            <div class="ct-info-icon"><i class="iconoir-globe"></i></div>
-                            <div>
-                                <span class="ct-info-label">Website</span>
-                                <a href="https://sibashish726.github.io/sibashish99.github.io/" target="_blank" rel="noopener" class="ct-info-value">sibashish99.github.io</a>
-                            </div>
+                    <!-- Availability card -->
+                    <div class="ct-bc ct-bc-avail" data-aos="fade-up" data-aos-delay="80">
+                        <div class="ct-avail-pulse" aria-hidden="true"></div>
+                        <div class="ct-avail-top">
+                            <span class="ct-avail-dot"></span>
+                            <span class="ct-avail-live">Available now</span>
                         </div>
-
-                        <div class="ct-info-card" data-aos="fade-up" data-aos-delay="180">
-                            <div class="ct-info-icon"><i class="iconoir-location"></i></div>
-                            <div>
-                                <span class="ct-info-label">Location</span>
-                                <span class="ct-info-value">Koramangala, Bangalore, India</span>
-                            </div>
-                        </div>
-
-                        <!-- Social row -->
-                        <div class="ct-social-wrap" data-aos="fade-up" data-aos-delay="240">
-                            <span class="ct-info-label" style="margin-bottom:12px;display:block;">Find me on</span>
-                            <div class="ct-social-row">
-                                <a href="https://github.com/sibashish726" target="_blank" rel="noopener" class="ct-social-pill">
-                                    <i class="iconoir-github-circle"></i> GitHub
-                                </a>
-                                <a href="https://www.linkedin.com/in/sibashish-biswas/" target="_blank" rel="noopener" class="ct-social-pill">
-                                    <i class="iconoir-linkedin"></i> LinkedIn
-                                </a>
-                                <a href="https://www.instagram.com/_sibashishbiswas_/" target="_blank" rel="noopener" class="ct-social-pill">
-                                    <i class="iconoir-instagram"></i> Instagram
-                                </a>
-                            </div>
+                        <p class="ct-bc-label" style="margin-top:10px;">Status</p>
+                        <h3 class="ct-avail-heading">Open to<br>Opportunities</h3>
+                        <div class="ct-avail-chips">
+                            <span class="ct-avail-chip">Full-time</span>
+                            <span class="ct-avail-chip">Freelance</span>
+                            <span class="ct-avail-chip">Collabs</span>
                         </div>
                     </div>
 
-                    <!-- Right: reach-out panel -->
-                    <div class="ct-reach-panel" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Location card -->
+                    <div class="ct-bc ct-bc-location" data-aos="fade-up" data-aos-delay="140">
+                        <div class="ct-loc-icon"><i class="iconoir-location"></i></div>
+                        <p class="ct-bc-label">Location</p>
+                        <h3 class="ct-loc-city">Bangalore<span>,</span></h3>
+                        <p class="ct-loc-country">India</p>
+                        <span class="ct-tz-badge"><i class="iconoir-clock"></i> UTC +5:30 · IST</span>
+                    </div>
 
-                        <!-- Availability badge -->
-                        <div class="ct-avail-card">
-                            <div class="ct-reach-shimmer"></div>
-                            <div class="ct-avail-inner">
-                                <span class="ct-avail-dot"></span>
-                                <div>
-                                    <p class="ct-avail-status">Open to opportunities</p>
-                                    <p class="ct-avail-note">Available for full-time roles, freelance projects &amp; collaborations.</p>
-                                </div>
+                    <!-- Social links card -->
+                    <div class="ct-bc ct-bc-social" data-aos="fade-up" data-aos-delay="100">
+                        <p class="ct-bc-label" style="margin-bottom:14px;">Find me on</p>
+                        <a href="https://github.com/sibashish726" target="_blank" rel="noopener" class="ct-sl">
+                            <span class="ct-sl-icon" style="background:rgba(36,41,46,.1);border-color:rgba(36,41,46,.2);"><i class="iconoir-github-circle" style="color:#24292e;"></i></span>
+                            <span class="ct-sl-info"><span class="ct-sl-name">GitHub</span><span class="ct-sl-handle">sibashish726</span></span>
+                            <i class="iconoir-arrow-up-right ct-sl-arrow"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sibashish-biswas/" target="_blank" rel="noopener" class="ct-sl">
+                            <span class="ct-sl-icon" style="background:rgba(0,119,181,.1);border-color:rgba(0,119,181,.25);"><i class="iconoir-linkedin" style="color:#0077b5;"></i></span>
+                            <span class="ct-sl-info"><span class="ct-sl-name">LinkedIn</span><span class="ct-sl-handle">sibashish-biswas</span></span>
+                            <i class="iconoir-arrow-up-right ct-sl-arrow"></i>
+                        </a>
+                        <a href="https://www.instagram.com/_sibashishbiswas_/" target="_blank" rel="noopener" class="ct-sl">
+                            <span class="ct-sl-icon" style="background:rgba(225,48,108,.1);border-color:rgba(225,48,108,.25);"><i class="iconoir-instagram" style="color:#e1306c;"></i></span>
+                            <span class="ct-sl-info"><span class="ct-sl-name">Instagram</span><span class="ct-sl-handle">_sibashishbiswas_</span></span>
+                            <i class="iconoir-arrow-up-right ct-sl-arrow"></i>
+                        </a>
+                    </div>
+
+                    <!-- Services card -->
+                    <div class="ct-bc ct-bc-services" data-aos="fade-up" data-aos-delay="160">
+                        <p class="ct-bc-label" style="margin-bottom:16px;">What I can help with</p>
+                        <ul class="ct-services-list">
+                            <li><i class="iconoir-server"></i> Backend systems &amp; microservices (Java / Spring Boot)</li>
+                            <li><i class="iconoir-cloud"></i> Cloud-native architecture (GCP / Docker / K8s)</li>
+                            <li><i class="iconoir-code-brackets"></i> API design &amp; system integration</li>
+                            <li><i class="iconoir-design-pencil"></i> Frontend polish &amp; UI improvements</li>
+                            <li><i class="iconoir-chat-bubble"></i> Tech discussions, mentoring &amp; referrals</li>
+                        </ul>
+                    </div>
+
+                    <!-- Response time card (full width) -->
+                    <div class="ct-bc ct-bc-response" data-aos="fade-up" data-aos-delay="200">
+                        <div class="ct-resp-inner">
+                            <div class="ct-resp-icon"><i class="iconoir-clock"></i></div>
+                            <div>
+                                <p class="ct-resp-text">Typically respond within <strong>24–48 hours</strong></p>
+                                <p class="ct-resp-sub">IST timezone · Bangalore, India · UTC+5:30</p>
                             </div>
                         </div>
-
-                        <!-- Direct email CTA -->
-                        <div class="ct-email-cta">
-                            <p class="ct-email-label">Prefer email? Write directly —</p>
-                            <a href="mailto:sibashishreferral99@gmail.com?subject=Hey%20Sibashish!" class="ct-email-btn">
-                                <i class="iconoir-send-mail"></i>
-                                <span>sibashishreferral99@gmail.com</span>
-                                <i class="iconoir-arrow-up-right ct-email-arrow"></i>
-                            </a>
-                        </div>
-
-                        <!-- What I can help with -->
-                        <div class="ct-help-card">
-                            <p class="ct-info-label" style="margin-bottom:16px;">What I can help with</p>
-                            <ul class="ct-help-list">
-                                <li><i class="iconoir-server"></i> Backend systems &amp; microservices (Java / Spring Boot)</li>
-                                <li><i class="iconoir-cloud"></i> Cloud-native architecture (GCP / Docker / Kubernetes)</li>
-                                <li><i class="iconoir-code-brackets"></i> API design &amp; system integration</li>
-                                <li><i class="iconoir-design-pencil"></i> Frontend polish &amp; UI improvements</li>
-                                <li><i class="iconoir-chat-bubble"></i> Tech discussions, mentoring &amp; referrals</li>
-                            </ul>
-                        </div>
-
-                        <!-- Response time note -->
-                        <div class="ct-response-note">
-                            <i class="iconoir-clock"></i>
-                            Typically respond within <strong>24–48 hours</strong>. IST timezone (UTC +5:30).
-                        </div>
-
+                        <div class="ct-resp-divider"></div>
+                        <a href="https://sibashish726.github.io/sibashish99.github.io/" target="_blank" rel="noopener" class="ct-resp-link">
+                            <i class="iconoir-globe"></i> sibashish99.github.io
+                        </a>
                     </div>
 
                 </div>
