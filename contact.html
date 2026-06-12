@@ -77,6 +77,10 @@
                     <div class="ct-hero-ctas">
                         <a href="mailto:sibashishreferral99@gmail.com?subject=Hey%20Sibashish!" class="ct-btn-primary">
                             <i class="iconoir-send-mail"></i> Send Email
+                            <button class="ct-inline-copy" data-copy="sibashishreferral99@gmail.com" title="Copy email" tabindex="-1">
+                                <i class="iconoir-copy ct-copy-icon"></i>
+                                <i class="iconoir-check ct-check-icon"></i>
+                            </button>
                         </a>
                         <a href="https://www.linkedin.com/in/sibashish-biswas/" target="_blank" rel="noopener" class="ct-btn-ghost">
                             <i class="iconoir-linkedin"></i> LinkedIn
@@ -99,7 +103,10 @@
                         <a href="mailto:sibashishreferral99@gmail.com?subject=Hey%20Sibashish!" class="ct-email-action">
                             <i class="iconoir-send-mail"></i>
                             <span>sibashishreferral99@gmail.com</span>
-                            <i class="iconoir-arrow-up-right ct-ea-arrow"></i>
+                            <button class="ct-inline-copy" data-copy="sibashishreferral99@gmail.com" title="Copy email" tabindex="-1">
+                                <i class="iconoir-copy ct-copy-icon"></i>
+                                <i class="iconoir-check ct-check-icon"></i>
+                            </button>
                         </a>
                         <p class="ct-email-note">I personally read every message.</p>
                     </div>
@@ -153,7 +160,7 @@
                     <div class="ct-bc ct-bc-services" data-aos="fade-up" data-aos-delay="160">
                         <p class="ct-bc-label" style="margin-bottom:16px;">What I can help with</p>
                         <ul class="ct-services-list">
-                            <li><i class="iconoir-server"></i> Backend systems &amp; microservices (Java / Spring Boot)</li>
+                            <li><i class="iconoir-server"></i> Backend systems , microservices (Java / Spring Boot) &amp; Technical Architect</li>
                             <li><i class="iconoir-cloud"></i> Cloud-native architecture (GCP / Docker / K8s)</li>
                             <li><i class="iconoir-code-brackets"></i> API design &amp; system integration</li>
                             <li><i class="iconoir-design-pencil"></i> Frontend polish &amp; UI improvements</li>
@@ -200,6 +207,19 @@
     <script src="./assets_contact/js/main.js"></script>
     <script src="./assets/js/modern.js"></script>
     <script src="./assets_contact/js/ajax-form.js"></script>
-</body>
+    <script>
+    // Inline copy buttons — stop propagation so the parent <a> mailto doesn't fire
+    document.querySelectorAll('.ct-inline-copy').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var text = btn.getAttribute('data-copy');
+            navigator.clipboard.writeText(text).then(function() {
+                btn.classList.add('ct-copied');
+                setTimeout(function() { btn.classList.remove('ct-copied'); }, 2000);
+            });
+        });
+    });
+    </script>
 
 </html>
