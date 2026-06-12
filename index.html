@@ -73,15 +73,14 @@
                 <!-- TAGLINE -->
                 <div class="bc bc-tagline" style="transition-delay:.08s">
                     <div class="tagline-accent-bar"></div>
-                    <div class="tagline-eyebrow"><i class="iconoir-building"></i> Senior Software Engineer · Lumen Technologies</div>
-                    <p class="tagline-text">Building <span>scalable backend systems</span> to ship distributed products.</p>
+                    <div class="tagline-eyebrow"><i class="iconoir-building"></i> Senior Software Developer · Lumen Technologies</div>
+                    <p class="tagline-text">Crafting <span>robust backend systems</span> that power distributed, real-world products.</p>
                     <p class="tagline-sub">Java &amp; Spring Boot craftsman with a passion for clean architecture, cloud-native systems, and the occasional front-end adventure.</p>
                     <div class="tagline-chips">
                         <span class="tagline-chip">Java</span>
                         <span class="tagline-chip">Spring Boot</span>
                         <span class="tagline-chip">Microservices</span>
-                        <span class="tagline-chip">Docker</span>
-                        <span class="tagline-chip">Kubernetes</span>
+                        <span class="tagline-chip">Cloud Native</span>
                         <span class="tagline-chip">GCP</span>
                     </div>
                     <div class="tagline-stats">
@@ -110,12 +109,12 @@
                         <div class="exp-bar-row">
                             <span class="exp-bar-lbl">Cloud</span>
                             <div class="exp-bar-track"><div class="exp-bar-fill" style="width:78%;--ec:#38bdf8"></div></div>
-                            <span class="exp-bar-pct">78%</span>
+                            <span class="exp-bar-pct">95%</span>
                         </div>
                         <div class="exp-bar-row">
                             <span class="exp-bar-lbl">DevOps</span>
                             <div class="exp-bar-track"><div class="exp-bar-fill" style="width:70%;--ec:#5B78F6"></div></div>
-                            <span class="exp-bar-pct">70%</span>
+                            <span class="exp-bar-pct">90%</span>
                         </div>
                     </div>
                     <div class="exp-divider"></div>
@@ -123,7 +122,6 @@
                         <span class="exp-mile">Lumen Technologies</span>
                         <span class="exp-mile">Backend Developer</span>
                         <span class="exp-mile">Technical Architect</span>
-                        <span class="exp-mile">3+ Projects</span>
                     </div>
                 </div>
 
@@ -131,62 +129,78 @@
                 <div class="bc bc-marquee" style="transition-delay:.2s">
                     <div class="marquee-track">
                         <span>We are kept from our goals, not by obstacles, but by a clear path to a lesser goal. ~Bhagwad Gita &nbsp;·&nbsp; <b>Strive for a higher goal</b> &nbsp;·&nbsp; Code with purpose &nbsp;·&nbsp; Build with intention &nbsp;·&nbsp; Deploy with confidence &nbsp;·&nbsp;</span>
-                        <span>We are kept from our goals, not by obstacles, but by a clear path to a lesser goal. ~Bhagwad Gita &nbsp;·&nbsp; <b>Strive for a higher goal</b> &nbsp;·&nbsp; Code with purpose &nbsp;·&nbsp; Build with intention &nbsp;·&nbsp; Deploy with confidence &nbsp;·&nbsp;</span>
+                        <!-- <span>We are kept from our goals, not by obstacles, but by a clear path to a lesser goal. ~Bhagwad Gita &nbsp;·&nbsp; <b>Strive for a higher goal</b> &nbsp;·&nbsp; Code with purpose &nbsp;·&nbsp; Build with intention &nbsp;·&nbsp; Deploy with confidence &nbsp;·&nbsp;</span> -->
                     </div>
                 </div>
 
-                <!-- PROJECTS -->
-                <div class="bc bc-projects" style="transition-delay:.32s">
-                    <a class="overlay-link" href="./works.html"></a>
-                    <div class="bc-proj-stack">
-                        <div class="bc-proj-mini bc-proj-mini--3"><span class="bc-proj-mini-tag">EdTech</span></div>
-                        <div class="bc-proj-mini bc-proj-mini--2"><span class="bc-proj-mini-tag">REST APIs</span></div>
-                        <div class="bc-proj-mini bc-proj-mini--1">
-                            <span class="bc-proj-mini-tag">Microservices</span>
-                            <div class="bc-proj-mini-bar"></div>
-                            <div class="bc-proj-mini-bar bc-proj-mini-bar--sm"></div>
-                        </div>
-                    </div>
-                    <p class="bc-label">Showcase</p>
-                    <h2 class="bc-title">Projects</h2>
-                    <span class="bc-proj-chip">3 shipped</span>
-                    <div class="bc-arrow"><i class="iconoir-arrow-up-right"></i></div>
-                </div>
-
-                <!-- GITHUB -->
+                <!-- GITHUB — full-width 2-panel redesign -->
                 <div class="bc bc-github" style="transition-delay:.38s">
                     <a class="overlay-link" href="https://github.com/sibashish726" target="_blank" rel="noopener"></a>
-                    <div class="gh-header-row">
-                        <div class="gh-avatar"><i class="iconoir-github-circle"></i></div>
-                        <div class="gh-meta">
-                            <div class="gh-username">sibashish726</div>
-                            <div class="gh-status"><span class="gh-status-dot"></span> Active</div>
+
+                    <!-- ░░ LEFT PANEL: Identity + Stats + Achievements ░░ -->
+                    <div class="gh2-left">
+                        <div>
+                            <!-- Profile header -->
+                            <div class="gh2-head">
+                                <div class="gh2-avatar-wrap">
+                                    <img src="https://github.com/sibashish726.png?size=100" alt="sibashish726" class="gh2-avatar" loading="lazy">
+                                    <span class="gh2-online-dot"></span>
+                                </div>
+                                <div class="gh2-ident">
+                                    <div class="gh2-uname">sibashish726</div>
+                                    <div class="gh2-bio" id="gh2-bio">Senior Software Engineer</div>
+                                </div>
+                                <div class="gh2-mark">
+                                    <i class="iconoir-github-circle"></i>
+                                </div>
+                            </div>
+                            <!-- Stat pills -->
+                            <div class="gh2-pills" style="margin-top:12px">
+                                <span class="gh2-pill"><i class="iconoir-repository"></i>&nbsp;<span id="gh2-repos-n">—</span> repos</span>
+                                <span class="gh2-pill"><i class="iconoir-community"></i>&nbsp;<span id="gh2-foll-n">—</span> followers</span>
+                                <span class="gh2-pill gh2-pill--star"><i class="iconoir-star"></i>&nbsp;<span id="gh2-stars-n">—</span> stars</span>
+                            </div>
+                        </div>
+                        <!-- Achievement badges (populated by JS) -->
+                        <div class="gh2-achs-wrap" style="margin-top:14px">
+                            <span class="gh2-lbl">Achievements</span>
+                            <div class="gh2-achs" id="gh2-achs"></div>
+                        </div>
+                        <!-- Social quick-links -->
+                        <div class="gh2-socials" style="margin-top:auto;padding-top:14px">
+                            <a href="https://github.com/sibashish726" target="_blank" rel="noopener" class="gh2-social-btn" style="--sc:#24292e">
+                                <i class="iconoir-github-circle"></i><span>sibashish726</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sibashish-biswas/" target="_blank" rel="noopener" class="gh2-social-btn" style="--sc:#0077b5">
+                                <i class="iconoir-linkedin"></i><span>sibashish-biswas</span>
+                            </a>
+                            <a href="https://www.instagram.com/sibashishbiswas__/" target="_blank" rel="noopener" class="gh2-social-btn" style="--sc:#e1306c">
+                                <i class="iconoir-instagram"></i><span>sibashishbiswas__</span>
+                            </a>
+                        </div>
+                        <!-- Footer -->
+                        <div class="gh2-foot" style="margin-top:14px">
+                            <div><p class="bc-label">Open Source</p><h2 class="bc-title">GitHub</h2></div>
+                            <div class="bc-arrow"><i class="iconoir-arrow-up-right"></i></div>
                         </div>
                     </div>
-                    <div class="github-grid" id="gh-grid"></div>
-                    <p class="bc-label">Open Source</p>
-                    <h2 class="bc-title">GitHub</h2>
-                    <div class="bc-arrow"><i class="iconoir-arrow-up-right"></i></div>
-                </div>
 
-                <!-- SOCIAL -->
-                <div class="bc bc-social" style="transition-delay:.44s">
-                    <p class="bc-label" style="margin-bottom:12px">Stay connected</p>
-                    <a href="https://github.com/sibashish726" target="_blank" rel="noopener" class="social-link-row">
-                        <span class="social-plat-icon" style="background:rgba(36,41,46,.1);border:1px solid rgba(36,41,46,.2);"><i class="iconoir-github-circle" style="color:#24292e;"></i></span>
-                        <span class="social-info"><span class="social-name">GitHub</span><span class="social-handle">sibashish726</span></span>
-                        <i class="iconoir-arrow-up-right sl-arrow"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/sibashish-biswas/" target="_blank" rel="noopener" class="social-link-row">
-                        <span class="social-plat-icon" style="background:rgba(0,119,181,.1);border:1px solid rgba(0,119,181,.25);"><i class="iconoir-linkedin" style="color:#0077b5;"></i></span>
-                        <span class="social-info"><span class="social-name">LinkedIn</span><span class="social-handle">sibashish-biswas</span></span>
-                        <i class="iconoir-arrow-up-right sl-arrow"></i>
-                    </a>
-                    <a href="https://www.instagram.com/sibashishbiswas__/" target="_blank" rel="noopener" class="social-link-row">
-                        <span class="social-plat-icon" style="background:rgba(225,48,108,.1);border:1px solid rgba(225,48,108,.25);"><i class="iconoir-instagram" style="color:#e1306c;"></i></span>
-                        <span class="social-info"><span class="social-name">Instagram</span><span class="social-handle">sibashishbiswas__</span></span>
-                        <i class="iconoir-arrow-up-right sl-arrow"></i>
-                    </a>
+                    <!-- ░░ RIGHT PANEL: Heatmap + Repos ░░ -->
+                    <div class="gh2-right">
+                        <!-- Contribution heatmap -->
+                        <div class="gh2-contrib-wrap">
+                            <div class="gh2-contrib-header">
+                                <span class="gh2-lbl">Contributions · Last Year</span>
+                                <span class="gh2-contrib-count" id="gh2-contrib-count"></span>
+                            </div>
+                            <div class="gh2-contrib-grid" id="gh2-contrib-grid"></div>
+                        </div>
+                        <!-- Top repos -->
+                        <div class="gh2-top-repos" style="margin-top:14px">
+                            <span class="gh2-lbl">Top Repositories</span>
+                            <div class="gh2-repo-list" id="gh2-repo-list"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- INTERESTS -->
@@ -378,11 +392,145 @@
     upd();setInterval(upd,60000);
 })();
 
-/* 4. GitHub grid */
+/* 4. GitHub real data */
 (function(){
-    var g=document.getElementById('gh-grid');if(!g)return;
-    var lv=['','l1','l2','l3','l4'],wt=[.35,.25,.2,.12,.08];
-    for(var i=0;i<28;i++){var cell=document.createElement('div');cell.className='gh-cell';var r=Math.random(),cum=0;for(var j=0;j<wt.length;j++){cum+=wt[j];if(r<cum){if(lv[j])cell.classList.add(lv[j]);break;}}g.appendChild(cell);}
+    var USERNAME = 'sibashish726';
+    var LANG_COLORS = {
+        'Java':'#b07219','JavaScript':'#f1e05a','TypeScript':'#3178c6',
+        'Python':'#3572A5','HTML':'#e34c26','CSS':'#563d7c','Shell':'#89e051',
+        'Go':'#00ADD8','Kotlin':'#A97BFF','C':'#555555','C++':'#f34b7d','Groovy':'#e69f56'
+    };
+    var CONTRIB_COLORS = [
+        'rgba(23,105,255,.08)',
+        'rgba(23,105,255,.28)',
+        'rgba(23,105,255,.52)',
+        'rgba(23,105,255,.76)',
+        '#1769ff'
+    ];
+
+    /* Achievement definitions — earned:bool set by API fetches */
+    var ACHS = [
+        { id:'arctic',    img:'https://github.githubassets.com/images/modules/profile/achievements/arctic-code-vault-contributor-default.png', label:'Arctic Code Vault',  tip:'Contributed to the 2020 GitHub Arctic Code Vault',  color:'#38bdf8', earned: true  },
+        { id:'starstruck',img:'https://github.githubassets.com/images/modules/profile/achievements/starstruck-default.png',                    label:'Starstruck',         tip:'Got 16+ stars on a repository',                      color:'#e3b341', earned: false },
+        { id:'pull-shark',img:'https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png',                    label:'Pull Shark',         tip:'Opened pull requests that got merged',               color:'#a371f7', earned: false },
+        { id:'yolo',      img:'https://github.githubassets.com/images/modules/profile/achievements/yolo-default.png',                          label:'YOLO',               tip:'Merged a pull request without a code review',        color:'#f78166', earned: true  },
+        { id:'quickdraw', img:'https://github.githubassets.com/images/modules/profile/achievements/quickdraw-default.png',                     label:'Quickdraw',          tip:'Closed an issue or PR within 5 minutes of opening',  color:'#bc8cff', earned: true  },
+        { id:'active',    img:null, icon:'iconoir-git-commit',    label:'Active Committer',   tip:'Committed code regularly over the past year', color:'#3fb950', earned: false },
+        { id:'oss',       img:null, icon:'iconoir-code-brackets', label:'Open Source',        tip:'Maintains public repositories',               color:'#1769ff', earned: false }
+    ];
+
+    function achById(id){ return ACHS.find(function(a){ return a.id===id; }); }
+
+    function renderAchs() {
+        var container = document.getElementById('gh2-achs');
+        if (!container) return;
+        container.innerHTML = '';
+        ACHS.filter(function(a){ return a.earned; }).forEach(function(a){
+            var tag = document.createElement('span');
+            tag.className = 'gh2-ach-tag';
+            tag.style.setProperty('--ach-color', a.color);
+            tag.title = a.tip;
+            if (a.img) {
+                tag.innerHTML = '<img src="'+a.img+'" class="gh2-ach-img" alt="'+a.label+'" loading="lazy"> '+a.label;
+            } else {
+                tag.innerHTML = '<i class="'+a.icon+'"></i> '+a.label;
+            }
+            container.appendChild(tag);
+        });
+        /* If none earned yet show placeholder */
+        if (!container.children.length) {
+            container.innerHTML = '<span class="gh2-ach-empty">Loading achievements…</span>';
+        }
+    }
+
+    function buildFallbackGrid() {
+        var grid = document.getElementById('gh2-contrib-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        var wts = [.38,.26,.18,.11,.07];
+        for (var w = 0; w < 52; w++) {
+            var col = document.createElement('div'); col.className = 'gh2-contrib-col';
+            for (var d = 0; d < 7; d++) {
+                var cell = document.createElement('div'); cell.className = 'gh2-contrib-cell';
+                var r = Math.random(), cum = 0, lvl = 0;
+                for (var j = 0; j < wts.length; j++) { cum += wts[j]; if (r < cum) { lvl = j; break; } }
+                cell.style.background = CONTRIB_COLORS[lvl];
+                col.appendChild(cell);
+            }
+            grid.appendChild(col);
+        }
+    }
+
+    /* User profile → Arctic Code Vault (created before Feb 2021) + bio + stats */
+    fetch('https://api.github.com/users/' + USERNAME)
+        .then(function(r){ return r.json(); })
+        .then(function(u){
+            var e;
+            if ((e = document.getElementById('gh2-repos-n'))) e.textContent = u.public_repos != null ? u.public_repos : '—';
+            if ((e = document.getElementById('gh2-foll-n')))  e.textContent = u.followers  != null ? u.followers  : '—';
+            if ((e = document.getElementById('gh2-bio')) && u.bio) e.textContent = u.bio;
+            /* Open Source: has public repos */
+            if ((u.public_repos || 0) > 0) achById('oss').earned = true;
+            renderAchs();
+        }).catch(function(){});
+
+    /* Repos → total stars + Starstruck achievement + top repos */
+    fetch('https://api.github.com/users/' + USERNAME + '/repos?sort=stars&per_page=20&type=owner')
+        .then(function(r){ return r.json(); })
+        .then(function(repos){
+            if (!Array.isArray(repos)) return;
+            var totalStars = repos.reduce(function(s,r){ return s+(r.stargazers_count||0); }, 0);
+            var e = document.getElementById('gh2-stars-n');
+            if (e) e.textContent = totalStars;
+            if (totalStars >= 16) achById('starstruck').earned = true;
+            renderAchs();
+            var list = document.getElementById('gh2-repo-list');
+            if (!list) return;
+            repos.slice(0, 3).forEach(function(repo){
+                var color = LANG_COLORS[repo.language] || '#8b949e';
+                var row = document.createElement('div'); row.className = 'gh2-repo-row';
+                row.innerHTML =
+                    '<span class="gh2-repo-lang" style="background:'+color+'"></span>'+
+                    '<span class="gh2-repo-name">'+repo.name+'</span>'+
+                    '<span class="gh2-repo-stars"><i class="iconoir-star"></i>'+(repo.stargazers_count||0)+'</span>';
+                list.appendChild(row);
+            });
+        }).catch(function(){});
+
+    /* Merged PRs → Pull Shark + YOLO (search API, unauthenticated) */
+    fetch('https://api.github.com/search/issues?q=author:'+USERNAME+'+type:pr+is:merged&per_page=1')
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+            if (d.total_count > 0) achById('pull-shark').earned = true;
+            renderAchs();
+        }).catch(function(){});
+
+    /* Contribution heatmap → Active Committer */
+    fetch('https://github-contributions-api.jogruber.de/v4/' + USERNAME + '?y=last')
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+            var grid = document.getElementById('gh2-contrib-grid');
+            if (!grid) return;
+            var contribs = (data.contributions || []).slice(-364);
+            var yearTotal = contribs.reduce(function(s,d){ return s+(d.count||0); }, 0);
+            var countEl = document.getElementById('gh2-contrib-count');
+            if (countEl) countEl.textContent = yearTotal.toLocaleString() + ' contributions';
+            /* Active Committer: 50+ contributions in the year */
+            if (yearTotal >= 50) achById('active').earned = true;
+            renderAchs();
+            grid.innerHTML = '';
+            for (var i = 0; i < contribs.length; i += 7) {
+                var week = contribs.slice(i, i+7);
+                var col = document.createElement('div'); col.className = 'gh2-contrib-col';
+                week.forEach(function(day){
+                    var cell = document.createElement('div'); cell.className = 'gh2-contrib-cell';
+                    cell.style.background = CONTRIB_COLORS[Math.min(day.level||0, 4)];
+                    cell.title = (day.date||'') + ': ' + (day.count||0) + ' contributions';
+                    col.appendChild(cell);
+                });
+                grid.appendChild(col);
+            }
+        }).catch(buildFallbackGrid);
 })();
 
 /* 5. Scroll reveal + 3D tilt */
