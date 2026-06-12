@@ -78,6 +78,10 @@
                         <a href="mailto:sibashishreferral99@gmail.com?subject=Hey%20Sibashish!" class="ct-btn-primary">
                             <i class="iconoir-send-mail"></i> Send Email
                         </a>
+                        <button class="ct-inline-copy" data-copy="sibashishreferral99@gmail.com" title="Copy email" tabindex="-1">
+                            <i class="iconoir-copy ct-copy-icon"></i>
+                            <i class="iconoir-check ct-check-icon"></i>
+                        </button>
                         <a href="https://www.linkedin.com/in/sibashish-biswas/" target="_blank" rel="noopener" class="ct-btn-ghost">
                             <i class="iconoir-linkedin"></i> LinkedIn
                         </a>
@@ -99,6 +103,10 @@
                         <a href="mailto:sibashishreferral99@gmail.com?subject=Hey%20Sibashish!" class="ct-email-action">
                             <i class="iconoir-send-mail"></i>
                             <span>sibashishreferral99@gmail.com</span>
+                            <button class="ct-inline-copy" data-copy="sibashishreferral99@gmail.com" title="Copy email" tabindex="-1">
+                                <i class="iconoir-copy ct-copy-icon"></i>
+                                <i class="iconoir-check ct-check-icon"></i>
+                            </button>
                             <i class="iconoir-arrow-up-right ct-ea-arrow"></i>
                         </a>
                         <p class="ct-email-note">I personally read every message.</p>
@@ -200,6 +208,20 @@
     <script src="./assets_contact/js/main.js"></script>
     <script src="./assets/js/modern.js"></script>
     <script src="./assets_contact/js/ajax-form.js"></script>
+    <script>
+    // Inline copy buttons — stop propagation so the parent <a> mailto doesn't fire
+    document.querySelectorAll('.ct-inline-copy').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var text = btn.getAttribute('data-copy');
+            navigator.clipboard.writeText(text).then(function() {
+                btn.classList.add('ct-copied');
+                setTimeout(function() { btn.classList.remove('ct-copied'); }, 2000);
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>
