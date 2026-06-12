@@ -22,7 +22,7 @@
 
 /* -- Body -- */
 body {
-    background: linear-gradient(25deg, #ffffff 0%, #779bf5 20%, #fce2ba 100%) !important;
+    background: linear-gradient(35deg, #e1e1e1 0%, #729afe 40%, #ffc977 100%) !important;
     background-attachment: fixed !important;
     color: var(--text-main) !important;
     overflow-x: hidden;
