@@ -9,7 +9,7 @@
     <title>Sibashish Biswas — Senior Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Titillium+Web:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Titillium+Web:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/aos.css">
@@ -191,26 +191,85 @@
 
                 <!-- INTERESTS -->
                 <div class="bc bc-interests" style="transition-delay:.5s">
-                    <div class="interests-text-col">
-                        <p class="bc-label">Beyond the keyboard</p>
-                        <h2 class="bc-title" style="font-size:1.25rem;font-family:'Inter',sans-serif;font-weight:700;line-height:1.4;margin-top:8px;">Because work is not<br>everything we live for.</h2>
+                    <!-- Floating background words -->
+                    <div class="interests-float-bg" aria-hidden="true">
+                        <span class="ifb-word" style="top:15%;left:18%;--fd:0s;--fr:3deg">Cinema</span>
+                        <span class="ifb-word" style="top:60%;left:8%;--fd:.8s;--fr:-4deg">Storytelling</span>
+                        <span class="ifb-word" style="top:25%;left:72%;--fd:.4s;--fr:2deg">Design</span>
+                        <span class="ifb-word" style="top:70%;left:62%;--fd:1.2s;--fr:-3deg">Aesthetics</span>
+                        <span class="ifb-word" style="top:45%;left:38%;--fd:.6s;--fr:1deg">Music</span>
+                        <span class="ifb-word" style="top:80%;left:30%;--fd:1.5s;--fr:-5deg">Lo-fi</span>
+                        <span class="ifb-word" style="top:10%;left:48%;--fd:1s;--fr:4deg">Riding</span>
+                        <span class="ifb-word" style="top:50%;left:85%;--fd:.3s;--fr:-2deg">Freedom</span>
                     </div>
-                    <div class="interest-vibe-row">
-                        <div class="interest-vibe-card">
-                            <span class="ivc-icon"><i class="iconoir-movie"></i></span>
-                            <span class="ivc-label">Cinema</span>
+                    <div class="interests-text-col" style="margin-left:20%;">
+                        <p class="bc-label">Beyond the keyboard</p>
+                        <h2 class="bc-title" style="font-size:1.875rem;font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;line-height:1.4;margin-top:8px;text-align:left;">Because work is not<br>everything we live for.</h2>
+                        <div class="deck-nav">
+                            <span class="deck-dot active" data-idx="0"></span>
+                            <span class="deck-dot" data-idx="1"></span>
+                            <span class="deck-dot" data-idx="2"></span>
+                            <span class="deck-dot" data-idx="3"></span>
                         </div>
-                        <div class="interest-vibe-card">
-                            <span class="ivc-icon"><i class="iconoir-design-pencil"></i></span>
-                            <span class="ivc-label">Design</span>
-                        </div>
-                        <div class="interest-vibe-card">
-                            <span class="ivc-icon"><i class="iconoir-music-double-note"></i></span>
-                            <span class="ivc-label">Music</span>
-                        </div>
-                        <div class="interest-vibe-card">
-                            <span class="ivc-icon"><i class="iconoir-motorcycle"></i></span>
-                            <span class="ivc-label">Riding</span>
+                    </div>
+                    <div class="interest-deck-wrap">
+                        <div class="interest-deck" id="interest-deck">
+                            <!-- Card 1: Cinema -->
+                            <div class="ideck-card" data-idx="0">
+                                <div class="ideck-inner">
+                                    <div class="ideck-front">
+                                        <span class="ideck-icon"><i class="iconoir-movie"></i></span>
+                                        <span class="ideck-label">Cinema</span>
+                                        <span class="ideck-hint">hover to flip</span>
+                                    </div>
+                                    <div class="ideck-back">
+                                        <p class="ideck-back-title">Cinema</p>
+                                        <p class="ideck-back-desc">From indie films to blockbusters — storytelling through visuals is what inspires my design thinking.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2: Design -->
+                            <div class="ideck-card" data-idx="1">
+                                <div class="ideck-inner">
+                                    <div class="ideck-front">
+                                        <span class="ideck-icon"><i class="iconoir-design-pencil"></i></span>
+                                        <span class="ideck-label">Design</span>
+                                        <span class="ideck-hint">hover to flip</span>
+                                    </div>
+                                    <div class="ideck-back">
+                                        <p class="ideck-back-title">Design</p>
+                                        <p class="ideck-back-desc">UI/UX exploration, clean aesthetics, and the belief that great software deserves beautiful interfaces.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3: Music -->
+                            <div class="ideck-card" data-idx="2">
+                                <div class="ideck-inner">
+                                    <div class="ideck-front">
+                                        <span class="ideck-icon"><i class="iconoir-music-double-note"></i></span>
+                                        <span class="ideck-label">Music</span>
+                                        <span class="ideck-hint">hover to flip</span>
+                                    </div>
+                                    <div class="ideck-back">
+                                        <p class="ideck-back-title">Music</p>
+                                        <p class="ideck-back-desc">Lo-fi beats while debugging, indie rock for late-night builds — music keeps the code flowing.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 4: Riding -->
+                            <div class="ideck-card" data-idx="3">
+                                <div class="ideck-inner">
+                                    <div class="ideck-front">
+                                        <span class="ideck-icon"><i class="iconoir-motorcycle"></i></span>
+                                        <span class="ideck-label">Riding</span>
+                                        <span class="ideck-hint">hover to flip</span>
+                                    </div>
+                                    <div class="ideck-back">
+                                        <p class="ideck-back-title">Riding</p>
+                                        <p class="ideck-back-desc">Two wheels, open roads — the best way to clear the mind after a long sprint.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -337,22 +396,65 @@
     });
 })();
 
-/* 6. Interest icon tap tooltips (mobile) */
-(function(){
-    var icons = document.querySelectorAll('.interest-icon[data-tip]');
-    icons.forEach(function(icon){
-        icon.addEventListener('touchstart', function(e){
-            e.preventDefault();
-            var already = icon.classList.contains('tip-show');
-            icons.forEach(function(i){ i.classList.remove('tip-show'); });
-            if (!already) icon.classList.add('tip-show');
-        }, { passive: false });
-    });
-    document.addEventListener('touchstart', function(e){
-        if (!e.target.closest('.interest-icon')) {
-            icons.forEach(function(i){ i.classList.remove('tip-show'); });
+/* 7. Interest card deck */
+(function () {
+    var deck = document.getElementById('interest-deck');
+    if (!deck) return;
+    var cards = Array.from(deck.querySelectorAll('.ideck-card'));
+    var dots  = Array.from(document.querySelectorAll('.deck-dot'));
+    var total = cards.length;
+    var current = 0;
+    var timer;
+    var paused = false;
+
+    function setPositions() {
+        cards.forEach(function (card, i) {
+            var pos = (i - current + total) % total;
+            card.setAttribute('data-pos', pos);
+        });
+        dots.forEach(function (d, i) {
+            d.classList.toggle('active', i === current);
+        });
+    }
+
+    function advance() {
+        var exitCard = cards[current];
+        exitCard.classList.add('ideck-exit');
+        setTimeout(function () {
+            exitCard.classList.remove('ideck-exit');
+            current = (current + 1) % total;
+            setPositions();
+        }, 480);
+    }
+
+    function startTimer() {
+        timer = setInterval(function () {
+            if (!paused) advance();
+        }, 2800);
+    }
+
+    // Hover on top card pauses cycling
+    deck.addEventListener('mouseenter', function () { paused = true; });
+    deck.addEventListener('mouseleave', function () { paused = false; });
+
+    // Click top card advances to next
+    deck.addEventListener('click', function (e) {
+        var card = e.target.closest('.ideck-card');
+        if (card && card.getAttribute('data-pos') === '0') {
+            advance();
         }
-    }, { passive: true });
+    });
+
+    // Dot nav
+    dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+            current = i;
+            setPositions();
+        });
+    });
+
+    setPositions();
+    startTimer();
 })();
 </script>
 </body>
