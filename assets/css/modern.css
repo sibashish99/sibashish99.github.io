@@ -4404,6 +4404,21 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     color: var(--text-muted);
     margin-top: 3px;
 }
+.cap-stat-sub {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: #e60023;
+    margin-top: 2px;
+}
+/* Static stat (no count-up animation) */
+.cap-stat-num.cap-stat-static {
+    -webkit-text-fill-color: transparent;
+}
 .cap-stat-divider {
     width: 1px;
     height: 36px;
@@ -4613,11 +4628,25 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 .cap-video-thumb {
     min-height: 200px;
     background: linear-gradient(135deg, rgba(23, 105, 255,.12), rgba(16,185,129,.08));
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+}
+/* Tint overlay for video thumbs that have a real poster image */
+.cap-video-thumb[style*="background-image"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.28);
+    z-index: 0;
+}
+.cap-video-thumb[style*="background-image"] .cap-play-ring {
+    position: relative;
+    z-index: 1;
 }
 .cap-video-bg-text {
     position: absolute;
