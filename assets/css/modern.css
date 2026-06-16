@@ -2,25 +2,25 @@
    BRUTALISM UI - Sibashish Portfolio
    ============================================= */
 
-/* -- CSS Variables (Default: Black Theme) -- */
+/* -- CSS Variables (Canary Yellow Background, Black Primary, Bright Green Accents) -- */
 :root {
-    --primary: #ffffff;
-    --primary-glow: rgba(255, 255, 255, 0.8);
-    --primary-dim: rgba(255, 255, 255, 0.1);
-    --accent: #cccccc;
-    --accent-cyan: #ffffff;
-    --bg-deep: #1a1a1a;
-    --bg-card: #2a2a2a;
-    --bg-card2: #333333;
-    --glass-bg: #2a2a2a;
-    --glass-border: #444444;
-    --text-main: #ffffff;
-    --text-muted: rgba(255, 255, 255, 0.6);
-    --shadow-soft: 5px 5px 0px #ffffff;
-    --shadow-hover: 8px 8px 0px #ffffff;
+    --primary: #000000;
+    --primary-glow: rgba(0, 0, 0, 0.8);
+    --primary-dim: rgba(0, 0, 0, 0.1);
+    --accent: #111111;
+    --accent-cyan: #000000;
+    --bg-deep: #ffff00;
+    --bg-card: #ffffff;
+    --bg-card2: #f5f5f5;
+    --glass-bg: #ffffff;
+    --glass-border: #000000;
+    --text-main: #000000;
+    --text-muted: rgba(0, 0, 0, 0.6);
+    --shadow-soft: 5px 5px 0px #000000;
+    --shadow-hover: 8px 8px 0px #000000;
     --accent-green: #00DD00;
-    --accent-blue: #00AAFF;
-    --accent-red: #FF3333;
+    --accent-blue: #0066FF;
+    --accent-red: #FF0000;
 }
 
 /* -- YELLOW THEME -- */
@@ -51,7 +51,7 @@
     --primary-dim: rgba(0, 0, 0, 0.1);
     --accent: #111111;
     --accent-cyan: #000000;
-    --bg-deep: #FF9500;
+    --bg-deep: #FFFF00;
     --bg-card: #ffffff;
     --bg-card2: #f5f5f5;
     --glass-bg: #ffffff;
@@ -67,33 +67,32 @@
 
 /* -- VIOLET THEME -- */
 [data-theme="violet"] {
-    --primary: #ffffff;
-    --primary-glow: rgba(255, 255, 255, 0.8);
-    --primary-dim: rgba(255, 255, 255, 0.1);
-    --accent: #cccccc;
-    --accent-cyan: #ffffff;
-    --bg-deep: #6B2D8C;
-    --bg-card: #2a1a3a;
-    --bg-card2: #3a2a4a;
-    --glass-bg: #2a1a3a;
-    --glass-border: #5B1D7C;
-    --text-main: #ffffff;
-    --text-muted: rgba(255, 255, 255, 0.6);
-    --shadow-soft: 5px 5px 0px #ffffff;
-    --shadow-hover: 8px 8px 0px #ffffff;
-    --accent-green: #00FF88;
-    --accent-blue: #00D4FF;
-    --accent-red: #FF5588;
+    --primary: #000000;
+    --primary-glow: rgba(0, 0, 0, 0.8);
+    --primary-dim: rgba(0, 0, 0, 0.1);
+    --accent: #111111;
+    --accent-cyan: #000000;
+    --bg-deep: #FFFF00;
+    --bg-card: #ffffff;
+    --bg-card2: #f5f5f5;
+    --glass-bg: #ffffff;
+    --glass-border: #000000;
+    --text-main: #000000;
+    --text-muted: rgba(0, 0, 0, 0.6);
+    --shadow-soft: 5px 5px 0px #000000;
+    --shadow-hover: 8px 8px 0px #000000;
+    --accent-green: #00DD00;
+    --accent-blue: #0066FF;
+    --accent-red: #FF0000;
 }
 
 /* -- Body -- */
 body {
-    background: var(--bg-deep) !important;
+    background: #FFFF00 !important;
     color: var(--text-main) !important;
     overflow-x: hidden;
     border-top: none;
     font-family: 'Space Grotesk', sans-serif !important;
-    transition: background-color 0.4s ease, color 0.4s ease !important;
 }
 
 /* -- Import Lexend Mega Bold & Space Grotesk Regular Fonts -- */
@@ -320,12 +319,11 @@ h1, h2, h3, h4, h5, h6,
     z-index: 1000;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    background: var(--bg-card) !important;
+    background: #ffffff !important;
     border-bottom: 3px solid var(--primary);
     margin-top: 0 !important;
     padding: 0;
     box-shadow: none;
-    transition: background-color 0.4s ease, border-color 0.4s ease !important;
 }
 
 /* No gradient line in brutalism */
@@ -347,10 +345,10 @@ h1, h2, h3, h4, h5, h6,
     align-items: center;
     gap: 0;
     line-height: 1;
-    color: var(--text-main) !important;
+    color: #000000 !important;
     -webkit-text-fill-color: unset;
     background: none !important;
-    transition: color 0.4s ease;
+    transition: none;
     text-transform: uppercase;
 }
 
@@ -358,10 +356,9 @@ h1, h2, h3, h4, h5, h6,
 
 /* Brackets ? static, no animation */
 .logo-bracket {
-    color: var(--text-main);
+    color: #000000;
     background: none;
     display: inline-block;
-    transition: color 0.4s ease;
 }
 
 /* Header name wrap ? fully visible, no clip */
@@ -375,7 +372,7 @@ h1, h2, h3, h4, h5, h6,
 
 .logo-name {
     display: block;
-    color: var(--text-main) !important;
+    color: #000000 !important;
     background: none !important;
     -webkit-text-fill-color: unset;
     line-height: 1;
@@ -404,13 +401,12 @@ h1, h2, h3, h4, h5, h6,
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    background: var(--bg-card) !important;
+    background: #ffffff !important;
     border: 3px solid var(--primary) !important;
     border-radius: 0;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    box-shadow: 5px 5px 0px var(--primary) !important;
-    transition: all 0.4s ease !important;
+    box-shadow: 5px 5px 0px #000000 !important;
 }
 
 .modern-nav .menu li {
@@ -430,11 +426,11 @@ h1, h2, h3, h4, h5, h6,
     border-radius: 0;
     font-size: 12px !important;
     font-weight: 700 !important;
-    color: var(--text-main) !important;
+    color: #000000 !important;
     opacity: 1;
     text-decoration: none !important;
     background: transparent !important;
-    transition: all 0.25s ease !important;
+    transition: none !important;
     white-space: nowrap !important;
     line-height: 1 !important;
     margin: 0 !important;
@@ -449,13 +445,13 @@ h1, h2, h3, h4, h5, h6,
 
 .modern-nav .menu li a:hover,
 .modern-nav .menu li a:focus {
-    color: var(--bg-card) !important;
-    background: var(--primary) !important;
+    color: #ffffff !important;
+    background: #000000 !important;
     opacity: 1 !important;
 }
 
 .modern-nav .menu li.active > a {
-    color: var(--bg-card) !important;
+    color: #ffffff !important;
     background: var(--primary) !important;
     font-weight: 700 !important;
     opacity: 1 !important;
@@ -471,83 +467,51 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* =============================================
-   THEME SWITCHER - COOL UI
+   THEME SWITCHER
    ============================================= */
 .theme-switcher {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
+    gap: 6px;
+    padding: 8px 12px;
     border: 3px solid var(--primary);
     border-radius: 0;
-    background: var(--bg-card) !important;
-    transition: all 0.3s ease !important;
+    background: #ffffff;
 }
 
 .theme-switcher .theme-btn {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     padding: 0;
-    border: 2px solid var(--primary);
-    background: var(--bg-deep);
-    color: var(--text-main);
-    font-size: 14px;
+    border: 2px solid #000000;
+    background: #ffffff;
+    color: #000000;
+    font-size: 16px;
     cursor: pointer;
-    transition: all 0.25s ease !important;
+    transition: none;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     border-radius: 0;
-    box-shadow: 3px 3px 0px var(--primary);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 2px 2px 0px #000000;
 }
 
-/* Theme button colors */
-.theme-switcher .theme-btn[data-theme="black"] {
-    background: #1a1a1a;
-    color: #ffffff;
-}
+.theme-switcher .theme-btn[data-theme="black"] { color: #000000; }
+.theme-switcher .theme-btn[data-theme="yellow"] { color: #000000; }
+.theme-switcher .theme-btn[data-theme="orange"] { color: #000000; }
+.theme-switcher .theme-btn[data-theme="violet"] { color: #000000; }
 
-.theme-switcher .theme-btn[data-theme="yellow"] {
-    background: #FFFF00;
-    color: #000000;
-}
-
-.theme-switcher .theme-btn[data-theme="orange"] {
-    background: #FF9500;
-    color: #000000;
-}
-
-.theme-switcher .theme-btn[data-theme="violet"] {
-    background: #6B2D8C;
-    color: #ffffff;
-}
-
-/* Hover effect */
 .theme-switcher .theme-btn:hover {
-    transform: translate(-1px, -1px) scale(1.08);
-    box-shadow: 4px 4px 0px var(--primary);
-    filter: brightness(1.1);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px #000000;
 }
 
-/* Active/selected state */
 .theme-switcher .theme-btn.active {
-    transform: translate(-3px, -3px) scale(1.15);
-    box-shadow: 6px 6px 0px var(--primary);
-    border-width: 3px;
-}
-
-/* Active button glow effect */
-.theme-switcher .theme-btn.active::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    background: inherit;
-    opacity: 0.2;
-    border-radius: 0;
-    z-index: -1;
+    background: #000000;
+    color: #ffffff;
+    box-shadow: 4px 4px 0px #000000;
+    transform: translate(-2px, -2px);
 }
 
 /* -- CTA Button -- */
