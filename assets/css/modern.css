@@ -843,19 +843,19 @@ h1, h2, h3, h4, h5, h6,
    MODERN FOOTER
    ============================================= */
 .modern-footer {
-    border-top: none;
-    background: transparent !important;
+    border-top: 3px solid var(--primary);
+    background: var(--bg-card) !important;
     backdrop-filter: none;
-    padding: 0 !important;
+    padding: clamp(20px, 5vw, 40px) 0 !important;
     margin: 0 !important;
 }
 
 /* Footer giant name ? clips so 70% of letters visible above bottom edge */
 .modern-logo--footer {
-    font-size: 168px !important;
+    font-size: clamp(64px, 12vw, 168px) !important;
     font-family: 'Lexend Mega', sans-serif !important;
     font-weight: 400 !important;
-    letter-spacing: 6px !important;
+    letter-spacing: clamp(2px, 1.5vw, 6px) !important;
     display: inline-flex !important;
     align-items: flex-start !important;
     line-height: 1 !important;
@@ -865,6 +865,7 @@ h1, h2, h3, h4, h5, h6,
     background: none !important;
     -webkit-text-fill-color: initial !important;
     vertical-align: bottom;
+    padding: clamp(20px, 5vw, 40px) 0 !important;
 }
 
 /* Each animated letter span (injected by JS) */
@@ -5165,4 +5166,62 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     .cap-stat { padding: 0 12px; }
     .cap-pinterest-cta { padding: 40px 20px; }
     .cap-cta-orbit { display: none; }
+}
+
+/* =============================================
+   RESPONSIVE FOOTER FOR ALL DEVICES
+   ============================================= */
+
+/* Tablet (768px to 1024px) */
+@media (max-width: 1024px) {
+    .modern-logo--footer {
+        font-size: clamp(56px, 10vw, 120px) !important;
+        letter-spacing: clamp(2px, 1vw, 4px) !important;
+    }
+}
+
+/* Mobile (576px to 768px) */
+@media (max-width: 768px) {
+    .modern-footer {
+        padding: clamp(16px, 4vw, 32px) 0 !important;
+    }
+    .modern-logo--footer {
+        font-size: clamp(48px, 10vw, 100px) !important;
+        letter-spacing: clamp(1.5px, 0.8vw, 3px) !important;
+        padding: clamp(16px, 4vw, 32px) 0 !important;
+    }
+    .footer-content {
+        padding: clamp(12px, 3vw, 20px) clamp(12px, 4vw, 20px) !important;
+    }
+}
+
+/* Small Mobile (480px to 576px) */
+@media (max-width: 576px) {
+    .modern-footer {
+        padding: clamp(12px, 3vw, 24px) 0 !important;
+    }
+    .modern-logo--footer {
+        font-size: clamp(36px, 9vw, 80px) !important;
+        letter-spacing: clamp(1px, 0.6vw, 2px) !important;
+        padding: clamp(12px, 3vw, 24px) 0 !important;
+    }
+    .footer-content {
+        padding: clamp(10px, 3vw, 16px) clamp(10px, 3vw, 16px) !important;
+    }
+}
+
+/* Extra Small Mobile (< 480px) */
+@media (max-width: 480px) {
+    .modern-footer {
+        padding: 10px 0 !important;
+    }
+    .modern-logo--footer {
+        font-size: clamp(32px, 8vw, 64px) !important;
+        letter-spacing: clamp(0.5px, 0.5vw, 1.5px) !important;
+        padding: 10px 0 !important;
+    }
+    .footer-content {
+        padding: 8px 12px !important;
+        word-break: break-word;
+    }
 }
