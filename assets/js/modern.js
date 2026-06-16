@@ -176,4 +176,47 @@
         io.observe(fl);
     })();
 
+    /* ── Theme Switcher ── */
+    (function () {
+        // Get saved theme from localStorage or default to 'black'
+        const savedTheme = localStorage.getItem('portfolio-theme') || 'black';
+        
+        // Apply saved theme on page load
+        if (savedTheme !== 'black') {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        
+        // Set active button on load
+        const themeButtons = document.querySelectorAll('.theme-switcher .theme-btn');
+        themeButtons.forEach(btn => {
+            if (btn.getAttribute('data-theme') === savedTheme) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Theme switcher click handler
+        themeButtons.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const theme = this.getAttribute('data-theme');
+                
+                // Remove active class from all buttons
+                themeButtons.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Apply theme
+                if (theme === 'black') {
+                    document.documentElement.removeAttribute('data-theme');
+                } else {
+                    document.documentElement.setAttribute('data-theme', theme);
+                }
+                
+                // Save theme preference
+                localStorage.setItem('portfolio-theme', theme);
+            });
+        });
+    })();
+
 })();
