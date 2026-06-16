@@ -77,6 +77,8 @@
 /* -- Body -- */
 body {
     background: var(--bg-deep) !important;
+    background: linear-gradient(35deg, #e1e1e1 0%, #729afe 40%, #ffc977 100%) !important;
+    background-attachment: fixed !important;
     color: var(--text-main) !important;
     overflow-x: hidden;
     border-top: none;
@@ -3055,6 +3057,261 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
 }
 
+/* =============================================
+   GITHUB CARD v2 — Real data (profile / heatmap / repos / achievements)
+   ============================================= */
+.bc-github {
+    display: grid !important;
+    grid-template-columns: minmax(240px, 1fr) 2fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* ── Left panel (identity + achievements + socials) ── */
+.gh2-left {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* ── Right panel (heatmap + repos) ── */
+.gh2-right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* — Profile header — */
+.gh2-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.gh2-avatar-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+.gh2-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 2px solid rgba(23,105,255,.5);
+    object-fit: cover;
+    display: block;
+}
+.gh2-online-dot {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #3fb950;
+    border: 2px solid #fff;
+    box-shadow: 0 0 6px rgba(63,185,80,.6);
+}
+.gh2-ident { min-width: 0; flex: 1; }
+.gh2-uname {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -.3px;
+}
+.gh2-bio {
+    font-size: 11px;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* — Stat pills — */
+.gh2-pills {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.gh2-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 9px;
+    background: rgba(23,105,255,.07);
+    border: 1px solid rgba(23,105,255,.15);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-main);
+    white-space: nowrap;
+}
+.gh2-pill i { font-size: 12px; color: var(--primary); }
+.gh2-pill--star { border-color: rgba(227,179,65,.25); background: rgba(227,179,65,.07); }
+.gh2-pill--star i { color: #e3b341; }
+
+/* — Section label — */
+.gh2-lbl {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+/* — Contribution heatmap — */
+.gh2-contrib-wrap { display: flex; flex-direction: column; }
+.gh2-contrib-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.gh2-contrib-count {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--primary);
+}
+.gh2-contrib-grid {
+    display: flex;
+    gap: 2px;
+    padding: 10px;
+    background: rgba(23,105,255,.04);
+    border: 1px solid rgba(23,105,255,.1);
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 100px;
+}
+.gh2-contrib-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+.gh2-contrib-cell {
+    flex: 1;
+    border-radius: 2px;
+    min-height: 9px;
+    transition: opacity .15s;
+    cursor: default;
+}
+.gh2-contrib-cell:hover { opacity: .65; }
+
+/* — Top repos — */
+.gh2-top-repos { display: flex; flex-direction: column; }
+.gh2-repo-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.gh2-repo-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    background: rgba(23,105,255,.05);
+    border: 1px solid rgba(23,105,255,.1);
+    border-radius: 8px;
+    min-width: 0;
+    transition: background .2s;
+}
+.gh2-repo-row:hover { background: rgba(23,105,255,.1); }
+.gh2-repo-lang {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.gh2-repo-name {
+    flex: 1;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-main);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+.gh2-repo-stars {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+.gh2-repo-stars i { font-size: 11px; color: #e3b341; }
+
+/* — Achievement badges — */
+.gh2-achs-wrap { display: flex; flex-direction: column; }
+.gh2-achs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    min-height: 28px;
+}
+.gh2-ach-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(var(--ach-rgb, 23,105,255),.1), rgba(var(--ach-rgb, 23,105,255),.06));
+    border: 1px solid color-mix(in srgb, var(--ach-color, var(--primary)) 30%, transparent);
+    color: var(--ach-color, var(--primary));
+    letter-spacing: .1px;
+    cursor: default;
+    transition: transform .15s, box-shadow .15s;
+}
+.gh2-ach-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--ach-color, var(--primary)) 30%, transparent);
+}
+.gh2-ach-tag i { font-size: 11px; }
+.gh2-ach-img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,.18));
+}
+.gh2-ach-empty { font-size: 10px; color: var(--text-muted); font-style: italic; }
+
+/* ── GitHub social quick-links inside card ── */
+.gh2-socials { display: flex; flex-direction: column; gap: 5px; }
+.gh2-social-btn {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 11px;
+    border-radius: 10px;
+    background: rgba(var(--sc-rgb, 23,105,255), .06);
+    border: 1px solid rgba(var(--sc-rgb, 23,105,255), .14);
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 11.5px;
+    font-weight: 600;
+    transition: background .2s, transform .15s;
+}
+.gh2-social-btn:hover { background: rgba(var(--sc-rgb, 23,105,255), .13); transform: translateX(3px); }
+.gh2-social-btn i { font-size: 16px; color: var(--sc, var(--primary)); flex-shrink: 0; }
+.gh2-social-btn span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── GitHub logo mark in header ── */
+.gh2-mark {
+    margin-left: auto;
+    font-size: 26px;
+    color: rgba(23,105,255,.2);
+    flex-shrink: 0;
+}
+
+/* — Footer row — */
+.gh2-foot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
 /* ── Redesigned social links ── */
 .social-link-row {
     display: flex !important;
@@ -4571,6 +4828,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 .cap-video-thumb {
     min-height: 200px;
     background: #f5f5f5;
+    background: linear-gradient(135deg, rgba(23, 105, 255,.12), rgba(16,185,129,.08));
     background-size: cover;
     background-position: center;
     display: flex;
@@ -4586,6 +4844,18 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,.4);
+    z-index: 0;
+}
+.cap-video-thumb[style*="background-image"] .cap-play-ring {
+    position: relative;
+    z-index: 1;
+}
+/* Tint overlay for video thumbs that have a real poster image */
+.cap-video-thumb[style*="background-image"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.28);
     z-index: 0;
 }
 .cap-video-thumb[style*="background-image"] .cap-play-ring {
