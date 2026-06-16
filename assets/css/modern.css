@@ -166,21 +166,35 @@ h1, h2, h3, h4, h5, h6,
    MOBILE HEADER
    ============================================= */
 @media (max-width: 767px) {
+    /* Logo sizing on mobile */
+    .modern-logo {
+        font-size: 16px !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* Hide theme switcher on mobile */
+    .theme-switcher {
+        display: none !important;
+    }
+
     /* Hide pill nav on mobile by default */
     .modern-nav {
         display: none !important;
         position: fixed !important;
-        top: 0; left: 0; right: 0;
-        height: 100dvh !important;
+        top: 60px; left: 0; right: 0;
+        width: 100% !important;
+        height: calc(100dvh - 60px) !important;
         z-index: 999 !important;
         flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: rgba(10, 12, 18, 0.97) !important;
-        backdrop-filter: blur(24px) saturate(160%) !important;
-        -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
-        gap: 32px !important;
-        padding: 80px 24px 40px !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        background: #FFFF00 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        gap: 0 !important;
+        padding: 0 !important;
+        border-top: 3px solid #000000 !important;
+        overflow-y: auto !important;
     }
 
     /* Open state */
@@ -191,43 +205,56 @@ h1, h2, h3, h4, h5, h6,
     /* Stack menu items vertically */
     .modern-nav .menu {
         flex-direction: column !important;
-        background: none !important;
+        background: transparent !important;
         border: none !important;
         box-shadow: none !important;
         backdrop-filter: none !important;
-        gap: 4px !important;
+        gap: 0 !important;
         padding: 0 !important;
         width: 100% !important;
-        max-width: 260px !important;
         align-items: stretch !important;
     }
 
     .modern-nav .menu li {
         display: block !important;
         width: 100% !important;
-        text-align: center !important;
+        text-align: left !important;
+        border-bottom: 1px solid #000000 !important;
+        margin: 0 !important;
+    }
+
+    .modern-nav .menu li:last-child {
+        border-bottom: none !important;
     }
 
     .modern-nav .menu li a,
     .modern-nav .menu li a:visited {
         display: block !important;
-        padding: 14px 24px !important;
-        font-size: 17px !important;
-        font-weight: 500 !important;
+        padding: 16px 20px !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
         border-radius: 0;
-        opacity: 0.75;
+        color: #000000 !important;
+        background: transparent !important;
+        opacity: 1 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
     }
 
     .modern-nav .menu li.active > a,
     .modern-nav .menu li a:hover {
-        background: rgba(23, 105, 255, 0.14) !important;
+        background: #000000 !important;
+        color: #FFFF00 !important;
         opacity: 1 !important;
     }
 
     /* CTA button inside nav */
     .modern-nav .modern-btn {
-        font-size: 15px !important;
-        padding: 13px 40px !important;
+        margin: 12px 12px 0 12px !important;
+        width: calc(100% - 24px) !important;
+        font-size: 12px !important;
+        padding: 12px 20px !important;
+        text-align: center !important;
     }
 
     /* Show hamburger button */
@@ -235,8 +262,8 @@ h1, h2, h3, h4, h5, h6,
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
-        width: 26px !important;
-        height: 18px !important;
+        width: 24px !important;
+        height: 16px !important;
         cursor: pointer !important;
         z-index: 1001 !important;
         position: relative !important;
@@ -246,33 +273,40 @@ h1, h2, h3, h4, h5, h6,
         display: block !important;
         width: 100% !important;
         height: 2px !important;
-        background: var(--text-main) !important;
+        background: #000000 !important;
         border-radius: 0;
-        transition: transform 0.35s ease, opacity 0.25s ease !important;
+        transition: transform 0.3s ease, opacity 0.2s ease !important;
         transform-origin: center !important;
     }
 
     /* X animation when active */
     .show-menu.active span:first-child {
-        transform: translateY(8px) rotate(45deg) !important;
+        transform: translateY(7px) rotate(45deg) !important;
     }
     .show-menu.active span:nth-child(2) {
         opacity: 0 !important;
         transform: scaleX(0) !important;
     }
     .show-menu.active span:last-child {
-        transform: translateY(-8px) rotate(-45deg) !important;
+        transform: translateY(-7px) rotate(-45deg) !important;
     }
 
-    /* Hide duplicate outer "Let's talk" on mobile ? hamburger area only */
+    /* Hide duplicate outer "Let's talk" on mobile */
     .modern-header .gx-row > .modern-btn {
         display: none !important;
     }
 
-    /* Ensure header row has correct padding */
+    /* Header padding on mobile */
+    .modern-header {
+        padding: 0 !important;
+    }
+
     .modern-header .container {
-        padding-top: 14px !important;
-        padding-bottom: 14px !important;
+        padding: 12px 16px !important;
+    }
+
+    .modern-header .gx-row {
+        gap: 12px !important;
     }
 }
 
