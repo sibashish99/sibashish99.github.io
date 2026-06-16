@@ -843,8 +843,8 @@ h1, h2, h3, h4, h5, h6,
    MODERN FOOTER
    ============================================= */
 .modern-footer {
-    border-top: 3px solid var(--primary);
-    background: var(--bg-card) !important;
+    border-top: none;
+    background: transparent !important;
     backdrop-filter: none;
     padding: 0 !important;
     margin: 0 !important;
