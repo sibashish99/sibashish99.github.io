@@ -88,9 +88,7 @@
 
 /* -- Body -- */
 body {
-    background: var(--bg-deep) !important;
-    background: linear-gradient(35deg, #e1e1e1 0%, #729afe 40%, #ffc977 100%) !important;
-    background-attachment: fixed !important;
+    background: #FFFF00 !important;
     color: var(--text-main) !important;
     overflow-x: hidden;
     border-top: none;
