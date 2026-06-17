@@ -882,6 +882,8 @@ h1, h2, h3, h4, h5, h6,
     backdrop-filter: none;
     padding: 0 !important;
     margin: 0 !important;
+    overflow: visible !important;
+    width: 100% !important;
 }
 
 /* Footer giant name - 70% visible from bottom */
@@ -890,9 +892,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Lexend Mega', sans-serif !important;
     font-weight: 400 !important;
     letter-spacing: 6px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: flex-start !important;
+    display: inline-block !important;
     line-height: 1 !important;
     overflow-y: hidden !important;
     overflow-x: visible !important;
@@ -900,9 +900,8 @@ h1, h2, h3, h4, h5, h6,
     text-decoration: none !important;
     background: none !important;
     -webkit-text-fill-color: initial !important;
-    vertical-align: bottom;
     white-space: nowrap !important;
-    width: 100% !important;
+    margin: 0 auto !important;
 }
 
 /* Each animated letter span (injected by JS) */
@@ -933,10 +932,10 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .footer-content {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    display: block !important;
+    text-align: center !important;
     width: 100% !important;
+    overflow: visible !important;
 }
 
 @keyframes footerLetterRise {
@@ -5476,19 +5475,23 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     .modern-footer {
         padding: 0 !important;
         margin: 0 !important;
+        overflow: visible !important;
     }
     .modern-logo--footer {
         font-size: clamp(36px, 7vw, 56px) !important;
         letter-spacing: clamp(1px, 0.5vw, 2px) !important;
         padding: 0 !important;
-        margin: 0 !important;
+        margin: 0 auto !important;
         height: 0.7em !important;
         overflow-y: hidden !important;
         overflow-x: visible !important;
         white-space: nowrap !important;
+        display: inline-block !important;
     }
     .footer-content {
         padding: clamp(8px, 2vw, 16px) clamp(12px, 4vw, 20px) !important;
+        text-align: center !important;
+        overflow: visible !important;
     }
 }
 
@@ -5497,19 +5500,23 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     .modern-footer {
         padding: 0 !important;
         margin: 0 !important;
+        overflow: visible !important;
     }
     .modern-logo--footer {
         font-size: clamp(28px, 6vw, 44px) !important;
         letter-spacing: clamp(0.8px, 0.4vw, 1.5px) !important;
         padding: 0 !important;
-        margin: 0 !important;
+        margin: 0 auto !important;
         height: 0.7em !important;
         overflow-y: hidden !important;
         overflow-x: visible !important;
         white-space: nowrap !important;
+        display: inline-block !important;
     }
     .footer-content {
         padding: clamp(8px, 2vw, 12px) clamp(10px, 3vw, 16px) !important;
+        text-align: center !important;
+        overflow: visible !important;
     }
 }
 
@@ -5518,19 +5525,23 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     .modern-footer {
         padding: 0 !important;
         margin: 0 !important;
+        overflow: visible !important;
     }
     .modern-logo--footer {
         font-size: clamp(32px, 8vw, 64px) !important;
         letter-spacing: clamp(0.5px, 0.5vw, 1.5px) !important;
         padding: 0 !important;
-        margin: 0 !important;
+        margin: 0 auto !important;
         height: 0.7em !important;
         overflow-y: hidden !important;
         overflow-x: visible !important;
         white-space: nowrap !important;
+        display: inline-block !important;
     }
     .footer-content {
         padding: 8px 12px !important;
         word-break: break-word;
+        text-align: center !important;
+        overflow: visible !important;
     }
 }
