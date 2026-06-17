@@ -884,7 +884,7 @@ h1, h2, h3, h4, h5, h6,
     margin: 0 !important;
 }
 
-/* Footer giant name ? clips so 70% of letters visible above bottom edge */
+/* Footer giant name - 70% visible from bottom */
 .modern-logo--footer {
     font-size: 168px !important;
     font-family: 'Lexend Mega', sans-serif !important;
@@ -893,12 +893,14 @@ h1, h2, h3, h4, h5, h6,
     display: inline-flex !important;
     align-items: flex-start !important;
     line-height: 1 !important;
-    overflow: hidden !important;
+    overflow-y: hidden !important;
+    overflow-x: visible !important;
     height: 0.7em !important;
     text-decoration: none !important;
     background: none !important;
     -webkit-text-fill-color: initial !important;
     vertical-align: bottom;
+    white-space: nowrap !important;
 }
 
 /* Each animated letter span (injected by JS) */
@@ -5472,6 +5474,9 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         padding: 0 !important;
         margin: 0 !important;
         height: 0.7em !important;
+        overflow-y: hidden !important;
+        overflow-x: visible !important;
+        white-space: nowrap !important;
     }
     .footer-content {
         padding: clamp(8px, 2vw, 16px) clamp(12px, 4vw, 20px) !important;
@@ -5490,6 +5495,9 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         padding: 0 !important;
         margin: 0 !important;
         height: 0.7em !important;
+        overflow-y: hidden !important;
+        overflow-x: visible !important;
+        white-space: nowrap !important;
     }
     .footer-content {
         padding: clamp(8px, 2vw, 12px) clamp(10px, 3vw, 16px) !important;
@@ -5508,6 +5516,9 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         padding: 0 !important;
         margin: 0 !important;
         height: 0.7em !important;
+        overflow-y: hidden !important;
+        overflow-x: visible !important;
+        white-space: nowrap !important;
     }
     .footer-content {
         padding: 8px 12px !important;
