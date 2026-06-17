@@ -5491,7 +5491,9 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     }
     .footer-content {
         padding: clamp(8px, 2vw, 16px) clamp(12px, 4vw, 20px) !important;
-        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
         overflow: visible !important;
     }
 }
@@ -5516,7 +5518,9 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     }
     .footer-content {
         padding: clamp(8px, 2vw, 12px) clamp(10px, 3vw, 16px) !important;
-        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
         overflow: visible !important;
     }
 }
@@ -5541,8 +5545,9 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     }
     .footer-content {
         padding: 8px 12px !important;
-        word-break: break-word;
-        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
         overflow: visible !important;
     }
 }
