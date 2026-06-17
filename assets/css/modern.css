@@ -888,9 +888,9 @@ h1, h2, h3, h4, h5, h6,
 
 /* Footer giant name - 70% visible from bottom */
 .modern-logo--footer {
-    font-size: 168px !important;
+    font-size: 140px !important;
     font-family: 'Lexend Mega', sans-serif !important;
-    font-weight: 400 !important;
+    font-weight: 900 !important;
     letter-spacing: 6px !important;
     display: inline-block !important;
     line-height: 1 !important;
@@ -932,8 +932,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .footer-content {
-    display: block !important;
-    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
     width: 100% !important;
     overflow: visible !important;
 }
