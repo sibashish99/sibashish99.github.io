@@ -884,7 +884,7 @@ h1, h2, h3, h4, h5, h6,
     margin: 0 !important;
 }
 
-/* Footer giant name - fully visible */
+/* Footer giant name ? clips so 70% of letters visible above bottom edge */
 .modern-logo--footer {
     font-size: 168px !important;
     font-family: 'Lexend Mega', sans-serif !important;
@@ -894,7 +894,7 @@ h1, h2, h3, h4, h5, h6,
     align-items: flex-start !important;
     line-height: 1 !important;
     overflow: hidden !important;
-    height: auto !important;
+    height: 0.7em !important;
     text-decoration: none !important;
     background: none !important;
     -webkit-text-fill-color: initial !important;
@@ -5471,7 +5471,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         letter-spacing: clamp(1px, 0.5vw, 2px) !important;
         padding: 0 !important;
         margin: 0 !important;
-        height: auto !important;
+        height: 0.7em !important;
     }
     .footer-content {
         padding: clamp(8px, 2vw, 16px) clamp(12px, 4vw, 20px) !important;
@@ -5489,7 +5489,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         letter-spacing: clamp(0.8px, 0.4vw, 1.5px) !important;
         padding: 0 !important;
         margin: 0 !important;
-        height: auto !important;
+        height: 0.7em !important;
     }
     .footer-content {
         padding: clamp(8px, 2vw, 12px) clamp(10px, 3vw, 16px) !important;
@@ -5507,7 +5507,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         letter-spacing: clamp(0.5px, 0.5vw, 1.5px) !important;
         padding: 0 !important;
         margin: 0 !important;
-        height: auto !important;
+        height: 0.7em !important;
     }
     .footer-content {
         padding: 8px 12px !important;
