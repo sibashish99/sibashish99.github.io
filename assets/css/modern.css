@@ -890,7 +890,8 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Lexend Mega', sans-serif !important;
     font-weight: 400 !important;
     letter-spacing: 6px !important;
-    display: inline-flex !important;
+    display: flex !important;
+    justify-content: center !important;
     align-items: flex-start !important;
     line-height: 1 !important;
     overflow-y: hidden !important;
@@ -901,6 +902,7 @@ h1, h2, h3, h4, h5, h6,
     -webkit-text-fill-color: initial !important;
     vertical-align: bottom;
     white-space: nowrap !important;
+    width: 100% !important;
 }
 
 /* Each animated letter span (injected by JS) */
@@ -928,6 +930,13 @@ h1, h2, h3, h4, h5, h6,
 /* Triggered class ? letter marches up */
 .footer-letter.fl-risen {
     animation: footerLetterRise 0.52s cubic-bezier(.22,.68,0,1.1) forwards;
+}
+
+.footer-content {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
 }
 
 @keyframes footerLetterRise {
