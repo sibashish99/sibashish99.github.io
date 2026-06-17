@@ -18,6 +18,17 @@
 </head>
 
 <body>
+<script>
+    // Immediately restore saved color before any other scripts run
+    (function() {
+        var savedColor = localStorage.getItem('sibashish-bg-color');
+        if (savedColor) {
+            document.body.style.setProperty('background-color', savedColor, 'important');
+        } else {
+            document.body.style.setProperty('background-color', '#ffff00', 'important');
+        }
+    })();
+</script>
 <main class="main-homepage">
 
     <canvas id="particle-canvas"></canvas>

@@ -88,7 +88,7 @@
 
 /* -- Body -- */
 body {
-    background: #FFFF00 !important;
+    background: #FFFF00;
     color: var(--text-main) !important;
     overflow-x: hidden;
     border-top: none;
@@ -168,8 +168,8 @@ h1, h2, h3, h4, h5, h6,
 @media (max-width: 767px) {
     /* Logo sizing on mobile */
     .modern-logo {
-        font-size: 16px !important;
-        letter-spacing: 1px !important;
+        font-size: 14px !important;
+        letter-spacing: 0.5px !important;
     }
 
     /* Hide theme switcher on mobile */
@@ -181,9 +181,9 @@ h1, h2, h3, h4, h5, h6,
     .modern-nav {
         display: none !important;
         position: fixed !important;
-        top: 60px; left: 0; right: 0;
+        top: 30px; left: 0; right: 0;
         width: 100% !important;
-        height: calc(100dvh - 60px) !important;
+        height: calc(100dvh - 30px) !important;
         z-index: 999 !important;
         flex-direction: column !important;
         align-items: stretch !important;
@@ -262,8 +262,8 @@ h1, h2, h3, h4, h5, h6,
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
-        width: 24px !important;
-        height: 16px !important;
+        width: 20px !important;
+        height: 12px !important;
         cursor: pointer !important;
         z-index: 1001 !important;
         position: relative !important;
@@ -281,14 +281,14 @@ h1, h2, h3, h4, h5, h6,
 
     /* X animation when active */
     .show-menu.active span:first-child {
-        transform: translateY(7px) rotate(45deg) !important;
+        transform: translateY(5px) rotate(45deg) !important;
     }
     .show-menu.active span:nth-child(2) {
         opacity: 0 !important;
         transform: scaleX(0) !important;
     }
     .show-menu.active span:last-child {
-        transform: translateY(-7px) rotate(-45deg) !important;
+        transform: translateY(-5px) rotate(-45deg) !important;
     }
 
     /* Hide duplicate outer "Let's talk" on mobile */
@@ -302,7 +302,7 @@ h1, h2, h3, h4, h5, h6,
     }
 
     .modern-header .container {
-        padding: 12px 16px !important;
+        padding: 6px 16px !important;
     }
 
     .modern-header .gx-row {
@@ -4881,12 +4881,12 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     padding: 0;
     min-width: 60px;
     transition: all 0.3s ease;
-    max-height: 80px;
+    max-height: 50px;
     overflow: hidden;
 }
 
 .color-switcher-container.active .color-switcher-widget {
-    max-height: 300px;
+    max-height: 200px;
 }
 
 .switcher-header {
@@ -4990,7 +4990,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     .color-switcher-container {
         bottom: 20px;
-        right: 20px;
+        right: 10px;
     }
 
     .color-switcher-widget {
@@ -5031,7 +5031,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 @media (max-width: 480px) {
     .color-switcher-container {
         bottom: 15px;
-        right: 15px;
+        right: 8px;
     }
 
     .color-switcher-widget {
@@ -5039,7 +5039,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     }
 
     .color-switcher-container.active .color-switcher-widget {
-        max-height: 350px;
+        max-height: 220px;
     }
 
     .switcher-header {
@@ -5463,42 +5463,51 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 /* Mobile (576px to 768px) */
 @media (max-width: 768px) {
     .modern-footer {
-        padding: clamp(16px, 4vw, 32px) 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
     .modern-logo--footer {
-        font-size: clamp(48px, 10vw, 100px) !important;
-        letter-spacing: clamp(1.5px, 0.8vw, 3px) !important;
-        padding: clamp(16px, 4vw, 32px) 0 !important;
+        font-size: clamp(36px, 7vw, 56px) !important;
+        letter-spacing: clamp(1px, 0.5vw, 2px) !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        height: 0.7em !important;
     }
     .footer-content {
-        padding: clamp(12px, 3vw, 20px) clamp(12px, 4vw, 20px) !important;
+        padding: clamp(8px, 2vw, 16px) clamp(12px, 4vw, 20px) !important;
     }
 }
 
 /* Small Mobile (480px to 576px) */
 @media (max-width: 576px) {
     .modern-footer {
-        padding: clamp(12px, 3vw, 24px) 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
     .modern-logo--footer {
-        font-size: clamp(36px, 9vw, 80px) !important;
-        letter-spacing: clamp(1px, 0.6vw, 2px) !important;
-        padding: clamp(12px, 3vw, 24px) 0 !important;
+        font-size: clamp(28px, 6vw, 44px) !important;
+        letter-spacing: clamp(0.8px, 0.4vw, 1.5px) !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        height: 0.7em !important;
     }
     .footer-content {
-        padding: clamp(10px, 3vw, 16px) clamp(10px, 3vw, 16px) !important;
+        padding: clamp(8px, 2vw, 12px) clamp(10px, 3vw, 16px) !important;
     }
 }
 
 /* Extra Small Mobile (< 480px) */
 @media (max-width: 480px) {
     .modern-footer {
-        padding: 10px 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
     .modern-logo--footer {
         font-size: clamp(32px, 8vw, 64px) !important;
         letter-spacing: clamp(0.5px, 0.5vw, 1.5px) !important;
-        padding: 10px 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        height: 0.7em !important;
     }
     .footer-content {
         padding: 8px 12px !important;

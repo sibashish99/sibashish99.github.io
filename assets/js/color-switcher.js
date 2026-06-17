@@ -4,6 +4,7 @@
 
     const STORAGE_KEY = 'sibashish-bg-color';
     const DEFAULT_COLOR = '#ffff00';
+    let currentColor = DEFAULT_COLOR;
 
     const colors = {
         white: { label: 'White', value: '#ffffff' },
@@ -71,8 +72,10 @@
         colorBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const colorKey = e.currentTarget.getAttribute('data-color');
-                applyColor(colors[colorKey].value);
-                localStorage.setItem(STORAGE_KEY, colors[colorKey].value);
+                const newColor = colors[colorKey].value;
+                applyColor(newColor);
+                currentColor = newColor;
+                localStorage.setItem(STORAGE_KEY, newColor);
                 
                 // Visual feedback
                 container.classList.add('color-applied');
@@ -88,11 +91,64 @@
                 container.classList.remove('active');
             }
         });
+        
+        // Monitor mobile menu toggle using event delegation
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.show-menu')) {
+                // Reapply color immediately when menu button is clicked
+                setTimeout(function() {
+                    document.body.style.setProperty('background-color', currentColor, 'important');
+                }, 50);
+                setTimeout(function() {
+                    document.body.style.setProperty('background-color', currentColor, 'important');
+                }, 150);
+            }
+        });
     }
 
     function applyColor(colorValue) {
+        currentColor = colorValue;
         document.body.style.backgroundColor = colorValue + ' !important';
         document.body.style.setProperty('background-color', colorValue, 'important');
+        
+        // Prevent other scripts from changing the background color
+        if (!window.colorSwitcherMonitoring) {
+            window.colorSwitcherMonitoring = true;
+            const observer = new MutationObserver(function(mutations) {
+                let needsReapply = false;
+                mutations.forEach(function(mutation) {
+                    // Check for style changes
+                    if (mutation.type === 'attributes' && (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
+                        needsReapply = true;
+                    }
+                });
+                
+                if (needsReapply) {
+                    // Re-apply color immediately and with a small delay to catch CSS animations
+                    document.body.style.setProperty('background-color', currentColor, 'important');
+                    setTimeout(function() {
+                        document.body.style.setProperty('background-color', currentColor, 'important');
+                    }, 50);
+                }
+            });
+            
+            // Watch both style and class attributes
+            observer.observe(document.body, { 
+                attributes: true, 
+                attributeFilter: ['style', 'class'],
+                subtree: false
+            });
+            
+            // Also watch the navbar for changes that might affect body
+            const navbar = document.querySelector('.navbar, .modern-nav');
+            if (navbar) {
+                observer.observe(navbar, { 
+                    attributes: true,
+                    attributeFilter: ['class'],
+                    subtree: true
+                });
+            }
+        }
     }
 
     // Initialize when DOM is ready
@@ -101,4 +157,24 @@
     } else {
         init();
     }
+    
+    // Continuous color maintenance - ensures color persists during all interactions
+    setInterval(function() {
+        // Always maintain the current color on the body with !important
+        if (document.body) {
+            document.body.style.setProperty('background-color', currentColor, 'important');
+        }
+    }, 150);
+    
+    // Ensure color persists when page visibility changes (mobile header interactions)
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) {
+            document.body.style.setProperty('background-color', currentColor, 'important');
+        }
+    });
+    
+    // Monitor header interactions on mobile
+    window.addEventListener('resize', function() {
+        document.body.style.setProperty('background-color', currentColor, 'important');
+    });
 })();
