@@ -972,7 +972,7 @@ h1, h2, h3, h4, h5, h6,
 
 .linkedin-headline {
     font-size: 16px !important;
-    color: #555555 !important;
+    color: #000000 !important;
     margin: 0 !important;
     line-height: 1.6 !important;
     font-family: 'Space Grotesk', sans-serif !important;
@@ -981,7 +981,7 @@ h1, h2, h3, h4, h5, h6,
 
 .linkedin-location {
     font-size: 15px !important;
-    color: #666666 !important;
+    color: #000000 !important;
     margin: 0 !important;
     font-family: 'Space Grotesk', sans-serif !important;
     font-weight: 400 !important;
