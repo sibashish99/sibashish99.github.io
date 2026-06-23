@@ -18,17 +18,6 @@
 </head>
 
 <body>
-<script>
-    // Immediately restore saved color before any other scripts run
-    (function() {
-        var savedColor = localStorage.getItem('sibashish-bg-color');
-        if (savedColor) {
-            document.body.style.setProperty('background-color', savedColor, 'important');
-        } else {
-            document.body.style.setProperty('background-color', '#ffff00', 'important');
-        }
-    })();
-</script>
 <main class="main-homepage">
 
     <canvas id="particle-canvas"></canvas>
@@ -38,12 +27,12 @@
         <div class="container">
             <div class="gx-row d-flex align-items-center justify-content-between">
                 <a href="./index.html" class="logo modern-logo">
-                    sibashish.md
+                    <span class="logo-bracket logo-bracket-open">&lt;</span><span class="logo-name-wrap"><span class="logo-name">SIBASHISH</span></span><span class="logo-bracket logo-bracket-close">/&gt;</span>
                 </a>
                 <nav class="navbar modern-nav">
                     <ul class="menu">
                         <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="about.html">Bio</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li><a href="works.html">Works</a></li>
                         <li><a href="captures.html">Captures</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -127,11 +116,13 @@
                         <div class="exp-bar-row">
                             <span class="exp-bar-lbl">Cloud</span>
                             <div class="exp-bar-track"><div class="exp-bar-fill" style="width:95%;--ec:#38bdf8"></div></div>
+                            <div class="exp-bar-track"><div class="exp-bar-fill" style="width:78%;--ec:#38bdf8"></div></div>
                             <span class="exp-bar-pct">95%</span>
                         </div>
                         <div class="exp-bar-row">
                             <span class="exp-bar-lbl">DevOps</span>
                             <div class="exp-bar-track"><div class="exp-bar-fill" style="width:90%;--ec:#5B78F6"></div></div>
+                            <div class="exp-bar-track"><div class="exp-bar-fill" style="width:70%;--ec:#5B78F6"></div></div>
                             <span class="exp-bar-pct">90%</span>
                         </div>
                     </div>
@@ -360,9 +351,9 @@
     <!-- Footer -->
     <footer class="footer-area modern-footer">
         <div class="container" style="padding:0;">
-                <div class="footer-content text-center" style="line-height:1;overflow:visible;margin:0;padding:0;">
+            <div class="footer-content text-center" style="line-height:1;overflow:hidden;margin:0;padding:0;">
                 <a href="./index.html" class="modern-logo modern-logo--footer" id="footer-logo">
-                    sibashish.md
+                    <span class="footer-letter footer-letter--bracket">&lt;</span><span class="footer-name">SIBASHISH</span><span class="footer-letter footer-letter--bracket">/&gt;</span>
                 </a>
             </div>
         </div>
@@ -623,6 +614,5 @@
     startTimer();
 })();
 </script>
-<script src="./assets/js/color-switcher.js"></script>
 </body>
 </html>

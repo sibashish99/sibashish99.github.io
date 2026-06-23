@@ -23,17 +23,6 @@
 </head>
 
 <body>
-<script>
-    // Immediately restore saved color before any other scripts run
-    (function() {
-        var savedColor = localStorage.getItem('sibashish-bg-color');
-        if (savedColor) {
-            document.body.style.setProperty('background-color', savedColor, 'important');
-        } else {
-            document.body.style.setProperty('background-color', '#ffff00', 'important');
-        }
-    })();
-</script>
 
     <main class="main-aboutpage">
 
@@ -42,13 +31,13 @@
             <div class="container">
                 <div class="gx-row d-flex align-items-center justify-content-between">
                     <a href="./index.html" class="logo modern-logo">
-                        sibashish.md
+                        <span class="logo-bracket">&lt;</span>SIBASHISH<span class="logo-bracket">/&gt;</span>
                     </a>
 
                     <nav class="navbar modern-nav">
                         <ul class="menu">
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">Bio</a></li>
+                            <li><a href="about.html">About</a></li>
                             <li><a href="works.html">Works</a></li>
                             <li><a href="captures.html">Captures</a></li>
                             <li class="active"><a href="contact.html">Contact</a></li>
@@ -89,8 +78,8 @@
                         <span class="ct-pulse-dot"></span>
                         Open to opportunities
                     </div>
-                    <h1 class="ct-heading">Let's build something <em class="ct-heading-em">amazing together.</em></h1>
-                    <p class="ct-sub">Have a project in mind, a question, or just want to say hello?<br>Drop a message I read every one.</p>
+                    <h1 class="ct-heading">Let's build something<br><em class="ct-heading-em">amazing together.</em></h1>
+                    <p class="ct-sub">Have a project in mind, a question, or just want to say hello?<br>Drop a message � I read every one.</p>
                     <div class="ct-hero-ctas">
                         <a href="mailto:sibashishreferral99@gmail.com?subject=Hey%20Sibashish!" class="ct-btn-primary">
                             <i class="iconoir-send-mail"></i> Send Email
@@ -208,10 +197,10 @@
 
         <!-- Footer -->
         <footer class="footer-area modern-footer">
-            <div class="container" style="padding:0;">
-                <div class="footer-content text-center" style="line-height:1;overflow:visible;margin:0;padding:0;">
+            <div class="container">
+                <div class="footer-content text-center" style="line-height:1;overflow:hidden;margin:0;padding:0;">
                     <a href="./index.html" class="modern-logo modern-logo--footer" id="footer-logo">
-                        sibashish.md
+                        <span class="footer-letter footer-letter--bracket">&lt;</span><span class="footer-name">SIBASHISH</span><span class="footer-letter footer-letter--bracket">/&gt;</span>
                     </a>
                 </div>
             </div>
@@ -240,7 +229,6 @@
         });
     });
     </script>
-<script src="./assets/js/color-switcher.js"></script>
 
 </body>
 </html>
