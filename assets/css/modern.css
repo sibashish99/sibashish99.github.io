@@ -2711,27 +2711,20 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 .hero-ts-photo-card {
     position: absolute;
     left: 60%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-58%) rotate(-17deg);
-    width: clamp(130px, 15vw, 260px);
-    height: clamp(221px, 29vw, 414px);
+    top: 70%;
+    transform: translateX(-50%) translateY(-58%) rotate(-40deg);
+    width: clamp(151px, 17.5vw, 303px);
+    height: clamp(257px, 33.8vw, 482px);
     overflow: visible;
     border: none;
     background: transparent;
     box-shadow: none;
     z-index: 3;
-    transition: transform .35s cubic-bezier(.22,.68,0,1.2);
+    opacity: 1;
+    transition: transform .35s cubic-bezier(.22,.68,0,1.2), opacity .35s ease;
 }
-.hero-section-full:hover .hero-ts-photo-card {
-    transform: translateX(-50%) translateY(-58%) rotate(-12deg) scale(1.04);
-}
-.hero-ts-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-}
+
+
 .hero-ts-meta {
     display: flex;
     align-items: center;
@@ -3896,10 +3889,10 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         width: 79px;
         height: 108px;
         left: 50%;
-        transform: translateX(-50%) translateY(-58%) rotate(-25deg);
+        transform: translateX(-50%) translateY(-58%) rotate(0deg);
     }
     .hero-section-full:hover .hero-ts-photo-card {
-        transform: translateX(-50%) translateY(-58%) rotate(-12deg) scale(1.04);
+        transform: translateX(-50%) translateY(-58%) rotate(0deg) scale(1.04);
     }
     .hero-role { margin-top: 8px !important; font-size: 13px; }
     .hero-cta-row { justify-content: flex-start; flex-wrap: wrap; gap: 10px; }
@@ -3952,11 +3945,11 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     .hero-ts-photo-card {
         width: clamp(110px, 14vw, 165px);
         height: clamp(175px, 22vw, 260px);
-        left: 58%;
-        transform: translateX(-50%) translateY(-58%) rotate(-17deg);
+        left: 50%;
+        transform: translateX(-50%) translateY(-58%) rotate(0deg);
     }
     .hero-section-full:hover .hero-ts-photo-card {
-        transform: translateX(-50%) translateY(-58%) rotate(-8deg) scale(1.04);
+        transform: translateX(-50%) translateY(-58%) rotate(0deg) scale(1.04);
     }
     /* Bento grid */
     .hp-grid { gap: 14px; }
