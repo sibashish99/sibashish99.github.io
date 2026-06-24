@@ -2751,20 +2751,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     box-shadow: none;
     z-index: 3;
     opacity: 1;
-    animation: photoEntrance .9s cubic-bezier(.22,.68,0,1.2) both, photoCardFloat 5s ease-in-out 1s infinite;
     transition: transform .35s cubic-bezier(.22,.68,0,1.2), opacity .35s ease;
-}
-.hero-ts-photo-card:hover {
-    opacity: 0.08;
-    animation-play-state: paused;
-}
-@keyframes photoEntrance {
-    from { opacity: 0; transform: translateX(-50%) translateY(-38%) rotate(-55deg) scale(.8); }
-    to   { opacity: 1; transform: translateX(-50%) translateY(-58%) rotate(-40deg) scale(1); }
-}
-@keyframes photoCardFloat {
-    0%, 100% { transform: translateX(-50%) translateY(-58%) rotate(-40deg); }
-    50%       { transform: translateX(-50%) translateY(-72%) rotate(-40deg); }
 }
 
 
