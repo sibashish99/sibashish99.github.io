@@ -7,10 +7,10 @@
     let currentColor = DEFAULT_COLOR;
 
     const colors = {
-        white: { label: 'White', value: '#ffffff' },
-        green: { label: 'Green', value: '#00AA44' },
-        yellow: { label: 'Yellow', value: '#FFFF00' },
-        orange: { label: 'Orange', value: '#FF8800' }
+        white:  { label: 'White',  value: '#ffffff', gradient: 'linear-gradient(to bottom, #dbdbdb 0%, #dfdede 35%, #f5f5f5 70%, #ffffff 100%)' },
+        green:  { label: 'Green',  value: '#00AA44', gradient: 'linear-gradient(to bottom, #00ff11 0%, #42fc89 30%, #93f9bc 60%, #f5f5f5 100%)' },
+        yellow: { label: 'Yellow', value: '#FFFF00', gradient: 'linear-gradient(to bottom, #ffd500 0%, #f7d83c 30%, #f6f679 60%, #f5f5f5 100%)' },
+        orange: { label: 'Orange', value: '#FF8800', gradient: 'linear-gradient(to bottom, #ff6200 0%, #fb7e40 30%, #f9b76b 60%, #f5f5f5 100%)' }
     };
 
     // Initialize color switcher
@@ -72,8 +72,8 @@
         colorBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const colorKey = e.currentTarget.getAttribute('data-color');
-                const newColor = colors[colorKey].value;
-                applyColor(newColor);
+                const { value: newColor, gradient } = colors[colorKey];
+                applyColor(newColor, gradient);
                 currentColor = newColor;
                 localStorage.setItem(STORAGE_KEY, newColor);
                 
@@ -106,10 +106,20 @@
         });
     }
 
-    function applyColor(colorValue) {
+    function applyColor(colorValue, gradient) {
         currentColor = colorValue;
-        document.body.style.backgroundColor = colorValue + ' !important';
-        document.body.style.setProperty('background-color', colorValue, 'important');
+        if (!gradient) {
+            const match = Object.values(colors).find(c => c.value.toLowerCase() === colorValue.toLowerCase());
+            gradient = match ? match.gradient : null;
+        }
+        if (gradient) {
+            document.body.style.setProperty('background', gradient, 'important');
+        } else {
+            document.body.style.setProperty('background-color', colorValue, 'important');
+        }
+        // Remove hero-specific override so body gradient shows through
+        const hero = document.querySelector('.hero-section-full');
+        if (hero) hero.style.removeProperty('background');
         
         // Prevent other scripts from changing the background color
         if (!window.colorSwitcherMonitoring) {
@@ -160,10 +170,16 @@
     
     // Continuous color maintenance - ensures color persists during all interactions
     setInterval(function() {
-        // Always maintain the current color on the body with !important
         if (document.body) {
-            document.body.style.setProperty('background-color', currentColor, 'important');
+            const match = Object.values(colors).find(c => c.value.toLowerCase() === currentColor.toLowerCase());
+            if (match) {
+                document.body.style.setProperty('background', match.gradient, 'important');
+            } else {
+                document.body.style.setProperty('background-color', currentColor, 'important');
+            }
         }
+        const hero = document.querySelector('.hero-section-full');
+        if (hero) hero.style.removeProperty('background');
     }, 150);
     
     // Ensure color persists when page visibility changes (mobile header interactions)
