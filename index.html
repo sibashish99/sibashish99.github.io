@@ -62,36 +62,35 @@
         </div>
     </header>
 
-    <!-- BENTO GRID -->
-    <section style="position:relative;z-index:2;">
+    <!-- HERO -->
+    <section class="hero-section-full" style="position:relative;z-index:2;">
         <div class="container">
-            <div class="hp-grid">
-
-                <!-- HERO -->
-                <div class="bc bc-hero" style="transition-delay:0s">
-                    <div class="bc-shimmer"></div>
-                    <a class="overlay-link" href="./about.html"></a>
-                    <div style="position:relative;z-index:3;flex:1;min-width:0;">
-                        <div class="hero-badge"><span class="dot"></span> Available for opportunities</div>
-                        <h1 class="hero-name-glitch" data-text="Sibashish Biswas.">Sibashish Biswas.</h1>
-                        <p class="hero-role"><span id="hp-typed"></span><span class="typed-cursor">|</span></p>
-                        <div class="hero-cta-row">
-                            <a href="./contact.html" class="hp-btn-primary"><i class="iconoir-mail"></i> Let's talk</a>
-                            <a href="./works.html" class="hp-btn-ghost"><i class="iconoir-code"></i> My Work</a>
-                        </div>
-                    </div>
-                    <div class="hero-photo-wrap">
-                        <div class="hero-photo-ring"></div>
-                        <div class="hero-photo-ring"></div>
-                        <div class="hero-photo-ring"></div>
-                        <img src="./assets/images/me.jpg" alt="Sibashish Biswas" class="hero-photo">
+            <div class="hero-ts-content">
+                <div class="hero-badge"><span class="dot"></span> Available for opportunities</div>
+                <div class="hero-ts-name-wrap">
+                    <span class="hero-ts-part">Sibashish<span class="hero-ts-star">*</span></span>
+                    <div class="hero-ts-photo-card">
+                        <img src="./assets/images/me-nobg.png" alt="Sibashish Biswas" class="hero-ts-img">
                     </div>
                 </div>
+                <p class="hero-role" style="margin-top:28px;"><span id="hp-typed"></span><span class="typed-cursor">|</span></p>
+                <div class="hero-cta-row" style="margin-top:20px;">
+                    <a href="./contact.html" class="hp-btn-primary"><i class="iconoir-mail"></i> Let's talk</a>
+                    <a href="./works.html" class="hp-btn-ghost"><i class="iconoir-code"></i> My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENTO SECTIONS -->
+    <section style="position:relative;z-index:2;padding-top:0;">
+        <div class="container">
+            <div class="hp-grid">
 
                 <!-- TAGLINE -->
                 <div class="bc bc-tagline" style="transition-delay:.08s">
                     <div class="tagline-accent-bar"></div>
-                    <div class="tagline-eyebrow"><i class="iconoir-building"></i> Senior Software Developer � Lumen Technologies</div>
+                    <div class="tagline-eyebrow"><i class="iconoir-building"></i> Senior Software Developer &mdash; Lumen Technologies</div>
                     <p class="tagline-text">Crafting <span>robust backend systems</span> that power distributed, real-world products.</p>
                     <p class="tagline-sub">Java &amp; Spring Boot craftsman with a passion for clean architecture, cloud-native systems, and the occasional front-end adventure.</p>
                     <div class="tagline-chips">
@@ -146,19 +145,16 @@
                 <!-- MARQUEE -->
                 <div class="bc bc-marquee" style="transition-delay:.2s">
                     <div class="marquee-track">
-                        <span>We are kept from our goals, not by obstacles, but by a clear path to a lesser goal. ~Bhagwad Gita &nbsp;�&nbsp; <b>Strive for a higher goal</b> &nbsp;�&nbsp; Code with purpose &nbsp;�&nbsp; Build with intention &nbsp;�&nbsp; Deploy with confidence &nbsp;�&nbsp;</span>
-                       <span>We are kept from our goals, not by obstacles, but by a clear path to a lesser goal. ~Bhagwad Gita &nbsp;�&nbsp; <b>Strive for a higher goal</b> &nbsp;�&nbsp; Code with purpose &nbsp;�&nbsp; Build with intention &nbsp;�&nbsp; Deploy with confidence &nbsp;�&nbsp;</span> 
+                        <span>We are kept from our goals, not by obstacles, but by a clear path to a lesser goal. ~Bhagwad Gita &nbsp;&middot;&nbsp; <b>Strive for a higher goal</b> &nbsp;&middot;&nbsp; Code with purpose &nbsp;&middot;&nbsp; Build with intention &nbsp;&middot;&nbsp; Deploy with confidence &nbsp;&middot;&nbsp;</span>
+                        <span>We are kept from our goals, not by obstacles, but by a clear path to a lesser goal. ~Bhagwad Gita &nbsp;&middot;&nbsp; <b>Strive for a higher goal</b> &nbsp;&middot;&nbsp; Code with purpose &nbsp;&middot;&nbsp; Build with intention &nbsp;&middot;&nbsp; Deploy with confidence &nbsp;&middot;&nbsp;</span>
                     </div>
                 </div>
 
-                <!-- GITHUB � full-width 2-panel redesign -->
+                <!-- GITHUB -->
                 <div class="bc bc-github" style="transition-delay:.38s">
                     <a class="overlay-link" href="https://github.com/sibashish726" target="_blank" rel="noopener"></a>
-
-                    <!-- �� LEFT PANEL: Identity + Stats + Achievements �� -->
                     <div class="gh2-left">
                         <div>
-                            <!-- Profile header -->
                             <div class="gh2-head">
                                 <div class="gh2-avatar-wrap">
                                     <img src="https://github.com/sibashish726.png?size=100" alt="sibashish726" class="gh2-avatar" loading="lazy">
@@ -168,23 +164,18 @@
                                     <div class="gh2-uname">sibashish726</div>
                                     <div class="gh2-bio" id="gh2-bio">Senior Software Engineer</div>
                                 </div>
-                                <div class="gh2-mark">
-                                    <i class="iconoir-github-circle"></i>
-                                </div>
+                                <div class="gh2-mark"><i class="iconoir-github-circle"></i></div>
                             </div>
-                            <!-- Stat pills -->
                             <div class="gh2-pills" style="margin-top:12px">
-                                <span class="gh2-pill"><i class="iconoir-repository"></i>&nbsp;<span id="gh2-repos-n">�</span> repos</span>
-                                <span class="gh2-pill"><i class="iconoir-community"></i>&nbsp;<span id="gh2-foll-n">�</span> followers</span>
-                                <span class="gh2-pill gh2-pill--star"><i class="iconoir-star"></i>&nbsp;<span id="gh2-stars-n">�</span> stars</span>
+                                <span class="gh2-pill"><i class="iconoir-repository"></i>&nbsp;<span id="gh2-repos-n">·</span> repos</span>
+                                <span class="gh2-pill"><i class="iconoir-community"></i>&nbsp;<span id="gh2-foll-n">·</span> followers</span>
+                                <span class="gh2-pill gh2-pill--star"><i class="iconoir-star"></i>&nbsp;<span id="gh2-stars-n">·</span> stars</span>
                             </div>
                         </div>
-                        <!-- Achievement badges (populated by JS) -->
                         <div class="gh2-achs-wrap" style="margin-top:14px">
                             <span class="gh2-lbl">Achievements</span>
                             <div class="gh2-achs" id="gh2-achs"></div>
                         </div>
-                        <!-- Social quick-links -->
                         <div class="gh2-socials" style="margin-top:auto;padding-top:14px">
                             <a href="https://github.com/sibashish726" target="_blank" rel="noopener" class="gh2-social-btn" style="--sc:#24292e">
                                 <i class="iconoir-github-circle"></i><span>sibashish726</span>
@@ -196,16 +187,12 @@
                                 <i class="iconoir-instagram"></i><span>sibashishbiswas__</span>
                             </a>
                         </div>
-                        <!-- Footer -->
                         <div class="gh2-foot" style="margin-top:14px">
                             <div><p class="bc-label">Open Source</p><h2 class="bc-title">GitHub</h2></div>
                             <div class="bc-arrow"><i class="iconoir-arrow-up-right"></i></div>
                         </div>
                     </div>
-
-                    <!-- �� RIGHT PANEL: Heatmap + Repos �� -->
                     <div class="gh2-right">
-                        <!-- Contribution heatmap -->
                         <div class="gh2-contrib-wrap">
                             <div class="gh2-contrib-header">
                                 <span class="gh2-lbl">Contributions | Last Year</span>
@@ -213,7 +200,6 @@
                             </div>
                             <div class="gh2-contrib-grid" id="gh2-contrib-grid"></div>
                         </div>
-                        <!-- Top repos -->
                         <div class="gh2-top-repos" style="margin-top:14px">
                             <span class="gh2-lbl">Top Repositories</span>
                             <div class="gh2-repo-list" id="gh2-repo-list"></div>
@@ -223,7 +209,6 @@
 
                 <!-- INTERESTS -->
                 <div class="bc bc-interests" style="transition-delay:.5s">
-                    <!-- Floating background words -->
                     <div class="interests-float-bg" aria-hidden="true">
                         <span class="ifb-word" style="top:15%;left:18%;--fd:0s;--fr:3deg">Cinema</span>
                         <span class="ifb-word" style="top:60%;left:8%;--fd:.8s;--fr:-4deg">Storytelling</span>
@@ -246,7 +231,6 @@
                     </div>
                     <div class="interest-deck-wrap">
                         <div class="interest-deck" id="interest-deck">
-                            <!-- Card 1: Cinema -->
                             <div class="ideck-card" data-idx="0">
                                 <div class="ideck-inner">
                                     <div class="ideck-front">
@@ -256,11 +240,10 @@
                                     </div>
                                     <div class="ideck-back">
                                         <p class="ideck-back-title">Cinema</p>
-                                        <p class="ideck-back-desc">From indie films to blockbusters � storytelling through visuals is what inspires my design thinking.</p>
+                                        <p class="ideck-back-desc">From indie films to blockbusters &mdash; storytelling through visuals is what inspires my design thinking.</p>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Card 2: Design -->
                             <div class="ideck-card" data-idx="1">
                                 <div class="ideck-inner">
                                     <div class="ideck-front">
@@ -274,7 +257,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Card 3: Music -->
                             <div class="ideck-card" data-idx="2">
                                 <div class="ideck-inner">
                                     <div class="ideck-front">
@@ -284,11 +266,10 @@
                                     </div>
                                     <div class="ideck-back">
                                         <p class="ideck-back-title">Music</p>
-                                        <p class="ideck-back-desc">Lo-fi beats while debugging, indie rock for late-night builds � music keeps the code flowing.</p>
+                                        <p class="ideck-back-desc">Lo-fi beats while debugging, indie rock for late-night builds &mdash; music keeps the code flowing.</p>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Card 4: Riding -->
                             <div class="ideck-card" data-idx="3">
                                 <div class="ideck-inner">
                                     <div class="ideck-front">
@@ -298,7 +279,7 @@
                                     </div>
                                     <div class="ideck-back">
                                         <p class="ideck-back-title">Riding</p>
-                                        <p class="ideck-back-desc">Two wheels, open roads � the best way to clear the mind after a long sprint.</p>
+                                        <p class="ideck-back-desc">Two wheels, open roads &mdash; the best way to clear the mind after a long sprint.</p>
                                     </div>
                                 </div>
                             </div>
@@ -413,20 +394,8 @@
 /* 4. GitHub real data */
 (function(){
     var USERNAME = 'sibashish726';
-    var LANG_COLORS = {
-        'Java':'#b07219','JavaScript':'#f1e05a','TypeScript':'#3178c6',
-        'Python':'#3572A5','HTML':'#e34c26','CSS':'#563d7c','Shell':'#89e051',
-        'Go':'#00ADD8','Kotlin':'#A97BFF','C':'#555555','C++':'#f34b7d','Groovy':'#e69f56'
-    };
-    var CONTRIB_COLORS = [
-        'rgba(23,105,255,.08)',
-        'rgba(23,105,255,.28)',
-        'rgba(23,105,255,.52)',
-        'rgba(23,105,255,.76)',
-        '#1769ff'
-    ];
-
-    /* Achievement definitions � earned:bool set by API fetches */
+    var LANG_COLORS = {'Java':'#b07219','JavaScript':'#f1e05a','TypeScript':'#3178c6','Python':'#3572A5','HTML':'#e34c26','CSS':'#563d7c','Shell':'#89e051','Go':'#00ADD8','Kotlin':'#A97BFF','C':'#555555','C++':'#f34b7d','Groovy':'#e69f56'};
+    var CONTRIB_COLORS = ['rgba(23,105,255,.08)','rgba(23,105,255,.28)','rgba(23,105,255,.52)','rgba(23,105,255,.76)','#1769ff'];
     var ACHS = [
         { id:'arctic',    img:'https://github.githubassets.com/images/modules/profile/achievements/arctic-code-vault-contributor-default.png', label:'Arctic Code Vault',  tip:'Contributed to the 2020 GitHub Arctic Code Vault',  color:'#38bdf8', earned: true  },
         { id:'starstruck',img:'https://github.githubassets.com/images/modules/profile/achievements/starstruck-default.png',                    label:'Starstruck',         tip:'Got 16+ stars on a repository',                      color:'#e3b341', earned: false },
@@ -436,119 +405,25 @@
         { id:'active',    img:null, icon:'iconoir-git-commit',    label:'Active Committer',   tip:'Committed code regularly over the past year', color:'#3fb950', earned: false },
         { id:'oss',       img:null, icon:'iconoir-code-brackets', label:'Open Source',        tip:'Maintains public repositories',               color:'#1769ff', earned: false }
     ];
-
     function achById(id){ return ACHS.find(function(a){ return a.id===id; }); }
-
     function renderAchs() {
-        var container = document.getElementById('gh2-achs');
-        if (!container) return;
-        container.innerHTML = '';
+        var container = document.getElementById('gh2-achs'); if (!container) return; container.innerHTML = '';
         ACHS.filter(function(a){ return a.earned; }).forEach(function(a){
-            var tag = document.createElement('span');
-            tag.className = 'gh2-ach-tag';
-            tag.style.setProperty('--ach-color', a.color);
-            tag.title = a.tip;
-            if (a.img) {
-                tag.innerHTML = '<img src="'+a.img+'" class="gh2-ach-img" alt="'+a.label+'" loading="lazy"> '+a.label;
-            } else {
-                tag.innerHTML = '<i class="'+a.icon+'"></i> '+a.label;
-            }
+            var tag = document.createElement('span'); tag.className = 'gh2-ach-tag'; tag.style.setProperty('--ach-color', a.color); tag.title = a.tip;
+            tag.innerHTML = a.img ? '<img src="'+a.img+'" class="gh2-ach-img" alt="'+a.label+'" loading="lazy"> '+a.label : '<i class="'+a.icon+'"></i> '+a.label;
             container.appendChild(tag);
         });
-        /* If none earned yet show placeholder */
-        if (!container.children.length) {
-            container.innerHTML = '<span class="gh2-ach-empty">Loading achievements�</span>';
-        }
+        if (!container.children.length) container.innerHTML = '<span class="gh2-ach-empty">Loading achievements…</span>';
     }
-
     function buildFallbackGrid() {
-        var grid = document.getElementById('gh2-contrib-grid');
-        if (!grid) return;
-        grid.innerHTML = '';
+        var grid = document.getElementById('gh2-contrib-grid'); if (!grid) return; grid.innerHTML = '';
         var wts = [.38,.26,.18,.11,.07];
-        for (var w = 0; w < 52; w++) {
-            var col = document.createElement('div'); col.className = 'gh2-contrib-col';
-            for (var d = 0; d < 7; d++) {
-                var cell = document.createElement('div'); cell.className = 'gh2-contrib-cell';
-                var r = Math.random(), cum = 0, lvl = 0;
-                for (var j = 0; j < wts.length; j++) { cum += wts[j]; if (r < cum) { lvl = j; break; } }
-                cell.style.background = CONTRIB_COLORS[lvl];
-                col.appendChild(cell);
-            }
-            grid.appendChild(col);
-        }
+        for (var w = 0; w < 52; w++) { var col = document.createElement('div'); col.className = 'gh2-contrib-col'; for (var d = 0; d < 7; d++) { var cell = document.createElement('div'); cell.className = 'gh2-contrib-cell'; var r = Math.random(), cum = 0, lvl = 0; for (var j = 0; j < wts.length; j++) { cum += wts[j]; if (r < cum) { lvl = j; break; } } cell.style.background = CONTRIB_COLORS[lvl]; col.appendChild(cell); } grid.appendChild(col); }
     }
-
-    /* User profile ? Arctic Code Vault (created before Feb 2021) + bio + stats */
-    fetch('https://api.github.com/users/' + USERNAME)
-        .then(function(r){ return r.json(); })
-        .then(function(u){
-            var e;
-            if ((e = document.getElementById('gh2-repos-n'))) e.textContent = u.public_repos != null ? u.public_repos : '�';
-            if ((e = document.getElementById('gh2-foll-n')))  e.textContent = u.followers  != null ? u.followers  : '�';
-            if ((e = document.getElementById('gh2-bio')) && u.bio) e.textContent = u.bio;
-            /* Open Source: has public repos */
-            if ((u.public_repos || 0) > 0) achById('oss').earned = true;
-            renderAchs();
-        }).catch(function(){});
-
-    /* Repos ? total stars + Starstruck achievement + top repos */
-    fetch('https://api.github.com/users/' + USERNAME + '/repos?sort=stars&per_page=20&type=owner')
-        .then(function(r){ return r.json(); })
-        .then(function(repos){
-            if (!Array.isArray(repos)) return;
-            var totalStars = repos.reduce(function(s,r){ return s+(r.stargazers_count||0); }, 0);
-            var e = document.getElementById('gh2-stars-n');
-            if (e) e.textContent = totalStars;
-            if (totalStars >= 16) achById('starstruck').earned = true;
-            renderAchs();
-            var list = document.getElementById('gh2-repo-list');
-            if (!list) return;
-            repos.slice(0, 3).forEach(function(repo){
-                var color = LANG_COLORS[repo.language] || '#8b949e';
-                var row = document.createElement('div'); row.className = 'gh2-repo-row';
-                row.innerHTML =
-                    '<span class="gh2-repo-lang" style="background:'+color+'"></span>'+
-                    '<span class="gh2-repo-name">'+repo.name+'</span>'+
-                    '<span class="gh2-repo-stars"><i class="iconoir-star"></i>'+(repo.stargazers_count||0)+'</span>';
-                list.appendChild(row);
-            });
-        }).catch(function(){});
-
-    /* Merged PRs ? Pull Shark + YOLO (search API, unauthenticated) */
-    fetch('https://api.github.com/search/issues?q=author:'+USERNAME+'+type:pr+is:merged&per_page=1')
-        .then(function(r){ return r.json(); })
-        .then(function(d){
-            if (d.total_count > 0) achById('pull-shark').earned = true;
-            renderAchs();
-        }).catch(function(){});
-
-    /* Contribution heatmap ? Active Committer */
-    fetch('https://github-contributions-api.jogruber.de/v4/' + USERNAME + '?y=last')
-        .then(function(r){ return r.json(); })
-        .then(function(data){
-            var grid = document.getElementById('gh2-contrib-grid');
-            if (!grid) return;
-            var contribs = (data.contributions || []).slice(-364);
-            var yearTotal = contribs.reduce(function(s,d){ return s+(d.count||0); }, 0);
-            var countEl = document.getElementById('gh2-contrib-count');
-            if (countEl) countEl.textContent = yearTotal.toLocaleString() + ' contributions';
-            /* Active Committer: 50+ contributions in the year */
-            if (yearTotal >= 50) achById('active').earned = true;
-            renderAchs();
-            grid.innerHTML = '';
-            for (var i = 0; i < contribs.length; i += 7) {
-                var week = contribs.slice(i, i+7);
-                var col = document.createElement('div'); col.className = 'gh2-contrib-col';
-                week.forEach(function(day){
-                    var cell = document.createElement('div'); cell.className = 'gh2-contrib-cell';
-                    cell.style.background = CONTRIB_COLORS[Math.min(day.level||0, 4)];
-                    cell.title = (day.date||'') + ': ' + (day.count||0) + ' contributions';
-                    col.appendChild(cell);
-                });
-                grid.appendChild(col);
-            }
-        }).catch(buildFallbackGrid);
+    fetch('https://api.github.com/users/' + USERNAME).then(function(r){ return r.json(); }).then(function(u){ var e; if ((e=document.getElementById('gh2-repos-n'))) e.textContent=u.public_repos!=null?u.public_repos:'·'; if ((e=document.getElementById('gh2-foll-n'))) e.textContent=u.followers!=null?u.followers:'·'; if ((e=document.getElementById('gh2-bio'))&&u.bio) e.textContent=u.bio; if ((u.public_repos||0)>0) achById('oss').earned=true; renderAchs(); }).catch(function(){});
+    fetch('https://api.github.com/users/' + USERNAME + '/repos?sort=stars&per_page=20&type=owner').then(function(r){ return r.json(); }).then(function(repos){ if (!Array.isArray(repos)) return; var totalStars=repos.reduce(function(s,r){ return s+(r.stargazers_count||0); },0); var e=document.getElementById('gh2-stars-n'); if (e) e.textContent=totalStars; if (totalStars>=16) achById('starstruck').earned=true; renderAchs(); var list=document.getElementById('gh2-repo-list'); if (!list) return; repos.slice(0,3).forEach(function(repo){ var color=LANG_COLORS[repo.language]||'#8b949e'; var row=document.createElement('div'); row.className='gh2-repo-row'; row.innerHTML='<span class="gh2-repo-lang" style="background:'+color+'"></span><span class="gh2-repo-name">'+repo.name+'</span><span class="gh2-repo-stars"><i class="iconoir-star"></i>'+(repo.stargazers_count||0)+'</span>'; list.appendChild(row); }); }).catch(function(){});
+    fetch('https://api.github.com/search/issues?q=author:'+USERNAME+'+type:pr+is:merged&per_page=1').then(function(r){ return r.json(); }).then(function(d){ if (d.total_count>0) achById('pull-shark').earned=true; renderAchs(); }).catch(function(){});
+    fetch('https://github-contributions-api.jogruber.de/v4/' + USERNAME + '?y=last').then(function(r){ return r.json(); }).then(function(data){ var grid=document.getElementById('gh2-contrib-grid'); if (!grid) return; var contribs=(data.contributions||[]).slice(-364); var yearTotal=contribs.reduce(function(s,d){ return s+(d.count||0); },0); var countEl=document.getElementById('gh2-contrib-count'); if (countEl) countEl.textContent=yearTotal.toLocaleString()+' contributions'; if (yearTotal>=50) achById('active').earned=true; renderAchs(); grid.innerHTML=''; for (var i=0;i<contribs.length;i+=7){ var week=contribs.slice(i,i+7); var col=document.createElement('div'); col.className='gh2-contrib-col'; week.forEach(function(day){ var cell=document.createElement('div'); cell.className='gh2-contrib-cell'; cell.style.background=CONTRIB_COLORS[Math.min(day.level||0,4)]; cell.title=(day.date||'')+': '+(day.count||0)+' contributions'; col.appendChild(cell); }); grid.appendChild(col); } }).catch(buildFallbackGrid);
 })();
 
 /* 5. Scroll reveal + 3D tilt */
@@ -562,66 +437,19 @@
     });
 })();
 
-/* 7. Interest card deck */
-(function () {
-    var deck = document.getElementById('interest-deck');
-    if (!deck) return;
-    var cards = Array.from(deck.querySelectorAll('.ideck-card'));
-    var dots  = Array.from(document.querySelectorAll('.deck-dot'));
-    var total = cards.length;
-    var current = 0;
-    var timer;
-    var paused = false;
-
-    function setPositions() {
-        cards.forEach(function (card, i) {
-            var pos = (i - current + total) % total;
-            card.setAttribute('data-pos', pos);
-        });
-        dots.forEach(function (d, i) {
-            d.classList.toggle('active', i === current);
-        });
-    }
-
-    function advance() {
-        var exitCard = cards[current];
-        exitCard.classList.add('ideck-exit');
-        setTimeout(function () {
-            exitCard.classList.remove('ideck-exit');
-            current = (current + 1) % total;
-            setPositions();
-        }, 480);
-    }
-
-    function startTimer() {
-        timer = setInterval(function () {
-            if (!paused) advance();
-        }, 2800);
-    }
-
-    // Hover on top card pauses cycling
-    deck.addEventListener('mouseenter', function () { paused = true; });
-    deck.addEventListener('mouseleave', function () { paused = false; });
-
-    // Click top card advances to next
-    deck.addEventListener('click', function (e) {
-        var card = e.target.closest('.ideck-card');
-        if (card && card.getAttribute('data-pos') === '0') {
-            advance();
-        }
-    });
-
-    // Dot nav
-    dots.forEach(function (dot, i) {
-        dot.addEventListener('click', function () {
-            current = i;
-            setPositions();
-        });
-    });
-
-    setPositions();
-    startTimer();
+/* 6. Interest card deck */
+(function(){
+    var deck=document.getElementById('interest-deck'); if (!deck) return;
+    var cards=Array.from(deck.querySelectorAll('.ideck-card')); var dots=Array.from(document.querySelectorAll('.deck-dot'));
+    var total=cards.length,current=0,timer,paused=false;
+    function setPositions(){ cards.forEach(function(card,i){ card.setAttribute('data-pos',(i-current+total)%total); }); dots.forEach(function(d,i){ d.classList.toggle('active',i===current); }); }
+    function advance(){ var exitCard=cards[current]; exitCard.classList.add('ideck-exit'); setTimeout(function(){ exitCard.classList.remove('ideck-exit'); current=(current+1)%total; setPositions(); },480); }
+    deck.addEventListener('mouseenter',function(){ paused=true; }); deck.addEventListener('mouseleave',function(){ paused=false; });
+    deck.addEventListener('click',function(e){ var card=e.target.closest('.ideck-card'); if (card&&card.getAttribute('data-pos')==='0') advance(); });
+    dots.forEach(function(dot,i){ dot.addEventListener('click',function(){ current=i; setPositions(); }); });
+    setPositions(); setInterval(function(){ if (!paused) advance(); },2800);
 })();
+
 </script>
 <script src="./assets/js/color-switcher.js"></script>
 </body>
