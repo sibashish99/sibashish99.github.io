@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@imgly/background-removal-node": "^1.4.5"
+  }
+}
