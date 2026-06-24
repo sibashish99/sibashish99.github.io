@@ -8,9 +8,9 @@
 
     const colors = {
         white:  { label: 'White',  value: '#ffffff', gradient: 'linear-gradient(to bottom, #dbdbdb 0%, #dfdede 35%, #f5f5f5 70%, #ffffff 100%)' },
-        green:  { label: 'Green',  value: '#00AA44', gradient: 'linear-gradient(to bottom, #00ff11 0%, #42fc89 30%, #93f9bc 60%, #f5f5f5 100%)' },
-        yellow: { label: 'Yellow', value: '#FFFF00', gradient: 'linear-gradient(to bottom, #ffd500 0%, #f7d83c 30%, #f6f679 60%, #f5f5f5 100%)' },
-        orange: { label: 'Orange', value: '#FF8800', gradient: 'linear-gradient(to bottom, #ff6200 0%, #fb7e40 30%, #f9b76b 60%, #f5f5f5 100%)' }
+        green:  { label: 'Green',  value: '#00AA44', gradient: 'linear-gradient(to bottom, #04ff00 0%, #34f731 30%, #60f85d 60%, #f5f5f5 100%)' },
+        yellow: { label: 'Yellow', value: '#FFFF00', gradient: 'linear-gradient(to bottom, #eeff00 0%, #ecf83d 30%, #f1fa69 60%, #f5f5f5 100%)' },
+        orange: { label: 'Orange', value: '#FF8800', gradient: 'linear-gradient(to bottom, #ff6a00 0%, #fc8835  30%, #fa9954  60%, #f5f5f5 100%)' }
     };
 
     // Initialize color switcher

@@ -36,31 +36,82 @@
         document.body.appendChild(dot);
         document.body.appendChild(ring);
 
+        // Trail dots
+        const TRAIL_COUNT = 8;
+        const trail = Array.from({ length: TRAIL_COUNT }, (_, i) => {
+            const t = document.createElement('div');
+            t.className = 'cursor-trail';
+            t.style.setProperty('--ti', i);
+            document.body.appendChild(t);
+            return { el: t, x: 0, y: 0 };
+        });
+
         let mouseX = 0, mouseY = 0;
-        let ringX  = 0, ringY  = 0;
+        let ringX = 0, ringY = 0;
+        let prevX = 0, prevY = 0;
+        let velX = 0, velY = 0;
+        let isHovering = false;
 
         document.addEventListener('mousemove', (e) => {
+            prevX = mouseX; prevY = mouseY;
             mouseX = e.clientX;
             mouseY = e.clientY;
             dot.style.left = mouseX + 'px';
             dot.style.top  = mouseY + 'px';
         }, { passive: true });
 
-        // Smooth ring lag
-        function animateRing() {
-            ringX += (mouseX - ringX) * 0.14;
-            ringY += (mouseY - ringY) * 0.14;
+        // Click ripple
+        document.addEventListener('click', (e) => {
+            const ripple = document.createElement('div');
+            ripple.className = 'cursor-ripple';
+            ripple.style.left = e.clientX + 'px';
+            ripple.style.top  = e.clientY + 'px';
+            document.body.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove());
+        });
+
+        // Animated ring + trail
+        function animateCursor() {
+            // Velocity
+            velX = mouseX - prevX;
+            velY = mouseY - prevY;
+            const speed = Math.sqrt(velX * velX + velY * velY);
+
+            // Ring lerp
+            ringX += (mouseX - ringX) * 0.13;
+            ringY += (mouseY - ringY) * 0.13;
             ring.style.left = ringX + 'px';
             ring.style.top  = ringY + 'px';
-            requestAnimationFrame(animateRing);
+
+            // Stretch ring in direction of movement
+            if (!isHovering && speed > 1) {
+                const angle = Math.atan2(velY, velX) * (180 / Math.PI);
+                const stretch = Math.min(1 + speed * 0.04, 1.8);
+                ring.style.transform = `translate(-50%,-50%) rotate(${angle}deg) scaleX(${stretch})`;
+            } else {
+                ring.style.transform = 'translate(-50%,-50%)';
+            }
+
+            // Trail positions cascade
+            trail[0].x += (mouseX - trail[0].x) * 0.45;
+            trail[0].y += (mouseY - trail[0].y) * 0.45;
+            for (let i = 1; i < TRAIL_COUNT; i++) {
+                trail[i].x += (trail[i-1].x - trail[i].x) * 0.45;
+                trail[i].y += (trail[i-1].y - trail[i].y) * 0.45;
+                trail[i].el.style.left = trail[i].x + 'px';
+                trail[i].el.style.top  = trail[i].y + 'px';
+                trail[i].el.style.opacity = speed > 0.5 ? (1 - i / TRAIL_COUNT) * 0.55 : 0;
+            }
+
+            requestAnimationFrame(animateCursor);
         }
-        animateRing();
+        animateCursor();
 
         // Expand ring on interactive elements
         const hoverTargets = document.querySelectorAll('a, button, .modern-card, .about-btn, .theme-btn, .show-menu');
         hoverTargets.forEach(el => {
-            el.addEventListener('mouseenter', () => ring.classList.add('expand'));
-            el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
+            el.addEventListener('mouseenter', () => { ring.classList.add('expand'); isHovering = true; });
+            el.addEventListener('mouseleave', () => { ring.classList.remove('expand'); isHovering = false; });
         });
 
         document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
