@@ -3134,7 +3134,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     /* Hero section: taller to fit card + big name */
     .hero-ts-section {
-        height: 97svh;
+        height: 100svh;
         min-height: 600px;
         overflow-x: hidden;
     }
@@ -3156,7 +3156,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr 1fr;
         gap: 5px;
         position: fixed;
-        top: 80%;
+        top: 70%;
         right: 16px;
         left: auto;
         bottom: auto;
@@ -3213,7 +3213,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         overflow: visible;
     }
     .hero-ts-bigname {
-        font-size: 6vw !important;
+        font-size: 6.5vw !important;
         white-space: nowrap;
     }
     .hero-ts-intro {
@@ -3224,8 +3224,8 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         padding: 5px 10px;
     }
     .hero-ts-bubble {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         font-size: 16px;
         border-radius: 50%;
         box-shadow: 0 0 0 3px #ffffff, 0 3px 8px rgba(0,0,0,0.2);
@@ -3248,7 +3248,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         height: 48px;
     }
     .hero-ts-bigname {
-        font-size: 13vw !important;
+        font-size: 6vw !important;
     }
 }
 
