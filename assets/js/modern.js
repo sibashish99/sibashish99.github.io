@@ -270,4 +270,18 @@
         });
     })();
 
-})();
+    /* ── Hide socials after hero section scrolls away ── */
+    (function () {
+        var socials = document.querySelector('.hero-ts-socials');
+        var hero = document.querySelector('.hero-ts-section');
+        if (!socials || !hero) return;
+        function check() {
+            var gone = hero.getBoundingClientRect().bottom <= 0;
+            socials.style.opacity = gone ? '0' : '';
+            socials.style.pointerEvents = gone ? 'none' : '';
+        }
+        window.addEventListener('scroll', check, { passive: true });
+        check();
+    })();
+
+})()
