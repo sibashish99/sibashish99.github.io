@@ -2741,9 +2741,9 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 }
 .hero-ts-roles span {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(16px, 1.8vw, 22px);
+    font-size: clamp(12px, 1.2vw, 18px);
     font-weight: 400;
-    color: rgba(255,255,255,0.82);
+    color: #000000;
     letter-spacing: 0.3px;
     line-height: 1.6;
 }
@@ -3213,7 +3213,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
         overflow: visible;
     }
     .hero-ts-bigname {
-        font-size: 6.5vw !important;
+        font-size: 6vw !important;
         white-space: nowrap;
     }
     .hero-ts-intro {
@@ -3274,7 +3274,7 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
 }
 .hero-ts-bigname {
     font-family: 'Lexend Mega', sans-serif;
-    font-size: clamp(6.08rem, 17.25vw, 19.8rem);
+    font-size: clamp(4.5rem, 13vw, 15.1rem);
     font-weight: 900;
     line-height: 1;
     letter-spacing: -0.03em;
@@ -3296,6 +3296,36 @@ body, p, li, span, div, h1, h2, h3, h4, h5, h6 {
     box-shadow: none;
     font-size: 10px;
     letter-spacing: 1.5px;
+    perspective: 600px;
+    cursor: default;
+    overflow: visible;
+}
+.hero-badge--flip .hero-badge-inner {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    min-height: 1em;
+}
+.hero-badge--flip:hover .hero-badge-inner {
+    transform: rotateY(180deg);
+}
+.hero-badge-front,
+.hero-badge-back {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    white-space: nowrap;
+}
+.hero-badge-back {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: rotateY(180deg) translateY(-50%);
 }
 .hero-ts-bottom .hero-badge .dot {
     background: #00DD00;

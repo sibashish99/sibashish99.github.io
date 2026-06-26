@@ -7,10 +7,10 @@
     let currentColor = DEFAULT_COLOR;
 
     const colors = {
-        white:  { label: 'White',  value: '#ffffff', gradient: 'linear-gradient(to bottom, #dbdbdb 0%, #dfdede 35%, #f5f5f5 70%, #ffffff 100%)' },
-        green:  { label: 'Green',  value: '#00AA44', gradient: 'linear-gradient(to bottom, #04ff00 0%, #34f731 30%, #60f85d 60%, #f5f5f5 100%)' },
-        yellow: { label: 'Yellow', value: '#FFFF00', gradient: 'linear-gradient(to bottom, #eeff00 0%, #ecf83d 30%, #f1fa69 60%, #f5f5f5 100%)' },
-        orange: { label: 'Orange', value: '#FF8800', gradient: 'linear-gradient(to bottom, #ff6a00 0%, #fc8835  30%, #fa9954  60%, #f5f5f5 100%)' }
+        white:  { label: 'White',  value: '#ffffff', gradient: '#ffffff' },
+        green:  { label: 'Green',  value: '#00AA44', gradient: '#00AA44' },
+        yellow: { label: 'Yellow', value: '#FFFF00', gradient: '#FFFF00' },
+        orange: { label: 'Orange', value: '#FF8800', gradient: '#FF8800' }
     };
 
     // Initialize color switcher
